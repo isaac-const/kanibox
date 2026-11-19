@@ -13,7 +13,7 @@ const index: IndexEntry[] = [
   E({ id: 'b', s: 1, g: 'Navegadores', p: ['Linux', 'Windows', 'Android'], t: 'Navegador', l: 'Grátis', q: norm('Vivaldi Navegador vivaldi.com') }),
   E({ id: 'c', s: 2, g: 'Chats', p: ['Web'], t: 'Chat de IA', l: 'Freemium', q: norm('Claude Chat de IA claude.com') }),
   E({ id: 'd', s: 6, g: 'Terminais', p: ['Linux', 'macOS'], t: 'Terminal', l: 'Código aberto', q: norm('Ghostty Terminal Terminais') }),
-  E({ id: 'e', s: 13, g: 'Meus apps', p: ['Linux', 'Windows'], t: 'App meu', l: '', q: norm('Grimo Notes App meu'), n: true }),
+  E({ id: 'e', s: 13, g: 'Meus apps', p: ['Linux', 'Windows'], t: 'Notas', l: '', q: norm('Grimo Notes Notas'), n: true }),
   E({ id: 'f', s: 9, g: 'Servidores', p: [], t: 'Servidor', l: 'Freemium', q: norm('Hypixel Servidor') }),
 ];
 

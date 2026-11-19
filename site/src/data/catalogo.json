@@ -2801,7 +2801,7 @@
   "grp": "Meus apps",
   "name": "MoonDeck",
   "url": "https://github.com/isaac-const/Moondeck",
-  "tipo": "App meu",
+  "tipo": "Utilitário",
   "plat": [
    "Linux",
    "Windows",
@@ -2820,7 +2820,7 @@
   "lic_src": "GitHub: MIT",
   "http": 200,
   "note_en": "Turns rarely used keys (Home, PgUp, F13 to F24, numpad) into a mode-based action deck, with an overlay.",
-  "tipo_en": "My app",
+  "tipo_en": "Utility",
   "grp_en": "My apps"
  },
  {

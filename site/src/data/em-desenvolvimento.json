@@ -4,7 +4,7 @@
     "grp": "Meus apps",
     "name": "Grimo Notes",
     "url": "",
-    "tipo": "App meu",
+    "tipo": "Notas",
     "plat": [
       "Linux",
       "Windows"
@@ -18,7 +18,7 @@
     "mono": true,
     "soon": true,
     "note_en": "Notes and ideas for desktop, with folders, kanban and a reference gallery.",
-    "tipo_en": "My app",
+    "tipo_en": "Notes",
     "grp_en": "My apps"
   },
   {
@@ -26,7 +26,7 @@
     "grp": "Meus apps",
     "name": "Kita Finances",
     "url": "",
-    "tipo": "App meu",
+    "tipo": "Finanças",
     "plat": [
       "Android"
     ],
@@ -39,7 +39,7 @@
     "mono": true,
     "soon": true,
     "note_en": "Personal finance with loan management.",
-    "tipo_en": "My app",
+    "tipo_en": "Finance",
     "grp_en": "My apps"
   }
 ]

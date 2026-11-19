@@ -131,7 +131,7 @@ T = [
  (10,"Curiosidades","neal.fun","https://neal.fun","Curiosidades",[B],FREE,{}),
  (10,"Curiosidades","Akinator","https://www.akinator.com","Jogo online",[B,A,I],FREEM,{}),
  # 13 Meus apps
- (13,"Meus apps","MoonDeck","https://github.com/isaac-const/Moondeck","App meu",[L,W,M],OPEN,dict(gh="isaac-const/Moondeck",local_icon="moondeck.png")),
+ (13,"Meus apps","MoonDeck","https://github.com/isaac-const/Moondeck","Utilitário",[L,W,M],OPEN,dict(gh="isaac-const/Moondeck",local_icon="moondeck.png")),
 ]
 
 # Jogos que o Isaac gosta, na ordem de exibição (Deltarune primeiro).
@@ -369,7 +369,7 @@ TIPO_EN = {
  "Instalador de apps":"App installer","Teclado":"Keyboard","Loja de apps":"App store","Emulador":"Emulator","Compatibilidade":"Compatibility",
  "Launcher de jogos":"Game launcher","Launcher":"Launcher","Servidor":"Server","Mod":"Mod","Resource pack":"Resource pack","Shader":"Shader",
  "Digitação":"Typing","Morse":"Morse","Idiomas":"Languages","Flashcards":"Flashcards","Jogo online":"Online game","Curiosidades":"Curiosities",
- "Jogo":"Game","App meu":"My app",
+ "Jogo":"Game","Utilitário":"Utility","Notas":"Notes","Finanças":"Finance",
 }
 DESC_EN = {
  "Zen Browser":"Firefox-based browser with vertical tabs and workspaces.",
