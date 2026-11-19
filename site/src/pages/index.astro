@@ -1,0 +1,27 @@
+---
+import Base from '../layouts/Base.astro';
+import Section from '../components/Section.astro';
+import { SECTIONS, TOTAL } from '../lib/catalog';
+import { INITIAL_BATCH } from '../lib/catalog';
+import { shortDate } from '../lib/format';
+
+const updated = shortDate(INITIAL_BATCH);
+---
+<Base
+  home
+  title="KaniBox · ferramentas, apps e jogos que eu uso"
+  description="Ferramentas, apps e jogos que o Isaac usa e recomenda. Sem afiliado, sem anúncio."
+>
+  <div class="intro">
+    <h1 class="vh">KaniBox</h1>
+    <p>Ferramentas, apps e jogos que eu uso e recomendo.</p>
+    <small>{TOTAL} itens · atualizado em {updated}</small>
+  </div>
+  <div id="sections">
+    {SECTIONS.map((s) => <Section section={s} />)}
+  </div>
+  <div class="empty" id="empty">
+    <b>Nada com esses filtros.</b>
+    Limpe um filtro ou mude a busca.
+  </div>
+</Base>

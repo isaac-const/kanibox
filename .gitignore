@@ -1,0 +1,9 @@
+node_modules/
+site/dist/
+site/.astro/
+site/test-results/
+site/playwright-report/
+demo/shots/
+demo/v1-canivete-hero.html
+__pycache__/
+.DS_Store

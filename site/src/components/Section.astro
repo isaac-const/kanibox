@@ -1,0 +1,74 @@
+---
+import Icon from './Icon.astro';
+import ItemRow from './ItemRow.astro';
+import GameTile from './GameTile.astro';
+import Tools from './tools/Tools';
+import { groupsOf, countIn, TOOLS_SECTION_ID } from '../lib/catalog';
+import { LOADER_NAMES, type SectionDef } from '../lib/sections';
+import { withBase } from '../lib/url';
+
+interface Props {
+  section: SectionDef;
+}
+const { section } = Astro.props;
+const isTools = section.id === TOOLS_SECTION_ID;
+const groups = isTools ? [] : groupsOf(section.id);
+const total = countIn(section.id);
+const count = isTools ? '3 ferramentas' : `${total} ${total === 1 ? 'item' : 'itens'}`;
+---
+<section class="sec" id={`s${section.id}`} data-s={section.id} aria-labelledby={`h${section.id}`}>
+  <header class="sec-head">
+    <span class="sec-ic"><Icon name={section.icon} size={22} /></span>
+    <h2 class="sec-t" id={`h${section.id}`}>{section.title}</h2>
+    <span class="sec-c" data-seccount>{count}</span>
+  </header>
+  <p class="sec-d">{section.desc}</p>
+
+  {
+    section.id === 9 && (
+      <>
+        <div class="ldbar" role="group" aria-label="Loader dos mods">
+          <span class="lbl">Loader</span>
+          {['todos', 'fabric', 'forge', 'neoforge', 'quilt'].map((l) => (
+            <button type="button" class="opt" data-ld={l} aria-pressed={l === 'todos' ? 'true' : 'false'}>
+              {l === 'todos' ? 'Todos' : LOADER_NAMES[l]}
+            </button>
+          ))}
+        </div>
+        <p class="ldsum" id="ldsum" aria-live="polite" />
+      </>
+    )
+  }
+
+  {
+    groups.map((g) =>
+      g.view === 'mods' && g.collapsed ? (
+        <details class="grp" data-g={g.key} data-collapsible>
+          <summary>
+            <span class="stack">
+              {g.items.filter((i) => i.mc_icon).slice(0, 7).map((i) => (
+                <img src={withBase(`/mc/${i.mc_icon}`)} alt="" width="26" height="26" loading="lazy" decoding="async" />
+              ))}
+            </span>
+            <span>{g.name}</span>
+            <span class="n" data-gcount>{g.items.length}</span>
+            <Icon name="chev" size={16} class="chev" />
+          </summary>
+          <ul class="mods">{g.items.map((i) => <ItemRow item={i} compact />)}</ul>
+        </details>
+      ) : g.view === 'tiles' ? (
+        <div class="grp" data-g={g.key}>
+          <h3>{g.name} <span class="n" data-gcount>{g.items.length}</span></h3>
+          <ul class="tiles">{g.items.map((i) => <GameTile item={i} />)}</ul>
+        </div>
+      ) : (
+        <div class="grp" data-g={g.key}>
+          <h3>{g.name} <span class="n" data-gcount>{g.items.length}</span></h3>
+          <ul class="list">{g.items.map((i) => <ItemRow item={i} />)}</ul>
+        </div>
+      )
+    )
+  }
+
+  {isTools && <Tools client:visible />}
+</section>

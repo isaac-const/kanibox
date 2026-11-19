@@ -1,0 +1,10 @@
+---
+import Base from '../layouts/Base.astro';
+import { withBase } from '../lib/url';
+---
+<Base title="Página não encontrada · KaniBox" description="Esta página não existe.">
+  <div class="page">
+    <h1>Essa página não existe</h1>
+    <p>O endereço pode ter mudado. <a href={withBase('/')}>Voltar ao início</a>.</p>
+  </div>
+</Base>

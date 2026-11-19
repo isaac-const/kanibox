@@ -1,0 +1,26 @@
+---
+import type { Item } from '../lib/catalog';
+import { withBase } from '../lib/url';
+interface Props {
+  item: Item;
+}
+const { item } = Astro.props;
+---
+<li class="tile" data-id={item.id}>
+  {
+    item.img ? (
+      <img class:list={{ contain: item.img_fit === 'contain' }} src={withBase(`/games/${item.img}`)} alt="" width="460" height="215" loading="lazy" decoding="async" />
+    ) : (
+      <div class="ph" aria-hidden="true">{item.name}</div>
+    )
+  }
+  <div class="tt">
+    <b>
+      <a href={item.url} target="_blank" rel="noopener noreferrer">
+        {item.name}
+        <span class="vh"> (abre em outra aba)</span>
+      </a>
+    </b>
+    <span>{item.plat.join(' · ') || item.note}</span>
+  </div>
+</li>

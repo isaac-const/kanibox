@@ -1,0 +1,14 @@
+[
+  {
+    "sec": 13, "grp": "Meus apps", "name": "Grimo Notes", "url": "", "tipo": "App meu",
+    "plat": ["Linux", "Windows"], "lic": "", "host": "",
+    "note": "Notas e ideias para desktop, com pastas, kanban e galeria de referências.",
+    "via": "", "ini": false, "kind": "item", "mono": true, "soon": true
+  },
+  {
+    "sec": 13, "grp": "Meus apps", "name": "Kita Finances", "url": "", "tipo": "App meu",
+    "plat": ["Android"], "lic": "", "host": "",
+    "note": "Finanças pessoais com gestão de empréstimos.",
+    "via": "", "ini": false, "kind": "item", "mono": true, "soon": true
+  }
+]

@@ -1,0 +1,1837 @@
+{
+ "mod:TrashSlot": [
+  {
+   "title": "TrashSlot",
+   "slug": "trashslot",
+   "downloads": 6770721,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "26.3"
+   ],
+   "author": "BlayTheNinth"
+  },
+  {
+   "title": "TrashSlot Blacklist Addon",
+   "slug": "trashslot-blacklist",
+   "downloads": 4120,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "26.2"
+   ],
+   "author": "Neuromuser"
+  }
+ ],
+ "mod:RoadWeaver": [
+  {
+   "title": "RoadWeaver",
+   "slug": "roadweaver",
+   "downloads": 702826,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "1.21.11"
+   ],
+   "author": "shiroha"
+  }
+ ],
+ "mod:Controlling": [
+  {
+   "title": "Controlling",
+   "slug": "controlling",
+   "downloads": 42860959,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "26.3"
+   ],
+   "author": "jaredlll08"
+  },
+  {
+   "title": "Modern Controlling",
+   "slug": "modern-controlling",
+   "downloads": 400,
+   "loaders": [
+    "forge"
+   ],
+   "versions": [
+    "1.12.2"
+   ],
+   "author": "fdym"
+  },
+  {
+   "title": "Modern Controlling Core",
+   "slug": "modern-controlling-core",
+   "downloads": 285,
+   "loaders": [
+    "forge"
+   ],
+   "versions": [
+    "1.12.2"
+   ],
+   "author": "fdym"
+  }
+ ],
+ "mod:Polymorph": [
+  {
+   "title": "Polymorph",
+   "slug": "polymorph",
+   "downloads": 26733056,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge",
+    "quilt"
+   ],
+   "versions": [
+    "1.21.1"
+   ],
+   "author": "TheIllusiveC4"
+  },
+  {
+   "title": "Polymorphic Energistics",
+   "slug": "polymorphic-energistics",
+   "downloads": 2072135,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "1.21"
+   ],
+   "author": "90"
+  },
+  {
+   "title": "Polymorphic Tom's Simple Storag",
+   "slug": "polymorphic-toms-simple-storag",
+   "downloads": 1946740,
+   "loaders": [
+    "fabric"
+   ],
+   "versions": [
+    "1.20.1"
+   ],
+   "author": "kltyton"
+  }
+ ],
+ "mod:Lootr": [
+  {
+   "title": "Lootr",
+   "slug": "lootr",
+   "downloads": 24368144,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "26.3"
+   ],
+   "author": "noobanidus"
+  },
+  {
+   "title": "Lootrmon: Lootr & Cobblemon Gilded Chest Compatibility",
+   "slug": "lootrmon",
+   "downloads": 370938,
+   "loaders": [
+    "fabric",
+    "neoforge"
+   ],
+   "versions": [
+    "1.21.1"
+   ],
+   "author": "noobanidus"
+  },
+  {
+   "title": "LootRestock",
+   "slug": "lootrestock",
+   "downloads": 13738,
+   "loaders": [
+    "fabric"
+   ],
+   "versions": [
+    "26.3"
+   ],
+   "author": "PtolemaicQueen"
+  }
+ ],
+ "mod:Tom's Simple Storage Mod": [
+  {
+   "title": "Tom's Simple Storage Mod",
+   "slug": "toms-storage",
+   "downloads": 21312417,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge",
+    "quilt"
+   ],
+   "versions": [
+    "26.3"
+   ],
+   "author": "tom5454"
+  },
+  {
+   "title": "Tom's Simple Polymorphic Storage Mod",
+   "slug": "tspsm",
+   "downloads": 14,
+   "loaders": [
+    "forge"
+   ],
+   "versions": [
+    "1.19.2"
+   ],
+   "author": "Eneko__"
+  },
+  {
+   "title": "Tom's Simple Storage Knowlogy",
+   "slug": "toms-storage-knowlogy",
+   "downloads": 40555,
+   "loaders": [
+    "fabric",
+    "neoforge"
+   ],
+   "versions": [
+    "1.21.4"
+   ],
+   "author": "VinnyStalck"
+  }
+ ],
+ "mod:Nature's Compass": [
+  {
+   "title": "Nature's Compass",
+   "slug": "natures-compass",
+   "downloads": 27759857,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "26.3"
+   ],
+   "author": "Chaosyr"
+  },
+  {
+   "title": "Nature's Compass Immersive",
+   "slug": "natures-compass-immersive",
+   "downloads": 3341,
+   "loaders": [
+    "fabric"
+   ],
+   "versions": [
+    "1.20.1"
+   ],
+   "author": "lucalabs-de"
+  },
+  {
+   "title": "Nature's Compass: Explorer's Edition",
+   "slug": "natures-compass-explorers-edition",
+   "downloads": 3307,
+   "loaders": [
+    "fabric"
+   ],
+   "versions": [
+    "1.20.1"
+   ],
+   "author": "lucalabs-de"
+  }
+ ],
+ "mod:Xaero's Minimap": [
+  {
+   "title": "Xaero's Minimap",
+   "slug": "xaeros-minimap",
+   "downloads": 121274208,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge",
+    "quilt"
+   ],
+   "versions": [
+    "26.3-rc-3"
+   ],
+   "author": "thexaero"
+  },
+  {
+   "title": "Xaero's Minimap & World Map - Waystones Compatibility",
+   "slug": "xaeros-minimap-world-map-waystones-compatibility-forge",
+   "downloads": 1405566,
+   "loaders": [
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "26.1.2"
+   ],
+   "author": "arcanealloy"
+  },
+  {
+   "title": "Xaero's Minimap (Fair-Play)",
+   "slug": "xaeros-minimap-fair",
+   "downloads": 1102966,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge",
+    "quilt"
+   ],
+   "versions": [
+    "1.8.9"
+   ],
+   "author": "thexaero"
+  }
+ ],
+ "mod:Xaero's World Map": [
+  {
+   "title": "Xaero's World Map",
+   "slug": "xaeros-world-map",
+   "downloads": 106493471,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge",
+    "quilt"
+   ],
+   "versions": [
+    "26.3-rc-3"
+   ],
+   "author": "thexaero"
+  },
+  {
+   "title": "Xaero's Minimap & World Map - Waystones Compatibility",
+   "slug": "xaeros-minimap-world-map-waystones-compatibility-forge",
+   "downloads": 1405566,
+   "loaders": [
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "26.1.2"
+   ],
+   "author": "arcanealloy"
+  },
+  {
+   "title": "Seed Atlas for Xaero's World Map",
+   "slug": "seed-atlas",
+   "downloads": 10477,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "26.3"
+   ],
+   "author": "duzzl"
+  }
+ ],
+ "mod:Easy Magic": [
+  {
+   "title": "Easy Magic",
+   "slug": "easy-magic",
+   "downloads": 14609784,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "26.3"
+   ],
+   "author": "Fuzs"
+  },
+  {
+   "title": "Easy Magic (Backport)",
+   "slug": "easy-magic-backport",
+   "downloads": 663,
+   "loaders": [
+    "forge"
+   ],
+   "versions": [
+    "1.12.2"
+   ],
+   "author": "xyhaunter"
+  },
+  {
+   "title": "Easy Unlimited Magic",
+   "slug": "easy-unlimited-magic",
+   "downloads": 390,
+   "loaders": [
+    "fabric"
+   ],
+   "versions": [
+    "1.21.11"
+   ],
+   "author": "z_cc"
+  }
+ ],
+ "mod:Ping Wheel": [
+  {
+   "title": "Ping Wheel",
+   "slug": "ping-wheel",
+   "downloads": 14754133,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "26.3"
+   ],
+   "author": "Luken"
+  },
+  {
+   "title": "Click Ping Wheel",
+   "slug": "click-ping-wheel",
+   "downloads": 448,
+   "loaders": [
+    "fabric"
+   ],
+   "versions": [
+    "1.21.1"
+   ],
+   "author": "RowLan_232oO"
+  },
+  {
+   "title": "Ping to Map: Xaero's Minimap",
+   "slug": "ping-to-map-xaeros",
+   "downloads": 25812,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "26.3"
+   ],
+   "author": "KURONAMI"
+  }
+ ],
+ "mod:Waystones": [
+  {
+   "title": "Waystones",
+   "slug": "waystones",
+   "downloads": 28050967,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "26.3"
+   ],
+   "author": "BlayTheNinth"
+  },
+  {
+   "title": "Wraith Waystones",
+   "slug": "fwaystones",
+   "downloads": 5523487,
+   "loaders": [
+    "fabric"
+   ],
+   "versions": [
+    "26.1.2"
+   ],
+   "author": "LordDeatHunter"
+  },
+  {
+   "title": "Xaero's Minimap & World Map - Waystones Compatibility",
+   "slug": "xaeros-minimap-world-map-waystones-compatibility-forge",
+   "downloads": 1405566,
+   "loaders": [
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "26.1.2"
+   ],
+   "author": "arcanealloy"
+  }
+ ],
+ "mod:WaterFrames": [
+  {
+   "title": "WATERFrAMES: Multimedia Displays",
+   "slug": "waterframes",
+   "downloads": 998153,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "1.21.8"
+   ],
+   "author": "SrRapero720"
+  },
+  {
+   "title": "WaterFrames Computercraft Compat",
+   "slug": "waterframes-computercraft-compat",
+   "downloads": 10274,
+   "loaders": [
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "1.21.1"
+   ],
+   "author": "rocketstrong"
+  }
+ ],
+ "mod:Jade": [
+  {
+   "title": "Jade 🔍",
+   "slug": "jade",
+   "downloads": 74507954,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge",
+    "quilt"
+   ],
+   "versions": [
+    "26w14a"
+   ],
+   "author": "Snownee"
+  },
+  {
+   "title": "Jade Addons (Neo/Forge)",
+   "slug": "jade-addons-forge",
+   "downloads": 6064828,
+   "loaders": [
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "26.1.2"
+   ],
+   "author": "Snownee"
+  },
+  {
+   "title": "Jade Addons (Fabric)",
+   "slug": "jade-addons-fabric",
+   "downloads": 4801808,
+   "loaders": [
+    "fabric",
+    "quilt"
+   ],
+   "versions": [
+    "26.1.2"
+   ],
+   "author": "Snownee"
+  }
+ ],
+ "mod:AppleSkin": [
+  {
+   "title": "AppleSkin",
+   "slug": "appleskin",
+   "downloads": 99730261,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge",
+    "quilt"
+   ],
+   "versions": [
+    "26.3"
+   ],
+   "author": "squeek502"
+  },
+  {
+   "title": "AppleSkin Lunge Fix",
+   "slug": "apple-skin-lunge-fix",
+   "downloads": 20688,
+   "loaders": [
+    "fabric"
+   ],
+   "versions": [
+    "26.2"
+   ],
+   "author": "SirCool145"
+  },
+  {
+   "title": "Appleskin+LungeFix",
+   "slug": "appleskinplusminus",
+   "downloads": 11088,
+   "loaders": [
+    "fabric"
+   ],
+   "versions": [
+    "26.3"
+   ],
+   "author": "jetdafih"
+  }
+ ],
+ "mod:Mouse Tweaks": [
+  {
+   "title": "Mouse Tweaks",
+   "slug": "mouse-tweaks",
+   "downloads": 65125398,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "b1.7.3"
+   ],
+   "author": "YaLTeR"
+  },
+  {
+   "title": "AE2 + Mouse Tweaks Fix",
+   "slug": "ae2-mousetweaks-fix",
+   "downloads": 1339584,
+   "loaders": [
+    "fabric",
+    "quilt"
+   ],
+   "versions": [
+    "1.20.1"
+   ],
+   "author": "unilock"
+  },
+  {
+   "title": "More Mouse Tweaks",
+   "slug": "moremousetweaks",
+   "downloads": 536058,
+   "loaders": [
+    "fabric",
+    "neoforge"
+   ],
+   "versions": [
+    "26.3"
+   ],
+   "author": "NotRyken"
+  }
+ ],
+ "mod:Entity Culling": [
+  {
+   "title": "Entity Culling",
+   "slug": "entityculling",
+   "downloads": 190353965,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge",
+    "quilt"
+   ],
+   "versions": [
+    "b1.7.3"
+   ],
+   "author": "tr7zw"
+  },
+  {
+   "title": "Entity Culling",
+   "slug": "entity-culling",
+   "downloads": 25451,
+   "loaders": [
+    "forge"
+   ],
+   "versions": [
+    "1.16.5"
+   ],
+   "author": "Meldexun"
+  },
+  {
+   "title": "Entity Culling Unofficial",
+   "slug": "entitycullingunofficial",
+   "downloads": 27608,
+   "loaders": [
+    "forge"
+   ],
+   "versions": [
+    "1.7.10"
+   ],
+   "author": "TCLProject"
+  }
+ ],
+ "mod:ModernFix": [
+  {
+   "title": "ModernFix",
+   "slug": "modernfix",
+   "downloads": 84700106,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "26.1.2"
+   ],
+   "author": "embeddedt"
+  },
+  {
+   "title": "ModernFix-mVUS",
+   "slug": "modernfix-mvus",
+   "downloads": 12210200,
+   "loaders": [
+    "fabric",
+    "neoforge"
+   ],
+   "versions": [
+    "26.4-snapshot-2"
+   ],
+   "author": "Coredex"
+  },
+  {
+   "title": "Continuity Unofficial Port 1.16",
+   "slug": "continuity-unofficial-port-1.16",
+   "downloads": 15894,
+   "loaders": [
+    "fabric"
+   ],
+   "versions": [
+    "1.16.5"
+   ],
+   "author": "sh4rkune"
+  }
+ ],
+ "mod:You're in Grave Danger": [
+  {
+   "title": "You're in Grave Danger",
+   "slug": "yigd",
+   "downloads": 4801719,
+   "loaders": [
+    "fabric",
+    "neoforge"
+   ],
+   "versions": [
+    "22w19a"
+   ],
+   "author": "b1n-ry"
+  }
+ ],
+ "mod:Traveler's Backpack": [
+  {
+   "title": "Traveler's Backpack",
+   "slug": "travelersbackpack",
+   "downloads": 22010979,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "26.3"
+   ],
+   "author": "Tiviacz1337"
+  },
+  {
+   "title": "Legendary Tooltips x Traveler's Backpack Fix",
+   "slug": "legendary-tooltips-x-travelers-backpack-fix",
+   "downloads": 859322,
+   "loaders": [
+    "fabric"
+   ],
+   "versions": [
+    "1.20.1"
+   ],
+   "author": "Tiviacz1337"
+  },
+  {
+   "title": "Polymorphic Traveler's Backpack",
+   "slug": "polymorphic-travelers-backpack",
+   "downloads": 5894,
+   "loaders": [
+    "fabric"
+   ],
+   "versions": [
+    "1.20.1"
+   ],
+   "author": "kltyton"
+  }
+ ],
+ "mod:Sophisticated Backpacks": [
+  {
+   "title": "Sophisticated Backpacks",
+   "slug": "sophisticated-backpacks",
+   "downloads": 21113714,
+   "loaders": [
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "26.3"
+   ],
+   "author": "P3pp3rF1y"
+  },
+  {
+   "title": "Sophisticated Backpacks (Unoffical Fabric port)",
+   "slug": "sophisticated-backpacks-unoffical-fabric-port",
+   "downloads": 11840023,
+   "loaders": [
+    "fabric"
+   ],
+   "versions": [
+    "1.21.1"
+   ],
+   "author": "Salandora"
+  },
+  {
+   "title": "Sophisticated Backpacks Create Integration",
+   "slug": "sophisticated-backpacks-create-integration",
+   "downloads": 1069276,
+   "loaders": [
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "26.3"
+   ],
+   "author": "P3pp3rF1y"
+  }
+ ],
+ "mod:Right Click Harvest": [
+  {
+   "title": "Better Farming Right Click  + Right Click Harvest",
+   "slug": "better-farming-right-click",
+   "downloads": 84237,
+   "loaders": [
+    "fabric",
+    "neoforge"
+   ],
+   "versions": [
+    "1.21.9"
+   ],
+   "author": "cakeGit"
+  },
+  {
+   "title": "Right-Click-Harvest",
+   "slug": "right-click-harvest",
+   "downloads": 12125,
+   "loaders": [
+    "fabric"
+   ],
+   "versions": [
+    "1.19"
+   ],
+   "author": "koelle25"
+  },
+  {
+   "title": "The Right Click Harvest",
+   "slug": "the-right-click-harvest",
+   "downloads": 11955,
+   "loaders": [
+    "fabric"
+   ],
+   "versions": [
+    "26.1.2"
+   ],
+   "author": "Hicham"
+  }
+ ],
+ "mod:Trading Post": [
+  {
+   "title": "Trading Post",
+   "slug": "trading-post",
+   "downloads": 9672750,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "26.3"
+   ],
+   "author": "Fuzs"
+  },
+  {
+   "title": "Villager Lock",
+   "slug": "villagerlock",
+   "downloads": 5851,
+   "loaders": [
+    "fabric",
+    "neoforge"
+   ],
+   "versions": [
+    "26.3"
+   ],
+   "author": "UkrainianCoder"
+  },
+  {
+   "title": "Cobblemon Trade Exchange",
+   "slug": "cobblemon-trade-exchange",
+   "downloads": 83,
+   "loaders": [
+    "fabric"
+   ],
+   "versions": [
+    "1.21.1"
+   ],
+   "author": "AymaanAreeb"
+  }
+ ],
+ "mod:Sound Physics Remastered": [
+  {
+   "title": "Sound Physics Remastered",
+   "slug": "sound-physics-remastered",
+   "downloads": 57360535,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge",
+    "quilt"
+   ],
+   "versions": [
+    "26.3"
+   ],
+   "author": "henkelmax"
+  },
+  {
+   "title": "pv-addon-soundphysics",
+   "slug": "pv-addon-soundphysics",
+   "downloads": 196491,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "26.3"
+   ],
+   "author": "kpids"
+  }
+ ],
+ "mod:Critters and Companions": [
+  {
+   "title": "Critters and Companions",
+   "slug": "critters-and-companions",
+   "downloads": 6298407,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "1.21.1"
+   ],
+   "author": "Joo5h"
+  },
+  {
+   "title": "Mythical Critters",
+   "slug": "mythical-critters",
+   "downloads": 10700,
+   "loaders": [
+    "neoforge"
+   ],
+   "versions": [
+    "1.21.1"
+   ],
+   "author": "VirtualSofia"
+  },
+  {
+   "title": "Infernos Otter Taming",
+   "slug": "infernos-otter-taming",
+   "downloads": 1217,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "1.21.1"
+   ],
+   "author": "imbavirus"
+  }
+ ],
+ "mod:Mod Menu": [
+  {
+   "title": "Mod Menu",
+   "slug": "modmenu",
+   "downloads": 162354569,
+   "loaders": [
+    "fabric",
+    "quilt"
+   ],
+   "versions": [
+    "26.4-snapshot-9"
+   ],
+   "author": "Prospector"
+  },
+  {
+   "title": "Game Menu Mod Option",
+   "slug": "gamemenumodoption",
+   "downloads": 511192,
+   "loaders": [
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "1.20.4"
+   ],
+   "author": "morimori0317"
+  },
+  {
+   "title": "Mod Menu (NeoForge Edition)",
+   "slug": "mod-menu-neoforge-edition",
+   "downloads": 237006,
+   "loaders": [
+    "neoforge"
+   ],
+   "versions": [
+    "1.21.11"
+   ],
+   "author": "Raguto"
+  }
+ ],
+ "mod:Alex's Caves": [
+  {
+   "title": "Alex's Caves",
+   "slug": "alexs-caves",
+   "downloads": 11524338,
+   "loaders": [
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "1.20.1"
+   ],
+   "author": "AlexModGuy"
+  },
+  {
+   "title": "Dimensions of Alex's Caves",
+   "slug": "dimensions-of-alexs-caves",
+   "downloads": 403370,
+   "loaders": [
+    "forge"
+   ],
+   "versions": [
+    "1.20.1"
+   ],
+   "author": "mrqx0195"
+  },
+  {
+   "title": "Alex's Caves (Unofficial Port)",
+   "slug": "alexs-caves-unofficial-port",
+   "downloads": 366599,
+   "loaders": [
+    "neoforge"
+   ],
+   "versions": [
+    "1.21.1"
+   ],
+   "author": "Raguto"
+  }
+ ],
+ "mod:Artifacts": [
+  {
+   "title": "Artifacts",
+   "slug": "artifacts",
+   "downloads": 14417781,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "26.1.2"
+   ],
+   "author": "ochotonida"
+  },
+  {
+   "title": "Artifacts crafting",
+   "slug": "artifacts-crafting",
+   "downloads": 1701386,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "26.1.2"
+   ],
+   "author": "Mett3z"
+  },
+  {
+   "title": "L2 Artifacts",
+   "slug": "l2artifacts",
+   "downloads": 841236,
+   "loaders": [
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "1.21.1"
+   ],
+   "author": "lcy0x1"
+  }
+ ],
+ "mod:Biomes O' Plenty": [
+  {
+   "title": "Biomes O' Plenty",
+   "slug": "biomes-o-plenty",
+   "downloads": 38983773,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "26.3"
+   ],
+   "author": "Forstride"
+  },
+  {
+   "title": "Dynamic Trees - Biomes O' Plenty",
+   "slug": "dynamic-trees-biomes-o-plenty",
+   "downloads": 9235570,
+   "loaders": [
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "1.21.1"
+   ],
+   "author": "MaxHyper"
+  },
+  {
+   "title": "Farmer's Cutting: Biomes O' Plenty",
+   "slug": "farmers-cutting-biomes-o-plenty",
+   "downloads": 2385689,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "1.21.9"
+   ],
+   "author": "Joshcraft2002"
+  }
+ ],
+ "mod:Storage Drawers": [
+  {
+   "title": "Storage Drawers",
+   "slug": "storagedrawers",
+   "downloads": 4364198,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "26.3"
+   ],
+   "author": "Texelsaur"
+  },
+  {
+   "title": "Create: Storage Drawers compat",
+   "slug": "storage-drawers-create-compat",
+   "downloads": 261116,
+   "loaders": [
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "1.21.1"
+   ],
+   "author": "mrGnegich"
+  },
+  {
+   "title": "Storage Drawers Unofficial",
+   "slug": "storage-drawers-unofficial",
+   "downloads": 58141,
+   "loaders": [
+    "forge"
+   ],
+   "versions": [
+    "1.7.10"
+   ],
+   "author": "Cleptomania"
+  }
+ ],
+ "mod:Supplementaries": [
+  {
+   "title": "Supplementaries",
+   "slug": "supplementaries",
+   "downloads": 29445470,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "1.21.1"
+   ],
+   "author": "MehVahdJukaar"
+  },
+  {
+   "title": "Supplementaries Squared",
+   "slug": "supplementaries-squared",
+   "downloads": 5237404,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "1.21.1"
+   ],
+   "author": "Plantkillable"
+  },
+  {
+   "title": "RightClickHarvest Supplementaries Compat",
+   "slug": "rch-supplementaries-compat",
+   "downloads": 196341,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "1.21.1"
+   ],
+   "author": "jamalam"
+  }
+ ],
+ "mod:Explorer's Compass": [
+  {
+   "title": "Explorer's Compass",
+   "slug": "explorers-compass",
+   "downloads": 12671815,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "26.3"
+   ],
+   "author": "Chaosyr"
+  },
+  {
+   "title": "Explorer's Compass Addon",
+   "slug": "explorers-compass-addon",
+   "downloads": 128986,
+   "loaders": [
+    "fabric"
+   ],
+   "versions": [
+    "1.20.1"
+   ],
+   "author": "ImEden6"
+  },
+  {
+   "title": "Nature's Compass: Explorer's Edition",
+   "slug": "natures-compass-explorers-edition",
+   "downloads": 3307,
+   "loaders": [
+    "fabric"
+   ],
+   "versions": [
+    "1.20.1"
+   ],
+   "author": "lucalabs-de"
+  }
+ ],
+ "mod:Easy Anvils": [
+  {
+   "title": "Easy Anvils",
+   "slug": "easy-anvils",
+   "downloads": 17777311,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "26.3"
+   ],
+   "author": "Fuzs"
+  },
+  {
+   "title": "Easy Anvils (Backport)",
+   "slug": "easy-anvils-backport",
+   "downloads": 529,
+   "loaders": [
+    "forge"
+   ],
+   "versions": [
+    "1.12.2"
+   ],
+   "author": "xyhaunter"
+  }
+ ],
+ "mod:Farmer's Delight": [
+  {
+   "title": "Farmer's Delight",
+   "slug": "farmers-delight",
+   "downloads": 25938439,
+   "loaders": [
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "1.21.1"
+   ],
+   "author": "vectorwing"
+  },
+  {
+   "title": "Farmer's Delight Refabricated",
+   "slug": "farmers-delight-refabricated",
+   "downloads": 17113490,
+   "loaders": [
+    "fabric"
+   ],
+   "versions": [
+    "26.3"
+   ],
+   "author": "Cassian"
+  },
+  {
+   "title": "Chef's Delight - Farmer's Delight Villagers",
+   "slug": "chefs-delight",
+   "downloads": 9509294,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "26.3"
+   ],
+   "author": "redstonegamesb"
+  }
+ ],
+ "mod:Enchantment Descriptions": [
+  {
+   "title": "Enchantment Descriptions",
+   "slug": "enchantment-descriptions",
+   "downloads": 40347224,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge",
+    "quilt"
+   ],
+   "versions": [
+    "26.3"
+   ],
+   "author": "Darkhax"
+  },
+  {
+   "title": "Enchantment Descriptions Java",
+   "slug": "enchantment-descriptions-java",
+   "downloads": 30340,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge",
+    "quilt"
+   ],
+   "versions": [
+    "1.21.9"
+   ],
+   "author": "quillphen"
+  },
+  {
+   "title": "Idwtialsimmoedm",
+   "slug": "idwtialsimmoedm",
+   "downloads": 1701053,
+   "loaders": [
+    "fabric",
+    "quilt"
+   ],
+   "versions": [
+    "1.21.8"
+   ],
+   "author": "glisco"
+  }
+ ],
+ "mod:Clumps": [
+  {
+   "title": "Clumps",
+   "slug": "clumps",
+   "downloads": 43289089,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "26.3"
+   ],
+   "author": "jaredlll08"
+  },
+  {
+   "title": "Clumps",
+   "slug": "ly-clumps",
+   "downloads": 959039,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge",
+    "quilt"
+   ],
+   "versions": [
+    "26.3"
+   ],
+   "author": "lullaby"
+  },
+  {
+   "title": "String Clumps",
+   "slug": "string-clumps",
+   "downloads": 6571,
+   "loaders": [
+    "fabric"
+   ],
+   "versions": [
+    "1.21.11"
+   ],
+   "author": "ubiqqe"
+  }
+ ],
+ "mod:Visual Workbench": [
+  {
+   "title": "Visual Workbench",
+   "slug": "visual-workbench",
+   "downloads": 27371741,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "26.3"
+   ],
+   "author": "Fuzs"
+  },
+  {
+   "title": "uhhwhydoyoudothatvisualworkbench",
+   "slug": "uhhwhydoyoudothatvisualworkbench",
+   "downloads": 339,
+   "loaders": [
+    "neoforge"
+   ],
+   "versions": [
+    "1.21.1"
+   ],
+   "author": "WFPhantom"
+  },
+  {
+   "title": "Big_Workbenches",
+   "slug": "big_workbenches",
+   "downloads": 202,
+   "loaders": [
+    "forge"
+   ],
+   "versions": [
+    "1.20.1"
+   ],
+   "author": "Nikita_nik"
+  }
+ ],
+ "mod:Relics": [
+  {
+   "title": "Relics",
+   "slug": "relics-mod",
+   "downloads": 3323813,
+   "loaders": [
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "1.21.1"
+   ],
+   "author": "SSKirillSS"
+  },
+  {
+   "title": "Lost Relics",
+   "slug": "lost-relics",
+   "downloads": 1648143,
+   "loaders": [
+    "fabric",
+    "neoforge",
+    "quilt"
+   ],
+   "versions": [
+    "26.3"
+   ],
+   "author": "MoriyaShiine"
+  },
+  {
+   "title": "Dream Relics",
+   "slug": "dream-relics",
+   "downloads": 1446558,
+   "loaders": [
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "1.21.1"
+   ],
+   "author": "BmtUltra"
+  }
+ ],
+ "mod:Vampirism": [
+  {
+   "title": "Vampirism",
+   "slug": "vampirism",
+   "downloads": 1590116,
+   "loaders": [
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "26.1.2"
+   ],
+   "author": "maxanier"
+  },
+  {
+   "title": "Vampirism Integrations",
+   "slug": "vampirism-integrations",
+   "downloads": 512108,
+   "loaders": [
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "1.21.1"
+   ],
+   "author": "maxanier"
+  },
+  {
+   "title": "Vampirism.co Peculiarities",
+   "slug": "vampirism.co-peculiarities",
+   "downloads": 56463,
+   "loaders": [
+    "forge"
+   ],
+   "versions": [
+    "1.20.1"
+   ],
+   "author": "lunofe"
+  }
+ ],
+ "mod:Origins": [
+  {
+   "title": "Origins",
+   "slug": "origins",
+   "downloads": 3129656,
+   "loaders": [
+    "fabric",
+    "forge",
+    "quilt"
+   ],
+   "versions": [
+    "1.21.1"
+   ],
+   "author": "Apace"
+  },
+  {
+   "title": "Origins (Forge)",
+   "slug": "origins-forge",
+   "downloads": 1044829,
+   "loaders": [
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "1.20.1"
+   ],
+   "author": "EdwinMindcraft"
+  },
+  {
+   "title": "Medieval Origins Revival",
+   "slug": "medieval-origins-revival",
+   "downloads": 958790,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "1.21.1"
+   ],
+   "author": "muon-rw"
+  }
+ ],
+ "mod:Courier Owls": [],
+ "mod:Iron's Spells 'n Spellbooks": [
+  {
+   "title": "Iron's Spells 'n Spellbooks",
+   "slug": "irons-spells-n-spellbooks",
+   "downloads": 6109373,
+   "loaders": [
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "1.21.1"
+   ],
+   "author": "iron431"
+  },
+  {
+   "title": "CTOV - Iron's Spells 'n Spellbooks compat",
+   "slug": "ctov-irons-spells-n-spellbooks-compat",
+   "downloads": 160492,
+   "loaders": [
+    "forge"
+   ],
+   "versions": [
+    "1.20.1"
+   ],
+   "author": "ChoiceTheorem"
+  },
+  {
+   "title": "Iron's Spells 'n Spellbooks Dynamic Skill Trees",
+   "slug": "irons-spells-n-spellbooks-dynamic-skill-trees",
+   "downloads": 154523,
+   "loaders": [
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "1.21.1"
+   ],
+   "author": "Raimu"
+  }
+ ],
+ "mod:Chat Heads": [
+  {
+   "title": "Chat Heads",
+   "slug": "chat-heads",
+   "downloads": 53420255,
+   "loaders": [
+    "fabric",
+    "forge",
+    "neoforge"
+   ],
+   "versions": [
+    "26.3"
+   ],
+   "author": "dzwdz"
+  },
+  {
+   "title": "Server Chat Heads",
+   "slug": "server-chat-heads",
+   "downloads": 34599,
+   "loaders": [
+    "fabric",
+    "quilt"
+   ],
+   "versions": [
+    "1.21.1"
+   ],
+   "author": "Camper_Samu"
+  },
+  {
+   "title": "Server Chat Heads UPDATED",
+   "slug": "server-chat-heads-updated",
+   "downloads": 2433,
+   "loaders": [
+    "fabric"
+   ],
+   "versions": [
+    "1.21.11"
+   ],
+   "author": "random_revilo"
+  }
+ ],
+ "resourcepack:Dark Coffee GUI": [
+  {
+   "title": "Dark Coffee GUI",
+   "slug": "dark-coffe-gui",
+   "downloads": 104043,
+   "loaders": [],
+   "versions": [
+    "26.3"
+   ],
+   "author": "RestlessPip"
+  },
+  {
+   "title": "Dark Coffee GUI - Extras",
+   "slug": "dark-coffee-extras",
+   "downloads": 6455,
+   "loaders": [],
+   "versions": [
+    "26.1.2"
+   ],
+   "author": "RestlessPip"
+  },
+  {
+   "title": "Dark Coffee GUI - Apple Skin Compat",
+   "slug": "coffee-gui-apple-skin-compat",
+   "downloads": 163,
+   "loaders": [],
+   "versions": [
+    "26.3"
+   ],
+   "author": "Kalli-Harpy"
+  }
+ ],
+ "resourcepack:Unique Dark": [
+  {
+   "title": "Unique Dark",
+   "slug": "unique-dark",
+   "downloads": 4017910,
+   "loaders": [],
+   "versions": [
+    "26.3"
+   ],
+   "author": "amongstreality"
+  },
+  {
+   "title": "Unique Dark Refined",
+   "slug": "unique-dark-refined",
+   "downloads": 305258,
+   "loaders": [],
+   "versions": [
+    "26.3"
+   ],
+   "author": "amongstreality"
+  },
+  {
+   "title": "Unique Dark - Green Interface",
+   "slug": "unique-dark-green",
+   "downloads": 112716,
+   "loaders": [],
+   "versions": [
+    "1.20.1"
+   ],
+   "author": "ItsVlad05"
+  }
+ ],
+ "resourcepack:New Glowing Ores": [
+  {
+   "title": "New Glowing Ores",
+   "slug": "new-glowing-ores",
+   "downloads": 8747884,
+   "loaders": [],
+   "versions": [
+    "26.3"
+   ],
+   "author": "GridExpert"
+  },
+  {
+   "title": "New Glowing Ores x Blue Netherite",
+   "slug": "new-glowing-ores-x-blue-netherite",
+   "downloads": 14190,
+   "loaders": [],
+   "versions": [
+    "26w14a"
+   ],
+   "author": "SomroTeamDev"
+  },
+  {
+   "title": "Brand NEW Glowing Ores",
+   "slug": "brand-new-glowing-ores",
+   "downloads": 5580,
+   "loaders": [],
+   "versions": [
+    "24w46a"
+   ],
+   "author": "GuardianVR"
+  }
+ ],
+ "resourcepack:Low on Fire": [
+  {
+   "title": "Low On Fire",
+   "slug": "low-on-fire",
+   "downloads": 17789035,
+   "loaders": [],
+   "versions": [
+    "26.3-snapshot-9"
+   ],
+   "author": "Haikis"
+  },
+  {
+   "title": "Low on Fire",
+   "slug": "notx-low-fire",
+   "downloads": 2748,
+   "loaders": [],
+   "versions": [
+    "26.2"
+   ],
+   "author": "ahmadridoy"
+  },
+  {
+   "title": "LOW ON FIRE",
+   "slug": "low-on-fire-fire_zone1525",
+   "downloads": 75,
+   "loaders": [],
+   "versions": [
+    "24w46a"
+   ],
+   "author": "fire_zone1525"
+  }
+ ],
+ "shader:Complementary Shaders Unbound": [
+  {
+   "title": "Complementary Shaders - Unbound",
+   "slug": "complementary-unbound",
+   "downloads": 47717478,
+   "loaders": [],
+   "versions": [
+    "26.3"
+   ],
+   "author": "EminGT"
+  },
+  {
+   "title": "BSU Shaders",
+   "slug": "bsushaders",
+   "downloads": 3083,
+   "loaders": [],
+   "versions": [
+    "26.2"
+   ],
+   "author": "GLE"
+  },
+  {
+   "title": "GSU Shaders",
+   "slug": "gsu-shaders",
+   "downloads": 452,
+   "loaders": [],
+   "versions": [
+    "26.3"
+   ],
+   "author": "GLE"
+  }
+ ],
+ "shader:Super Duper Vanilla": [
+  {
+   "title": "Super Duper Vanilla",
+   "slug": "super-duper-vanilla",
+   "downloads": 8377045,
+   "loaders": [],
+   "versions": [
+    "1.21.8"
+   ],
+   "author": "Eldeston"
+  },
+  {
+   "title": "Valentine Shader",
+   "slug": "valentine",
+   "downloads": 6916,
+   "loaders": [],
+   "versions": [
+    "1.9.4"
+   ],
+   "author": "gamerbenyt"
+  },
+  {
+   "title": "Noobie Shaders",
+   "slug": "noobie-shaders",
+   "downloads": 441,
+   "loaders": [],
+   "versions": [
+    "1.20.1"
+   ],
+   "author": "NoobieZoomie"
+  }
+ ]
+}
