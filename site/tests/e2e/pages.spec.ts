@@ -95,17 +95,13 @@ test.describe('acessibilidade (axe, WCAG 2 A e AA)', () => {
     }
   });
 
-  test('as ferramentas, uma aba por vez e no modo foco', async ({ page }) => {
+  test('as ferramentas e o modal aberto', async ({ page }) => {
     await page.goto('/ferramentas/');
     await page.waitForSelector('astro-island:not([ssr])', { state: 'attached' });
-    for (const t of ['tempo', 'texto', 'calculo', 'sorteio']) {
-      await page.locator(`#tt-${t}`).click();
-      await page.waitForTimeout(800);
+    for (const t of ['tempo']) {
       const r = await new AxeBuilder({ page }).include('main').withTags(['wcag2a', 'wcag2aa']).analyze();
       expect(r.violations.map((v) => `${t} ${v.id}: ${v.nodes[0]?.target?.join(' ')} | ${v.nodes[0]?.failureSummary?.split('\n')[1] ?? ''}`)).toEqual([]);
     }
-    await page.locator('#tt-tempo').click();
-    await page.waitForTimeout(900);
     await page.locator('#t-timer .expand').click();
     await page.waitForTimeout(900);
     const r = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa']).analyze();

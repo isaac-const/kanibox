@@ -232,3 +232,14 @@ Bugs que os testes acharam: erro de hidratação do React no zalgo (acaso difere
 - **Zoom no celular:** causa provável é o zoom automático do iOS ao focar campos com fonte menor que 16px. Campos agora têm 16px ou mais, `touch-action: manipulation` e `overflow-x: clip`. Não foi possível testar num iPhone de verdade.
 - **Bugs achados pelos testes:** lâmina da página atual nunca acendia (CSS esperava `aria-current="true"`, o HTML usa `page`); texto escuro sobre vermelho ao passar o mouse na aba selecionada; contraste do texto pequeno nas pílulas vermelhas (acento do tema claro escurecido para `#c9340f`).
 - **Testes:** 97 unitários e 212 de ponta a ponta (desktop e celular), incluindo axe em categoria, menu aberto, ferramentas e páginas em inglês.
+
+## 20. Rodada 4 de 19/11/2026: acabamento
+
+- Canivete sem animação de entrada e de dobrar (o cabo ainda esconde as lâminas, na hora).
+- Cartões Meus apps e Ferramentas sem destaque vermelho. "Mais recomendados" com pílulas neutras e só a estrela vermelha.
+- Rodapé: "Feito por isaac-const", ligado ao perfil do GitHub, sem cidade.
+- Novidades virou um ícone de brilho. O botão de tema agora só alterna entre claro e escuro, com a revelação circular.
+- Início: busca mais curta, com Início, Novidades e Sobre ao lado (em telas largas; no celular ficam no menu).
+- Ferramentas: uma página só, em quatro grupos (Tempo, Texto, Cálculo, Sorteio), sem Rubber Segment. Expandir abre como modal centralizado e fecha com Esc ou clicando fora. Zalgo sem botão de sortear e sem intensidade. Roleta depois do Sim ou não.
+- MoonDeck com descrição nova, baseada na do repositório.
+- Testes: 97 unitários e 217 de ponta a ponta.

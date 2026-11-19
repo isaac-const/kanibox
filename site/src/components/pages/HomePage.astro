@@ -67,7 +67,7 @@ const updated = shortDate(INITIAL_BATCH, lang);
     <ul class="cats">
       {
         SECTIONS.map((s) => (
-          <li class:list={['cat', { feat: s.id === 13 || s.id === TOOLS_SECTION_ID }]}>
+          <li class="cat">
             <a href={route(lang, s)}>
               <span class="sec-ic"><Icon name={s.icon} size={22} /></span>
               <span class="ct">

@@ -265,7 +265,7 @@ DESC = {
  "Conexo":"Agrupe palavras por categoria.",
  "neal.fun":"Jogos e curiosidades da web.",
  "Akinator":"O gênio que adivinha o personagem em que você pensou.",
- "MoonDeck":"App de desktop feito por mim, em Tauri 2 e React 19.",
+ "MoonDeck":"Transforma teclas que você quase não usa (Home, PgUp, F13 a F24, numpad) em um deck de ações por modos, com overlay.",
  # mods (Modrinth)
  "TrashSlot":"Slot de lixeira nos inventários.",
  "RoadWeaver":"Gera estradas ligando as estruturas do mundo.",
@@ -484,7 +484,7 @@ DESC_EN = {
  "Conexo":"Group words by category.",
  "neal.fun":"Web games and curiosities.",
  "Akinator":"The genie that guesses the character you thought of.",
- "MoonDeck":"Desktop app I built, with Tauri 2 and React 19.",
+ "MoonDeck":"Turns rarely used keys (Home, PgUp, F13 to F24, numpad) into a mode-based action deck, with an overlay.",
  "Grimo Notes":"Notes and ideas for desktop, with folders, kanban and a reference gallery.",
  "Kita Finances":"Personal finance with loan management.",
  "TrashSlot":"Trash slot in every inventory.",

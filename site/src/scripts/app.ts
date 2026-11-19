@@ -23,11 +23,10 @@ watchSeg(document);
 
 /* ───────── tema (todas as páginas) ───────── */
 const themeBtn = $('#themeBtn');
-const themes = $('#themes');
 
 function paintTheme() {
   const cur = document.documentElement.dataset.theme;
-  $$('[data-t]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.t === cur)));
+  themeBtn?.setAttribute('aria-pressed', String(cur === 'white'));
 }
 function setTheme(t: string, x: number, y: number) {
   const apply = () => {
@@ -48,24 +47,11 @@ function setTheme(t: string, x: number, y: number) {
     )
     .catch(() => {});
 }
-function closeThemes() {
-  themes?.classList.remove('on');
-  themeBtn?.setAttribute('aria-expanded', 'false');
-}
 paintTheme();
 themeBtn?.addEventListener('click', () => {
-  const on = !themes!.classList.contains('on');
-  themes!.classList.toggle('on', on);
-  themeBtn.setAttribute('aria-expanded', String(on));
-});
-themes?.addEventListener('click', (e) => {
-  const b = (e.target as HTMLElement).closest<HTMLElement>('[data-t]');
-  if (!b) return;
-  const r = b.getBoundingClientRect();
-  setTheme(b.dataset.t!, r.left + 20, r.top + 20);
-});
-document.addEventListener('click', (e) => {
-  if (!(e.target as HTMLElement).closest('.theme-wrap')) closeThemes();
+  const next = document.documentElement.dataset.theme === 'white' ? 'dark' : 'white';
+  const r = themeBtn.getBoundingClientRect();
+  setTheme(next, r.left + r.width / 2, r.top + r.height / 2);
 });
 
 /* ───────── menu lateral ───────── */
@@ -92,10 +78,6 @@ if (menu && menuBtn && scrim) {
     if (e.key === 'Escape' && menu.classList.contains('on')) setMenu(false);
   });
 }
-addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeThemes();
-});
-
 /* ───────── canivete: dobrar e abrir ───────── */
 const kd = $('#kdock');
 const kh = $('#kh');
@@ -103,10 +85,8 @@ if (kd && kh) {
   kh.addEventListener('click', () => {
     const fold = !kd.classList.contains('fold');
     kd.classList.toggle('fold', fold);
-    kd.classList.toggle('open', !fold);
     kh.setAttribute('aria-pressed', String(fold));
   });
-  requestAnimationFrame(() => requestAnimationFrame(() => kd.classList.add('open')));
 }
 
 /* ───────── páginas com busca e filtros (início e categorias) ───────── */

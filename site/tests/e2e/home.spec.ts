@@ -14,7 +14,7 @@ test.describe('início', () => {
     await expect(page.locator('#viewBtn, #tabsbar')).toHaveCount(0);
   });
 
-  test('"Mais recomendados": 8 pílulas vermelhas com estrela, sem o DeepSeek', async ({ page }) => {
+  test('"Mais recomendados": 8 pílulas neutras com estrela vermelha, sem o DeepSeek', async ({ page }) => {
     await expect(page.locator('#rec-t')).toHaveText('Mais recomendados');
     const names = await page.locator('#hero-top .tn b').allTextContents();
     expect(names).toEqual(['CachyOS', 'VSCodium', 'Godot', 'Krita', 'Claude', 'Obsidian', 'Ghostty', 'Prism Launcher']);
@@ -22,15 +22,17 @@ test.describe('início', () => {
     await expect(page.locator('#hero-top .pill-star')).toHaveCount(8);
     const bg = await page.locator('#hero-top .rec-list a').first().evaluate((e) => getComputedStyle(e).backgroundColor);
     const accent = await page.evaluate(() => getComputedStyle(document.documentElement).getPropertyValue('--accent').trim());
-    expect(bg).not.toBe('rgba(0, 0, 0, 0)');
+    const star = await page.locator('#hero-top .pill-star').first().evaluate((e) => getComputedStyle(e).fill);
+    expect(bg).not.toBe(star);
     expect(accent).toMatch(/^#/);
+    expect(star).toMatch(/^rgb\((2\d\d|1\d\d), /);
   });
 
-  test('categorias: 11 cartões, Meus apps e Ferramentas em destaque e primeiro', async ({ page }) => {
+  test('categorias: 11 cartões, Meus apps e Ferramentas primeiro, sem destaque vermelho', async ({ page }) => {
     const titles = await page.locator('#cats .ct b').allTextContents();
     expect(titles).toHaveLength(11);
     expect(titles.slice(0, 2)).toEqual(['Meus apps', 'Ferramentas']);
-    await expect(page.locator('#cats .cat.feat')).toHaveCount(2);
+    await expect(page.locator('#cats .cat.feat')).toHaveCount(0);
     expect(titles).not.toContain('Terminal');
     expect(titles).not.toContain('Emular e jogar');
   });
@@ -317,7 +319,6 @@ test.describe('canivete (navegação entre páginas)', () => {
   test('clicar no cabo dobra e abre', async ({ page }) => {
     test.skip((page.viewportSize()?.width ?? 0) < 800, 'no celular as lâminas só rolam');
     await page.goto('/');
-    await expect(page.locator('#kdock')).toHaveClass(/open/);
     await page.locator('#kh').click();
     await expect(page.locator('#kdock')).toHaveClass(/fold/);
     await page.locator('#kh').click();
@@ -341,12 +342,16 @@ test.describe('canivete (navegação entre páginas)', () => {
   });
 
   test('no tema claro o cabo é preto e vermelho; no escuro, creme e vermelho', async ({ page }) => {
+    await setTheme(page, 'dark');
     await page.goto('/');
     await page.locator('#themeBtn').click();
-    await page.locator('#themes [data-t="white"]').click();
+    await expect(page.locator('html')).toHaveAttribute('data-theme', 'white');
+    await page.waitForTimeout(800);
     const kh = () => page.locator('#kh').evaluate((e) => getComputedStyle(e).backgroundColor);
     expect(await kh()).toBe('rgb(27, 26, 23)');
-    await page.locator('#themes [data-t="dark"]').click();
+    await page.locator('#themeBtn').click();
+    await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+    await page.waitForTimeout(800);
     expect(await kh()).toBe('rgb(246, 240, 230)');
   });
 });
@@ -356,21 +361,27 @@ test.describe('rodapé', () => {
     await page.goto('/');
     const f = page.locator('footer.site');
     await expect(f.locator('.stripe')).toHaveCount(1);
-    await expect(f).toContainText('Feito pelo Isaac, em Timon');
-    await expect(f.locator('a[href="https://github.com/isaac-const"]')).toHaveCount(1);
+    await expect(f).toContainText('Feito por isaac-const');
+    await expect(f.locator('a[href="https://github.com/isaac-const"]').first()).toBeVisible();
     await expect(f.locator('a[href*="rss.xml"]')).toHaveCount(1);
   });
 });
 
 test.describe('tema', () => {
-  test('troca persiste, e só existem dark e white', async ({ page }) => {
+  test('o botão alterna direto entre dark e white, e a escolha persiste', async ({ page }) => {
+    await setTheme(page, 'dark');
     await page.goto('/');
-    const ids = await page.locator('#themes [data-t]').evaluateAll((els) => els.map((e) => (e as HTMLElement).dataset.t));
-    expect(ids).toEqual(['dark', 'white']);
+    await expect(page.locator('#themes')).toHaveCount(0);
     await page.locator('#themeBtn').click();
-    await page.locator('#themes [data-t="white"]').click();
-    await page.reload();
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'white');
+    await page.waitForTimeout(800);
+    await page.locator('#themeBtn').click();
+    await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+    await page.waitForTimeout(800);
+    await page.locator('#themeBtn').click();
+    await expect(page.locator('html')).toHaveAttribute('data-theme', 'white');
+    const saved = await page.evaluate(() => localStorage.getItem('kb-theme'));
+    expect(saved).toBe('white');
   });
 
   test.describe('padrão pelo sistema', () => {
@@ -389,5 +400,29 @@ test.describe('tema', () => {
       await page.goto('/ia/');
       await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
     });
+  });
+});
+
+test.describe('cabeçalho e rodapé (rodada 4)', () => {
+  test('busca curta no início e links Início, Novidades e Sobre ao lado', async ({ page }) => {
+    test.skip((page.viewportSize()?.width ?? 0) < 1000, 'no celular os links ficam no menu');
+    await page.goto('/');
+    const w = await page.locator('#searchBox').evaluate((e) => e.getBoundingClientRect().width);
+    expect(w).toBeLessThanOrEqual(342);
+    await expect(page.locator('.navlinks a')).toHaveCount(3);
+    await expect(page.locator('.navlinks a').nth(0)).toBeVisible();
+  });
+  test('novidades é um brilho, não um sino, e o rodapé liga ao GitHub', async ({ page }) => {
+    await page.goto('/');
+    expect(await page.locator('.bell svg').innerHTML()).not.toContain('M6 16v-5');
+    const a = page.locator('footer.site .made a');
+    await expect(a).toHaveText('isaac-const');
+    await expect(a).toHaveAttribute('href', 'https://github.com/isaac-const');
+    await expect(page.locator('footer.site .made')).not.toContainText('Timon');
+  });
+  test('o canivete não anima na entrada', async ({ page }) => {
+    await page.goto('/');
+    const t = await page.locator('.blade').first().evaluate((e) => getComputedStyle(e).transform);
+    expect(t).toBe('none');
   });
 });

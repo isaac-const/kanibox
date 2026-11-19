@@ -204,14 +204,22 @@ export function ToolCard({ id, title, badge, children, wide }: { id: string; tit
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setOpen(false);
+    const onDown = (e: PointerEvent) => {
+      if (!(e.target as HTMLElement).closest(`#${id}`)) {
+        e.preventDefault();
+        setOpen(false);
+      }
+    };
     addEventListener('keydown', onKey);
+    addEventListener('pointerdown', onDown, true);
     const prev = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
     return () => {
       removeEventListener('keydown', onKey);
+      removeEventListener('pointerdown', onDown, true);
       document.body.style.overflow = prev;
     };
-  }, [open]);
+  }, [open, id]);
   return (
     <div
       className={`tool${open ? ' expanded' : ''}${wide ? ' wide' : ''}`}

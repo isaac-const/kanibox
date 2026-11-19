@@ -18,7 +18,6 @@ async function open(page: Page, opts: { osc?: boolean; en?: boolean } = {}) {
   await page.waitForSelector('astro-island:not([ssr])', { state: 'attached' });
 }
 const osc = (page: Page) => page.evaluate(() => (window as unknown as { __osc: number }).__osc);
-const tab = (page: Page, id: string) => page.locator(`#tt-${id}`).click();
 
 test.describe('Tempo', () => {
   test.beforeEach(async ({ page }) => open(page));
@@ -110,13 +109,11 @@ test.describe('Tempo', () => {
     await expect(page.locator('#laps div')).toHaveCount(0);
   });
 
-  test('trocar de aba não para um temporizador em andamento', async ({ page }) => {
+  test('um temporizador em andamento continua ao rolar até outra ferramenta', async ({ page }) => {
     await page.locator('#t-timer [data-a="start"]').click();
-    await tab(page, 'sorteio');
-    await expect(page.locator('#tp-tempo')).toBeHidden();
-    await expect(page.locator('#t-wheel')).toBeVisible();
+    await page.locator('#t-wheel').scrollIntoViewIfNeeded();
     await page.clock.runFor(10_000);
-    await tab(page, 'tempo');
+    await page.locator('#t-timer').scrollIntoViewIfNeeded();
     await expect(page.locator('#t-timer .t')).toHaveText(/04:[45]\d/);
   });
 
@@ -161,25 +158,26 @@ test.describe('modo foco (expandir)', () => {
   test.beforeEach(async ({ page }) => open(page));
 
   for (const [id, name] of [['t-timer', 'Temporizador'], ['t-sw', 'Cronômetro'], ['t-pomo', 'Foco']] as const) {
-    test(`${name} expande em tela cheia e fecha com Esc`, async ({ page }) => {
+    test(`${name} abre como modal centralizado e fecha com Esc`, async ({ page }) => {
       const card = page.locator(`#${id}`);
       await card.locator('.expand').click();
       await expect(card).toHaveClass(/expanded/);
       await expect(card).toHaveAttribute('role', 'dialog');
       const box = await card.boundingBox();
       const vp = page.viewportSize()!;
-      expect(box!.width).toBeGreaterThanOrEqual(vp.width - 2);
-      expect(box!.height).toBeGreaterThanOrEqual(vp.height - 2);
+      expect(box!.width).toBeLessThanOrEqual(vp.width - 20);
+      expect(box!.height).toBeLessThanOrEqual(vp.height);
+      expect(Math.abs(box!.x + box!.width / 2 - vp.width / 2)).toBeLessThan(4);
       await page.keyboard.press('Escape');
       await expect(card).not.toHaveClass(/expanded/);
     });
   }
 
-  test('o botão Fechar também sai do modo foco e a contagem continua', async ({ page }) => {
+  test('clicar fora do modal também fecha, e a contagem continua', async ({ page }) => {
     await page.locator('#t-timer [data-a="start"]').click();
     await page.locator('#t-timer .expand').click();
     await page.clock.runFor(5000);
-    await page.locator('#t-timer .expand').click();
+    await page.mouse.click(4, 4);
     await expect(page.locator('#t-timer')).not.toHaveClass(/expanded/);
     await expect(page.locator('#t-timer .t')).toHaveText(/04:5\d|04:4\d/);
   });
@@ -237,7 +235,6 @@ test.describe('som opcional', () => {
 test.describe('Texto', () => {
   test.beforeEach(async ({ page }) => {
     await open(page);
-    await tab(page, 'texto');
   });
   const out = (page: Page, id: string) => page.locator(`#tx-out [data-style="${id}"]`);
 
@@ -251,13 +248,15 @@ test.describe('Texto', () => {
     await expect(out(page, 'fraktur')).toHaveText('ℌ𝔢𝔩𝔩𝔬 𝔚𝔬𝔯𝔩𝔡');
   });
 
-  test('digitar atualiza tudo, e o zalgo mantém as letras', async ({ page }) => {
+  test('digitar atualiza tudo, e o zalgo mantém as letras (sem controles extras)', async ({ page }) => {
     await page.locator('#tx-in').fill('Hello world');
     await expect(out(page, 'reverse')).toHaveText('dlrow olleH');
     await expect(out(page, 'fraktur')).toHaveText('ℌ𝔢𝔩𝔩𝔬 𝔴𝔬𝔯𝔩𝔡');
     const z = await out(page, 'zalgo').textContent();
     expect(z!.normalize('NFD').replace(/[̀-ͯ]/g, '')).toBe('Hello world');
     expect(z!.length).toBeGreaterThan(11);
+    await expect(page.locator('input[type="range"]')).toHaveCount(0);
+    await expect(page.getByText(/Sortear zalgo|Intensidade/)).toHaveCount(0);
   });
 
   test('texto vazio deixa os botões de copiar desligados', async ({ page }) => {
@@ -275,7 +274,6 @@ test.describe('Texto', () => {
 test.describe('Cálculo', () => {
   test.beforeEach(async ({ page }) => {
     await open(page);
-    await tab(page, 'calculo');
   });
 
   test('calculadora: digitar, Enter, teclado e histórico', async ({ page }) => {
@@ -331,7 +329,6 @@ test.describe('Cálculo', () => {
 test.describe('Sorteio', () => {
   test.beforeEach(async ({ page }) => {
     await open(page);
-    await tab(page, 'sorteio');
   });
 
   test('sorteio de nomes: sorteia da lista e não repete quando pedido', async ({ page }) => {
@@ -426,6 +423,16 @@ test.describe('ferramentas na busca', () => {
       await page.waitForTimeout(150);
       await expect(page.locator('#tools-hint'), w).toBeVisible();
     }
+  });
+});
+
+test.describe('ordem e agrupamento', () => {
+  test('uma página só, em 4 grupos, e a roleta vem depois do sim ou não', async ({ page }) => {
+    await open(page);
+    await expect(page.locator('main .seg')).toHaveCount(0);
+    expect(await page.locator('.tgroup-t').allTextContents()).toEqual(['Tempo', 'Texto', 'Cálculo', 'Sorteio']);
+    const ids = await page.locator('.tool').evaluateAll((els) => els.map((e) => e.id));
+    expect(ids.indexOf('t-wheel')).toBeGreaterThan(ids.indexOf('t-yn'));
   });
 });
 

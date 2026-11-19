@@ -13,6 +13,7 @@ export const ICONS: Record<string, string> = {
   learn: '<path d="M4 6.5C4 5.7 4.6 5 5.5 5H11v14H5.5A1.5 1.5 0 014 17.5z"/><path d="M20 6.5c0-.8-.6-1.5-1.5-1.5H13v14h5.5a1.5 1.5 0 001.5-1.5z"/>',
   tool: '<circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 3h6"/>',
   mine: '<rect x="3" y="8" width="18" height="12" rx="2"/><path d="M3 12h18M10 8V5h4v3"/>',
+  spark: '<path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/>',
   bell: '<path d="M6 16v-5a6 6 0 1112 0v5l1.5 2h-15z"/><path d="M10 21h4"/>',
   search: '<circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>',
   close: '<path d="M6 6l12 12M18 6L6 18"/>',

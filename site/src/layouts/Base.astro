@@ -76,7 +76,7 @@ const logo = `<svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="12" wid
             <span>Kani<b>Box</b></span>
           </a>
           {
-            filters ? (
+            filters && (
               <label class="search" id="searchBox">
                 <Icon name="search" size={17} />
                 <input id="q" type="search" placeholder={t(lang, 'searchPlaceholder')} autocomplete="off" spellcheck="false" aria-label={t(lang, 'searchAria')} />
@@ -84,35 +84,24 @@ const logo = `<svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="12" wid
                   <Icon name="close" size={14} />
                 </button>
               </label>
-            ) : (
-              <nav class="navlinks" aria-label={t(lang, 'pages')}>
-                {nav.map((n) => (
-                  <a href={route(lang, n.page)} aria-current={isCurrent(n.page) ? 'page' : undefined}>{n.label}</a>
-                ))}
-              </nav>
             )
           }
+          <nav class="navlinks" aria-label={t(lang, 'pages')}>
+            {nav.map((n) => (
+              <a href={route(lang, n.page)} aria-current={isCurrent(n.page) ? 'page' : undefined}>{n.label}</a>
+            ))}
+          </nav>
           <div class="seg lang" role="group" aria-label={t(lang, 'lang')}>
             <span class="seg-pill" aria-hidden="true" />
             {LANGS.map((l) => (
               <a href={alt[l]} lang={l === 'en' ? 'en' : 'pt-BR'} hreflang={l === 'en' ? 'en' : 'pt-BR'} aria-current={l === lang ? 'true' : undefined}>{l.toUpperCase()}</a>
             ))}
           </div>
-          <a class="round bell" href={route(lang, 'news')} aria-label={t(lang, 'news')}><Icon name="bell" size={19} /></a>
+          <a class="round bell" href={route(lang, 'news')} aria-label={t(lang, 'news')}><Icon name="spark" size={19} /></a>
           <div class="theme-wrap">
-            <button class="round" id="themeBtn" type="button" aria-label={t(lang, 'themeToggle')} aria-expanded="false" aria-controls="themes">
+            <button class="round" id="themeBtn" type="button" aria-label={t(lang, 'themeToggle')} aria-pressed="false">
               <Icon name="theme" size={19} />
             </button>
-            <div class="themes" id="themes" role="group" aria-label={t(lang, 'themes')}>
-              {
-                THEMES.map((th) => (
-                  <button type="button" data-t={th.id} aria-pressed="false">
-                    <span class="sw" style={`background:${th.bg};--c2:${th.accent}`} />
-                    {th.name}
-                  </button>
-                ))
-              }
-            </div>
           </div>
         </div>
         {
@@ -180,7 +169,7 @@ const logo = `<svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="12" wid
             <span>Kani<b>Box</b></span>
           </a>
           <p>{t(lang, 'footTagline')}</p>
-          <p class="made">{t(lang, 'footMade')}</p>
+          <p class="made">{t(lang, 'footMade')} <a href="https://github.com/isaac-const" target="_blank" rel="noopener noreferrer">isaac-const</a></p>
         </div>
         <nav aria-label={t(lang, 'footExplore')}>
           <h2>{t(lang, 'footExplore')}</h2>

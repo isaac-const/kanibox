@@ -2809,7 +2809,7 @@
   ],
   "lic": "Código aberto",
   "host": "github.com",
-  "note": "App de desktop feito por mim, em Tauri 2 e React 19.",
+  "note": "Transforma teclas que você quase não usa (Home, PgUp, F13 a F24, numpad) em um deck de ações por modos, com overlay.",
   "via": "",
   "ini": false,
   "icon_domain": "github.com",
@@ -2819,7 +2819,7 @@
   "icon": "moondeck.png",
   "lic_src": "GitHub: MIT",
   "http": 200,
-  "note_en": "Desktop app I built, with Tauri 2 and React 19.",
+  "note_en": "Turns rarely used keys (Home, PgUp, F13 to F24, numpad) into a mode-based action deck, with an overlay.",
   "tipo_en": "My app",
   "grp_en": "My apps"
  },

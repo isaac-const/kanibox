@@ -99,7 +99,7 @@ test.describe('inglês', () => {
     expect(links[0]).toBe('/en/');
     expect(links.every((l) => l.startsWith('/en/'))).toBe(true);
     await expect(page.locator('#menu h2')).toHaveText('Categories');
-    await expect(page.locator('footer.site')).toContainText('Made by Isaac');
+    await expect(page.locator('footer.site')).toContainText('Made by isaac-const');
     const blades = await page.locator('.blade').evaluateAll((els) => els.map((e) => (e as HTMLAnchorElement).getAttribute('aria-label')));
     expect(blades).toContain('Create');
   });
