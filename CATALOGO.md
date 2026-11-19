@@ -9,7 +9,7 @@ Como ler as colunas:
 - **Plataformas** dos jogos vêm da Steam. As dos demais itens são de conhecimento geral meu, a conferir.
 - Campo vazio quer dizer que ninguém confirmou. Nada foi inventado.
 
-## 1 · Navegar (9)
+## 1 · Navegar (10)
 
 ### Navegadores (3)
 
@@ -34,6 +34,12 @@ Como ler as colunas:
 | Proton VPN | protonvpn.com | VPN | Linux, Windows, macOS, Android, iOS | Freemium (definido por mim, a conferir) | ok |
 | NordVPN | nordvpn.com | VPN | Linux, Windows, macOS, Android, iOS | Pago (definido por mim, a conferir) | bloqueia robô |
 | Mullvad VPN | mullvad.net | VPN | Linux, Windows, macOS, Android, iOS | Pago (definido por mim, a conferir) | ok |
+
+### Segurança (1)
+
+| Nome | Link | Tipo | Plataformas | Licença (fonte) | Site |
+|---|---|---|---|---|---|
+| Have I Been Pwned | haveibeenpwned.com | Vazamento de dados | Web | Grátis (definido por mim, a conferir) | ok |
 
 ## 2 · IA (7)
 
@@ -125,7 +131,7 @@ Como ler as colunas:
 | WispFile | wispfile.com | Transferência | Web | Grátis (definido por mim, a conferir) | ok |
 | Litterbox | litterbox.catbox.moe | Hospedagem temporária | Web | Grátis (definido por mim, a conferir) | ok |
 
-## 5 · Produtividade (6)
+## 5 · Produtividade (7)
 
 ### Notas e tarefas (3)
 
@@ -141,11 +147,12 @@ Como ler as colunas:
 |---|---|---|---|---|---|
 | Pomofocus | pomofocus.io | Pomodoro | Web | Freemium (definido por mim, a conferir) | ok |
 
-### Utilidades (1)
+### Utilidades (2)
 
 | Nome | Link | Tipo | Plataformas | Licença (fonte) | Site |
 |---|---|---|---|---|---|
 | QRPine | qrpine.com | Gerador de QR code | Web | Freemium (definido por mim, a conferir) | ok |
+| MeuPC.net | meupc.net | Montar PC | Web |   | ok |
 
 ### Mídia (1)
 

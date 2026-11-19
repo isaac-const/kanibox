@@ -8,9 +8,9 @@ import { optionsFor, apply, emptyState } from '../../src/lib/filter';
 const pub = (...p: string[]) => resolve(__dirname, '../../public', ...p);
 
 describe('integridade do catálogo', () => {
-  it('passa pelo esquema (o import já valida) e tem os 166 itens públicos', () => {
-    expect(TOTAL).toBe(166);
-    expect(ITEMS.length).toBe(168); // + Grimo Notes e Kita Finances em desenvolvimento
+  it('passa pelo esquema (o import já valida) e tem os 168 itens públicos', () => {
+    expect(TOTAL).toBe(168);
+    expect(ITEMS.length).toBe(170); // + Grimo Notes e Kita Finances em desenvolvimento
   });
 
   it('ids únicos', () => {

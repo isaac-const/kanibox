@@ -17,6 +17,7 @@ T = [
  (1,"VPNs","Proton VPN","https://protonvpn.com","VPN",[L,W,M,A,I],FREEM,{}),
  (1,"VPNs","NordVPN","https://nordvpn.com","VPN",[L,W,M,A,I],PAID,{}),
  (1,"VPNs","Mullvad VPN","https://mullvad.net","VPN",[L,W,M,A,I],PAID,{}),
+ (1,"Segurança","Have I Been Pwned","https://haveibeenpwned.com","Vazamento de dados",[B],FREE,{}),
  # 2 IA
  (2,"Chats","DeepSeek","https://www.deepseek.com","Chat de IA",[B,A,I],FREE,{}),
  (2,"Chats","Claude","https://claude.com","Chat de IA",[B,A,I,W,M],FREEM,{}),
@@ -55,6 +56,7 @@ T = [
  (5,"Notas e tarefas","readme.so","https://readme.so","README",[B],OPEN,dict(gh="octokatherine/readme.so")),
  (5,"Foco","Pomofocus","https://pomofocus.io","Pomodoro",[B],FREEM,{}),
  (5,"Utilidades","QRPine","https://qrpine.com","Gerador de QR code",[B],FREEM,{}),
+ (5,"Utilidades","MeuPC.net","https://meupc.net","Montar PC",[B],"",{}),
  (5,"Mídia","Nuvio","https://github.com/tapframe/NuvioMobile","Player de mídia",[],OPEN,dict(gh="tapframe/NuvioMobile",mono=True)),
  # 6 Terminal
  (6,"Terminais","Ghostty","https://ghostty.org","Terminal",[L,M],OPEN,dict(gh="ghostty-org/ghostty")),
@@ -155,6 +157,8 @@ DESC = {
  "Helium":"Navegador focado em privacidade, base Chromium, sem dependências do Google. Em beta.",
  "Vivaldi":"Navegador baseado no Chromium, muito personalizável.",
  "uBlock Origin":"Bloqueador de anúncios e rastreadores, leve.",
+ "Have I Been Pwned":"Mostra se seu e-mail ou senha apareceu em vazamentos de dados.",
+ "MeuPC.net":"Monta PCs e compara preços de lojas brasileiras.",
  "ColorZilla":"Conta-gotas de cores e gerador de gradientes no navegador.",
  "StayFocusd":"Limita o tempo em sites que distraem.",
  "Proton VPN":"VPN da Proton, com plano grátis.",

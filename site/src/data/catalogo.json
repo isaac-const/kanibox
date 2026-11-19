@@ -209,6 +209,26 @@
   "http": 200
  },
  {
+  "sec": 1,
+  "grp": "Segurança",
+  "name": "Have I Been Pwned",
+  "url": "https://haveibeenpwned.com",
+  "tipo": "Vazamento de dados",
+  "plat": [
+   "Web"
+  ],
+  "lic": "Grátis",
+  "host": "haveibeenpwned.com",
+  "note": "Mostra se seu e-mail ou senha apareceu em vazamentos de dados.",
+  "via": "",
+  "ini": false,
+  "icon_domain": "haveibeenpwned.com",
+  "mono": false,
+  "kind": "item",
+  "icon": "haveibeenpwned-com.png",
+  "http": 200
+ },
+ {
   "sec": 2,
   "grp": "Chats",
   "name": "DeepSeek",
@@ -934,6 +954,26 @@
   "mono": false,
   "kind": "item",
   "icon": "qrpine-com.png",
+  "http": 200
+ },
+ {
+  "sec": 5,
+  "grp": "Utilidades",
+  "name": "MeuPC.net",
+  "url": "https://meupc.net",
+  "tipo": "Montar PC",
+  "plat": [
+   "Web"
+  ],
+  "lic": "",
+  "host": "meupc.net",
+  "note": "Monta PCs e compara preços de lojas brasileiras.",
+  "via": "",
+  "ini": false,
+  "icon_domain": "meupc.net",
+  "mono": false,
+  "kind": "item",
+  "icon": "meupc-net.png",
   "http": 200
  },
  {
