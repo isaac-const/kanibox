@@ -204,3 +204,19 @@ Pedidos do Isaac e o que foi feito:
 - **Publicação:** GitHub Pages por fluxo automático a cada push. A hospedagem do OpenBot não serve (limite de 20 arquivos, 2 MB e 30 dias de validade). Vercel e Cloudflare Pages dariam um endereço mais curto, mas pedem login que não estava salvo.
 
 Bug encontrado pelo teste de imagens: duas capas da Wikipédia tinham sido salvas vazias quando o Wikimedia limitou os pedidos (429). O montador agora recusa imagem vazia e as capas foram baixadas direto do `upload.wikimedia.org`.
+
+## 18. Rodada de 19/11/2026, tarde
+
+Pedidos do Isaac e o que foi feito:
+
+- **Canivete:** o rótulo da seção atual não cobre mais o da lâmina sob o mouse. No tema claro o cabo é preto e vermelho, e o logo ganhou contorno.
+- **Espaçamento maior** entre itens, grupos e seções.
+- **Visualização por abas, opcional**, com o botão Abas.
+- **Ferramentas:** temporizador com tempo personalizado, foco com tempos e ciclos personalizáveis, botão Expandir (modo foco) em cada uma, etiqueta "offline" removida, som opcional e desligado por padrão. Novas: Quanto tempo (partes opcionais), conversor de texto, conversor de unidades, calculadora, regra de 3, sorteio de nomes, número aleatório, roleta e sim ou não. Relógio mundial, alarme e seletor de cor ficaram de fora, como pedido.
+- **Meus apps e Ferramentas** no topo. MoonDeck com o logo enviado.
+- **Hero** com os nove destaques e **rodapé** novo.
+- **Mods** num grupo só; Minecraft em abas (Launchers, Mods, Resource packs, Shaders, Servidores).
+- **Krita** em Desenhar.
+- **Itens novos:** RealtimeColors, Bitwarden, 1Password, Proton Mail, DuckDuckGo, Cloudflare 1.1.1.1, VirusTotal, Ninite, PDF24 Tools, ShareX, OBS Studio, 10 Minute Mail, Temp Mail, DeepL, smdownloader, VSCodium. Catálogo agora com 184 itens.
+
+Bugs que os testes acharam: erro de hidratação do React no zalgo (acaso diferente no servidor), lista de unidades rolável sem acesso por teclado e 2 px de rolagem horizontal no celular, causada pela grade do rodapé. Os três foram corrigidos.

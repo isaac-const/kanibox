@@ -1,7 +1,7 @@
 import raw from '../data/catalogo.json';
 import soonRaw from '../data/em-desenvolvimento.json';
 import { catalogSchema, type RawItem } from './schema';
-import { SECTIONS, GROUP_ORDER, COLLAPSED_GROUPS, TOOLS_SECTION_ID, type SectionDef } from './sections';
+import { SECTIONS, GROUP_ORDER, TOOLS_SECTION_ID, TOP_ORDER, type SectionDef } from './sections';
 import { norm, type IndexEntry } from './filter';
 
 /** Data do lote inicial do catálogo. Itens sem `added` entram com ela. */
@@ -42,7 +42,6 @@ export interface Group {
   key: string;
   name: string;
   view: GroupView;
-  collapsed: boolean;
   items: Item[];
 }
 
@@ -56,7 +55,7 @@ export function groupsOf(secId: number): Group[] {
   return names.map((name) => {
     const list = items.filter((i) => i.grp === name);
     const view: GroupView = list[0].kind === 'game' ? 'tiles' : list[0].kind === 'mc' ? 'mods' : 'list';
-    return { key: `${secId}|${name}`, name, view, collapsed: view === 'mods' && COLLAPSED_GROUPS.has(name), items: list };
+    return { key: `${secId}|${name}`, name, view, items: list };
   });
 }
 
@@ -72,6 +71,9 @@ export const FILTER_INDEX: IndexEntry[] = ITEMS.map((i) => ({
   ...(i.soon ? { n: true } : {}),
   ...(i.loaders && i.loaders.length ? { ld: i.loaders } : {}),
 }));
+
+/** Destaques do topo, na ordem escolhida pelo Isaac. */
+export const TOP_ITEMS: Item[] = TOP_ORDER.map((n) => ITEMS.find((i) => i.name === n && !i.soon)).filter((i): i is Item => Boolean(i));
 
 export const countIn = (secId: number) => ITEMS.filter((i) => i.sec === secId).length;
 

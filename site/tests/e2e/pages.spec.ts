@@ -94,6 +94,29 @@ test.describe('acessibilidade (axe, WCAG 2 A e AA)', () => {
     }
   });
 
+  test('as ferramentas, uma aba por vez e no modo foco', async ({ page }) => {
+    await page.goto('/');
+    await page.locator('#s12').scrollIntoViewIfNeeded();
+    await page.waitForSelector('astro-island:not([ssr])', { state: 'attached' });
+    for (const t of ['tempo', 'texto', 'calculo', 'sorteio']) {
+      await page.locator(`#tt-${t}`).click();
+      const r = await new AxeBuilder({ page }).include('#s12').withTags(['wcag2a', 'wcag2aa']).analyze();
+      expect(r.violations.map((v) => `${t} ${v.id}: ${v.nodes[0]?.target?.join(' ')} | ${v.nodes[0]?.failureSummary?.split('\n')[1] ?? ''}`)).toEqual([]);
+    }
+    await page.locator('#tt-tempo').click();
+    await page.locator('#t-timer .expand').click();
+    const r = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa']).analyze();
+    expect(r.violations.map((v) => `foco ${v.id}: ${v.nodes[0]?.target?.join(' ')}`)).toEqual([]);
+  });
+
+  test('com abas ligadas e filtros abertos', async ({ page }) => {
+    await page.goto('/');
+    await page.locator('#viewBtn').click();
+    await page.locator('.fchip[data-f="tipo"]').click();
+    const r = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa']).analyze();
+    expect(r.violations.map((v) => `${v.id}: ${v.nodes[0]?.target?.join(' ')}`)).toEqual([]);
+  });
+
   test('com filtros abertos e mods expandidos', async ({ page }) => {
     await page.goto('/');
     await page.locator('.ldbar [data-ld="neoforge"]').click();

@@ -9,7 +9,7 @@ Como ler as colunas:
 - **Plataformas** dos jogos vêm da Steam. As dos demais itens são de conhecimento geral meu, a conferir.
 - Campo vazio quer dizer que ninguém confirmou. Nada foi inventado.
 
-## 1 · Navegar (10)
+## 1 · Navegar (18)
 
 ### Navegadores (3)
 
@@ -27,21 +27,39 @@ Como ler as colunas:
 | ColorZilla | colorzilla.com | Extensão | Linux, Windows, macOS | Grátis (definido por mim, a conferir) | ok |
 | StayFocusd | chromewebstore.google.com | Extensão | Linux, Windows, macOS | Grátis (definido por mim, a conferir) | ok |
 
-### VPNs (3)
+### Segurança (4)
 
 | Nome | Link | Tipo | Plataformas | Licença (fonte) | Site |
 |---|---|---|---|---|---|
+| Bitwarden | bitwarden.com | Gerenciador de senhas | Linux, Windows, macOS, Android, iOS, Web | Código aberto (definido por mim, a conferir) | ok |
+| 1Password | 1password.com | Gerenciador de senhas | Linux, Windows, macOS, Android, iOS, Web | Pago (definido por mim, a conferir) | ok |
+| VirusTotal | virustotal.com | Análise de arquivos e links | Web | Grátis (definido por mim, a conferir) | ok |
+| Have I Been Pwned | haveibeenpwned.com | Vazamento de dados | Web | Grátis (definido por mim, a conferir) | ok |
+
+### Busca (1)
+
+| Nome | Link | Tipo | Plataformas | Licença (fonte) | Site |
+|---|---|---|---|---|---|
+| DuckDuckGo | duckduckgo.com | Buscador | Web, Android, iOS | Grátis (definido por mim, a conferir) | ok |
+
+### E-mail (3)
+
+| Nome | Link | Tipo | Plataformas | Licença (fonte) | Site |
+|---|---|---|---|---|---|
+| Proton Mail | proton.me | E-mail | Web, Android, iOS, Linux, Windows, macOS | Freemium (definido por mim, a conferir) | ok |
+| 10 Minute Mail | 10minutemail.com | E-mail temporário | Web | Grátis (definido por mim, a conferir) | bloqueia robô |
+| Temp Mail | temp-mail.org | E-mail temporário | Web, Android, iOS | Freemium (definido por mim, a conferir) | ok |
+
+### VPNs (4)
+
+| Nome | Link | Tipo | Plataformas | Licença (fonte) | Site |
+|---|---|---|---|---|---|
+| Cloudflare 1.1.1.1 | one.one.one.one | DNS e VPN | Linux, Windows, macOS, Android, iOS | Grátis (definido por mim, a conferir) | ok |
 | Proton VPN | protonvpn.com | VPN | Linux, Windows, macOS, Android, iOS | Freemium (definido por mim, a conferir) | ok |
 | NordVPN | nordvpn.com | VPN | Linux, Windows, macOS, Android, iOS | Pago (definido por mim, a conferir) | bloqueia robô |
 | Mullvad VPN | mullvad.net | VPN | Linux, Windows, macOS, Android, iOS | Pago (definido por mim, a conferir) | ok |
 
-### Segurança (1)
-
-| Nome | Link | Tipo | Plataformas | Licença (fonte) | Site |
-|---|---|---|---|---|---|
-| Have I Been Pwned | haveibeenpwned.com | Vazamento de dados | Web | Grátis (definido por mim, a conferir) | ok |
-
-## 2 · IA (7)
+## 2 · IA (8)
 
 ### Chats (4)
 
@@ -60,14 +78,19 @@ Como ler as colunas:
 | Meta AI · via FMHY | meta.ai | Gerador de imagem | Web | Grátis (definido por mim, a conferir) | bloqueia robô |
 | Bing Create · via FMHY | bing.com | Gerador de imagem | Web | Grátis (definido por mim, a conferir) | ok |
 
-## 3 · Criar (13)
+### Tradução (1)
 
-### Edição (3)
+| Nome | Link | Tipo | Plataformas | Licença (fonte) | Site |
+|---|---|---|---|---|---|
+| DeepL | deepl.com | Tradutor | Web, Windows, macOS, Android, iOS | Freemium (definido por mim, a conferir) | ok |
+
+## 3 · Criar (16)
+
+### Edição (2)
 
 | Nome | Link | Tipo | Plataformas | Licença (fonte) | Site |
 |---|---|---|---|---|---|
 | GIMP | gimp.org | Editor de imagem | Linux, Windows, macOS | Código aberto (definido por mim, a conferir) | ok |
-| Krita | krita.org | Pintura digital | Linux, Windows, macOS | Código aberto (definido por mim, a conferir) | ok |
 | ArtCraft | getartcraft.com | Suíte criativa | Linux, Windows, macOS, Web | Código aberto (definido por mim, a conferir) | ok |
 
 ### Fundo e vetor (2)
@@ -91,11 +114,25 @@ Como ler as colunas:
 | Audacity | audacityteam.org | Editor de áudio | Linux, Windows, macOS | Código aberto (definido por mim, a conferir) | ok |
 | LMMS | lmms.io | Produção musical | Linux, Windows, macOS | Código aberto (GitHub: GPL-2.0) | ok |
 
-### Desenhar (1)
+### Desenhar (2)
 
 | Nome | Link | Tipo | Plataformas | Licença (fonte) | Site |
 |---|---|---|---|---|---|
+| Krita | krita.org | Pintura digital | Linux, Windows, macOS | Código aberto (definido por mim, a conferir) | ok |
 | Excalidraw | excalidraw.com | Quadro branco | Web | Código aberto (GitHub: MIT) | ok |
+
+### Captura e vídeo (2)
+
+| Nome | Link | Tipo | Plataformas | Licença (fonte) | Site |
+|---|---|---|---|---|---|
+| ShareX | getsharex.com | Captura de tela | Windows | Código aberto (GitHub: GPL-3.0) | ok |
+| OBS Studio | obsproject.com | Gravação e transmissão | Linux, Windows, macOS | Código aberto (GitHub: GPL-2.0) | ok |
+
+### Cores (1)
+
+| Nome | Link | Tipo | Plataformas | Licença (fonte) | Site |
+|---|---|---|---|---|---|
+| Realtime Colors | realtimecolors.com | Paleta de cores | Web | Grátis (definido por mim, a conferir) | ok |
 
 ### Pixel art (3)
 
@@ -105,14 +142,16 @@ Como ler as colunas:
 | Novaboard | novaboard.app | Pixel art | Web | Grátis (definido por mim, a conferir) | ok |
 | LibreSprite | libresprite.github.io | Pixel art | Linux, Windows, macOS | Código aberto (GitHub: GPL-2.0) | ok |
 
-## 4 · Arquivos (9)
+## 4 · Arquivos (11)
 
-### Baixar e converter (3)
+### Baixar e converter (5)
 
 | Nome | Link | Tipo | Plataformas | Licença (fonte) | Site |
 |---|---|---|---|---|---|
 | Cobalt | cobalt.tools | Baixar mídia | Web | Código aberto (GitHub: AGPL-3.0) | ok |
 | SnapYT | snapyt.app | Baixar do YouTube | Web | Grátis (definido por mim, a conferir) | ok |
+| smdownloader | smdownloader.com | Baixar mídia | Web | Grátis (definido por mim, a conferir) | ok |
+| PDF24 Tools | tools.pdf24.org | PDF | Web, Windows | Grátis (definido por mim, a conferir) | ok |
 | transmute.sh | transmute.sh | Conversor |  |   | ok |
 
 ### Compactar (2)
@@ -131,7 +170,7 @@ Como ler as colunas:
 | WispFile | wispfile.com | Transferência | Web | Grátis (definido por mim, a conferir) | ok |
 | Litterbox | litterbox.catbox.moe | Hospedagem temporária | Web | Grátis (definido por mim, a conferir) | ok |
 
-## 5 · Produtividade (7)
+## 5 · Produtividade (8)
 
 ### Notas e tarefas (3)
 
@@ -140,6 +179,12 @@ Como ler as colunas:
 | Obsidian | obsidian.md | Notas | Linux, Windows, macOS, Android, iOS | Grátis (definido por mim, a conferir) | ok |
 | Tasks.org | tasks.org | Tarefas | Android | Código aberto (GitHub: GPL-3.0) | ok |
 | readme.so | readme.so | README | Web | Código aberto (GitHub: MIT) | ok |
+
+### Editor de código (1)
+
+| Nome | Link | Tipo | Plataformas | Licença (fonte) | Site |
+|---|---|---|---|---|---|
+| VSCodium | vscodium.com | Editor de código | Linux, Windows, macOS | Código aberto (GitHub: MIT) | ok |
 
 ### Foco (1)
 
@@ -171,7 +216,7 @@ Como ler as colunas:
 | Alacritty | alacritty.org | Terminal | Linux, Windows, macOS | Código aberto (GitHub: Apache-2.0) | ok |
 | Warp | warp.dev | Terminal | Linux, Windows, macOS | Freemium (definido por mim, a conferir) | ok |
 
-## 7 · Sistema (9)
+## 7 · Sistema (10)
 
 ### Distros Linux (6)
 
@@ -183,6 +228,12 @@ Como ler as colunas:
 | Debian | debian.org | Distro Linux | Linux | Código aberto (definido por mim, a conferir) | ok |
 | Linux Mint · para iniciantes | linuxmint.com | Distro Linux | Linux | Código aberto (definido por mim, a conferir) | ok |
 | Ubuntu · para iniciantes | ubuntu.com | Distro Linux | Linux | Código aberto (definido por mim, a conferir) | ok |
+
+### Windows (1)
+
+| Nome | Link | Tipo | Plataformas | Licença (fonte) | Site |
+|---|---|---|---|---|---|
+| Ninite | ninite.com | Instalador de apps | Windows | Freemium (definido por mim, a conferir) | ok |
 
 ### Android (3)
 
@@ -223,7 +274,33 @@ Como ler as colunas:
 | Prism Launcher | prismlauncher.org | Launcher | Linux, Windows, macOS | Código aberto (GitHub: GPL-3.0) | ok |
 | Modrinth App | modrinth.com | Launcher | Linux, Windows, macOS | Código aberto (definido por mim, a conferir) | ok |
 
-### Mods favoritos (29)
+### Resource packs (4)
+
+| Nome | Slug | Loaders | Licença (fonte) |
+|---|---|---|---|
+| Dark Coffee GUI | dark-coffe-gui |  | Grátis (Modrinth: LicenseRef-All-Rights-Reserved) |
+| Unique Dark | unique-dark |  | Grátis (Modrinth: LicenseRef-All-Rights-Reserved) |
+| New Glowing Ores | new-glowing-ores |  | Código aberto (Modrinth: CC-BY-NC-SA-4.0) |
+| Low on Fire | low-on-fire |  | Grátis (Modrinth: LicenseRef-All-Rights-Reserved) |
+
+### Shaders (2)
+
+| Nome | Slug | Loaders | Licença (fonte) |
+|---|---|---|---|
+| Complementary Unbound | complementary-unbound |  | Grátis (Modrinth: LicenseRef-Custom) |
+| Super Duper Vanilla | super-duper-vanilla |  | Código aberto (Modrinth: LicenseRef-FlameRender-TM-Studios-License) |
+
+### Servidores (5)
+
+| Nome | Link | Tipo | Plataformas | Licença (fonte) | Site |
+|---|---|---|---|---|---|
+| Hypixel | hypixel.net | Servidor |  | Freemium (definido por mim, a conferir) | ok |
+| Manacube | manacube.com | Servidor |  | Freemium (definido por mim, a conferir) | ok |
+| cobblemon.gg | cobblemon.gg | Servidor |  | Freemium (definido por mim, a conferir) | ok |
+| Complex Gaming | mc-complex.com | Servidor |  | Freemium (definido por mim, a conferir) | ok |
+| Dystoria Cobblemon | modrinth.com | Servidor |  | Freemium (definido por mim, a conferir) | ok |
+
+### Mods (43)
 
 | Nome | Slug | Loaders | Licença (fonte) |
 |---|---|---|---|
@@ -256,11 +333,6 @@ Como ler as colunas:
 | Alex's Caves | alexs-caves | forge, neoforge | Código aberto (Modrinth: LGPL-3.0-only) |
 | Artifacts | artifacts | fabric, forge, neoforge | Código aberto (Modrinth: MIT) |
 | Biomes O' Plenty | biomes-o-plenty | fabric, forge, neoforge | Grátis (Modrinth: LicenseRef-All-Rights-Reserved) |
-
-### Mods secundários (14)
-
-| Nome | Slug | Loaders | Licença (fonte) |
-|---|---|---|---|
 | Storage Drawers | storagedrawers | fabric, forge, neoforge | Código aberto (Modrinth: MIT) |
 | Supplementaries | supplementaries | fabric, forge, neoforge | Código aberto (Modrinth: LicenseRef-Supplementaries-Team-License) |
 | Explorer's Compass | explorers-compass | fabric, forge, neoforge | Código aberto (Modrinth: CC-BY-NC-SA-4.0) |
@@ -275,32 +347,6 @@ Como ler as colunas:
 | Iron's Spells 'n Spellbooks | irons-spells-n-spellbooks | forge, neoforge | Grátis (Modrinth: LicenseRef-All-Rights-Reserved) |
 | Chat Heads | chat-heads | fabric, forge, neoforge | Código aberto (Modrinth: MPL-2.0) |
 | Courier Owls | courier-owls |  |  () |
-
-### Resource packs (4)
-
-| Nome | Slug | Loaders | Licença (fonte) |
-|---|---|---|---|
-| Dark Coffee GUI | dark-coffe-gui |  | Grátis (Modrinth: LicenseRef-All-Rights-Reserved) |
-| Unique Dark | unique-dark |  | Grátis (Modrinth: LicenseRef-All-Rights-Reserved) |
-| New Glowing Ores | new-glowing-ores |  | Código aberto (Modrinth: CC-BY-NC-SA-4.0) |
-| Low on Fire | low-on-fire |  | Grátis (Modrinth: LicenseRef-All-Rights-Reserved) |
-
-### Shaders (2)
-
-| Nome | Slug | Loaders | Licença (fonte) |
-|---|---|---|---|
-| Complementary Unbound | complementary-unbound |  | Grátis (Modrinth: LicenseRef-Custom) |
-| Super Duper Vanilla | super-duper-vanilla |  | Código aberto (Modrinth: LicenseRef-FlameRender-TM-Studios-License) |
-
-### Servidores (5)
-
-| Nome | Link | Tipo | Plataformas | Licença (fonte) | Site |
-|---|---|---|---|---|---|
-| Hypixel | hypixel.net | Servidor |  | Freemium (definido por mim, a conferir) | ok |
-| Manacube | manacube.com | Servidor |  | Freemium (definido por mim, a conferir) | ok |
-| cobblemon.gg | cobblemon.gg | Servidor |  | Freemium (definido por mim, a conferir) | ok |
-| Complex Gaming | mc-complex.com | Servidor |  | Freemium (definido por mim, a conferir) | ok |
-| Dystoria Cobblemon | modrinth.com | Servidor |  | Freemium (definido por mim, a conferir) | ok |
 
 ## 10 · Jogos (37)
 

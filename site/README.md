@@ -1,6 +1,6 @@
 # KaniBox · site
 
-Diretório pessoal de ferramentas, apps e jogos que o Isaac usa e recomenda. Astro, TypeScript e uma ilha React só para as ferramentas de tempo.
+Diretório pessoal de ferramentas, apps e jogos que o Isaac usa e recomenda, com 12 mini ferramentas. Astro, TypeScript e uma ilha React só para as ferramentas.
 
 ## Comandos
 
@@ -38,11 +38,31 @@ Apps em desenvolvimento ficam em `src/data/em-desenvolvimento.json` e não entra
 - Fontes em WOFF2 reduzidas, imagens e ícones hospedados pelo próprio site.
 - O temporizador e o foco tocam um sino de 3 a 4 notas feito com Web Audio (sem arquivo de áudio). O som pode ser desligado e a escolha fica salva.
 
+## Interface
+
+- **Topo:** hero com os destaques do Isaac (CachyOS, VSCodium, Godot, Krita, Claude, DeepSeek, Obsidian, Ghostty, Prism Launcher), depois Meus apps e Ferramentas, e só então as outras seções.
+- **Abas opcionais:** o botão "Abas" no cabeçalho mostra uma seção por vez. A escolha fica salva. Sem JavaScript tudo continua em lista.
+- **Minecraft:** os mods são um grupo só, em abas com Launchers, Resource packs, Shaders e Servidores.
+- **Canivete:** cabo creme e vermelho no escuro, preto e vermelho no claro, com contorno. Com o mouse em uma lâmina, o rótulo da seção atual some para não cobrir o novo.
+- **Rodapé** com a faixa de kanikama, links e critério.
+
+## Ferramentas
+
+Quatro abas, doze ferramentas, todas no navegador e sem conta. Cada uma tem o botão Expandir, que ocupa a tela toda (modo foco) e fecha com Esc.
+
+- **Tempo:** temporizador (horas, minutos e segundos à escolha), cronômetro com voltas, foco pomodoro (tempos e ciclos personalizáveis) e "Quanto tempo", que aceita só as partes que importam (só o mês, só o dia, só a hora, ou a data exata) e mostra anos, meses, dias, horas, minutos e segundos, ao vivo.
+- **Texto:** 18 estilos (versalete, pequenas, subscrito, invertido, espelhado, de cabeça para baixo, riscado, sublinhado, leet, zalgo, gótico, cursivo, negrito, itálico, contorno duplo, monoespaçado, círculos, largo), com botão de copiar.
+- **Cálculo:** calculadora (analisador próprio, sem eval), conversor com 12 grandezas e regra de 3 direta e inversa.
+- **Sorteio:** nomes (sem repetir, se quiser), número aleatório (intervalo, quantidade, sem repetição, decimais), roleta e sim ou não. O acaso vem do `crypto`.
+- **Som:** só toca se o Isaac ligar, e cada ferramenta (temporizador e foco) tem o seu botão. Começa desligado. Sino feito com Web Audio, sem arquivo de áudio.
+
+A lógica fica em `src/lib/tools/` como funções puras, com testes.
+
 ## Testes
 
-- 40 unitários: integridade dos dados (esquema, ids únicos, arquivos de imagem existentes, 140 itens públicos, 13 jogos, contagens de loader), lógica de filtro e formato de data.
-- 96 de ponta a ponta (48 em desktop e 48 em celular): busca, filtros e combinações, estado na URL, mods e loader, canivete, tema e padrão do sistema, ferramentas com relógio simulado (fim do temporizador, ciclos do pomodoro, cronômetro) e o som (conta os osciladores do Web Audio, mudo lembrado ao recarregar), links externos, imagens, página sem JavaScript, RSS e 404.
-- Acessibilidade com axe (WCAG 2 A e AA) no início nos dois temas, nas páginas de texto e com filtros abertos.
+- 76 unitários: integridade dos dados, filtro e as ferramentas (contagem com partes opcionais, estilos de texto com os exemplos do Isaac, unidades, calculadora, regra de 3 e sorteios).
+- 184 de ponta a ponta (92 em desktop e 92 em celular): busca, filtros, abas, Minecraft, canivete (inclusive o rótulo e as cores), temas, rodapé, todas as ferramentas com relógio simulado, som (conta os osciladores do Web Audio), links, imagens, página sem JavaScript, RSS e 404.
+- Acessibilidade com axe (WCAG 2 A e AA) nos dois temas, nas ferramentas de cada aba e no modo foco.
 
 ## Publicar
 

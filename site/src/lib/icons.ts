@@ -18,5 +18,6 @@ export const ICONS: Record<string, string> = {
   close: '<path d="M6 6l12 12M18 6L6 18"/>',
   theme: '<circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17a8.5 8.5 0 000-17z" fill="currentColor"/>',
   arrow: '<path d="M7 17L17 7M8 7h9v9"/>',
+  tabs: '<rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3 10h18M9 5v5"/>',
   chev: '<path d="M3.5 6l4.5 4.5L12.5 6"/>',
 };

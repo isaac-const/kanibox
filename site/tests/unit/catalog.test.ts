@@ -1,16 +1,16 @@
 import { describe, expect, it } from 'vitest';
 import { existsSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { ITEMS, TOTAL, FILTER_INDEX, groupsOf, batches, INITIAL_BATCH } from '../../src/lib/catalog';
+import { ITEMS, TOTAL, FILTER_INDEX, TOP_ITEMS, groupsOf, batches, INITIAL_BATCH } from '../../src/lib/catalog';
 import { SECTIONS, TOOLS_SECTION_ID } from '../../src/lib/sections';
 import { optionsFor, apply, emptyState } from '../../src/lib/filter';
 
 const pub = (...p: string[]) => resolve(__dirname, '../../public', ...p);
 
 describe('integridade do catálogo', () => {
-  it('passa pelo esquema (o import já valida) e tem os 168 itens públicos', () => {
-    expect(TOTAL).toBe(168);
-    expect(ITEMS.length).toBe(170); // + Grimo Notes e Kita Finances em desenvolvimento
+  it('passa pelo esquema (o import já valida) e tem os 184 itens públicos', () => {
+    expect(TOTAL).toBe(184);
+    expect(ITEMS.length).toBe(186); // + Grimo Notes e Kita Finances em desenvolvimento
   });
 
   it('ids únicos', () => {
@@ -86,12 +86,21 @@ describe('integridade do catálogo', () => {
 });
 
 describe('grupos', () => {
-  it('Minecraft: ordem definida e mods recolhidos', () => {
+  it('Minecraft: ordem definida e todos os mods num grupo só', () => {
     const g = groupsOf(9);
-    expect(g.map((x) => x.name)).toEqual(['Launchers', 'Mods favoritos', 'Mods secundários', 'Resource packs', 'Shaders', 'Servidores']);
-    expect(g.filter((x) => x.collapsed).map((x) => x.name)).toEqual(['Mods favoritos', 'Mods secundários']);
-    expect(g.find((x) => x.name === 'Mods favoritos')!.items.length).toBe(29);
-    expect(g.find((x) => x.name === 'Mods secundários')!.items.length).toBe(14);
+    expect(g.map((x) => x.name)).toEqual(['Launchers', 'Mods', 'Resource packs', 'Shaders', 'Servidores']);
+    expect(g.find((x) => x.name === 'Mods')!.items.length).toBe(43);
+    expect(g.find((x) => x.name === 'Mods')!.items.map((i) => i.name)).toContain('Courier Owls');
+  });
+
+  it('Krita fica em Desenhar e os destaques existem na ordem pedida', () => {
+    expect(ITEMS.find((i) => i.name === 'Krita')!.grp).toBe('Desenhar');
+    expect(TOP_ITEMS.map((i) => i.name)).toEqual(['CachyOS', 'VSCodium', 'Godot', 'Krita', 'Claude', 'DeepSeek', 'Obsidian', 'Ghostty', 'Prism Launcher']);
+  });
+
+  it('Meus apps e Ferramentas vêm primeiro, e o MoonDeck usa o logo próprio', () => {
+    expect(SECTIONS.slice(0, 2).map((x) => x.title)).toEqual(['Meus apps', 'Ferramentas']);
+    expect(ITEMS.find((i) => i.name === 'MoonDeck')!.icon).toBe('moondeck.png');
   });
 
   it('Jogos: galeria primeiro', () => {
@@ -126,7 +135,7 @@ describe('contra os dados reais', () => {
   });
 
   it('NeoForge: 40 de 42 mods; Fabric: 6 ficam de fora', () => {
-    const mods = FILTER_INDEX.filter((e) => e.ld && (e.g === 'Mods favoritos' || e.g === 'Mods secundários'));
+    const mods = FILTER_INDEX.filter((e) => e.ld && e.g === 'Mods');
     expect(mods.length).toBe(42);
     expect(mods.filter((m) => !m.ld!.includes('neoforge')).length).toBe(2);
     expect(mods.filter((m) => !m.ld!.includes('fabric')).length).toBe(6);

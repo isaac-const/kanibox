@@ -14,6 +14,14 @@ T = [
  (1,"Extensões","uBlock Origin","https://ublockorigin.com","Extensão",[L,W,M,A],OPEN,dict(gh="gorhill/uBlock")),
  (1,"Extensões","ColorZilla","https://www.colorzilla.com","Extensão",[L,W,M],FREE,{}),
  (1,"Extensões","StayFocusd","https://chromewebstore.google.com/detail/stayfocusd-block-distrac/laankejkbhbdhmipfmgcngdelahlfoji","Extensão",[L,W,M],FREE,dict(icon="chromewebstore.google.com",mono=True)),
+ (1,"Segurança","Bitwarden","https://bitwarden.com","Gerenciador de senhas",[L,W,M,A,I,B],OPEN,{}),
+ (1,"Segurança","1Password","https://1password.com","Gerenciador de senhas",[L,W,M,A,I,B],PAID,{}),
+ (1,"Segurança","VirusTotal","https://www.virustotal.com","Análise de arquivos e links",[B],FREE,{}),
+ (1,"Busca","DuckDuckGo","https://duckduckgo.com","Buscador",[B,A,I],FREE,{}),
+ (1,"E-mail","Proton Mail","https://proton.me/mail","E-mail",[B,A,I,L,W,M],FREEM,{}),
+ (1,"E-mail","10 Minute Mail","https://10minutemail.com","E-mail temporário",[B],FREE,{}),
+ (1,"E-mail","Temp Mail","https://temp-mail.org","E-mail temporário",[B,A,I],FREEM,{}),
+ (1,"VPNs","Cloudflare 1.1.1.1","https://one.one.one.one","DNS e VPN",[L,W,M,A,I],FREE,dict(icon="one.one.one.one")),
  (1,"VPNs","Proton VPN","https://protonvpn.com","VPN",[L,W,M,A,I],FREEM,{}),
  (1,"VPNs","NordVPN","https://nordvpn.com","VPN",[L,W,M,A,I],PAID,{}),
  (1,"VPNs","Mullvad VPN","https://mullvad.net","VPN",[L,W,M,A,I],PAID,{}),
@@ -26,9 +34,9 @@ T = [
  (2,"Geradores de imagem","Gemini","https://gemini.google.com","Gerador de imagem",[B,A,I],FREEM,dict(via="FMHY")),
  (2,"Geradores de imagem","Meta AI","https://www.meta.ai","Gerador de imagem",[B],FREE,dict(via="FMHY")),
  (2,"Geradores de imagem","Bing Create","https://www.bing.com/images/create","Gerador de imagem",[B],FREE,dict(via="FMHY")),
+ (2,"Tradução","DeepL","https://www.deepl.com","Tradutor",[B,W,M,A,I],FREEM,{}),
  # 3 Criar
  (3,"Edição","GIMP","https://www.gimp.org","Editor de imagem",[L,W,M],OPEN,dict(mono=True)),
- (3,"Edição","Krita","https://krita.org","Pintura digital",[L,W,M],OPEN,{}),
  (3,"Edição","ArtCraft","https://getartcraft.com","Suíte criativa",[L,W,M,B],OPEN,{}),
  (3,"Fundo e vetor","BGClear","https://www.bgclear.ai","Remover fundo",[B],FREE,{}),
  (3,"Fundo e vetor","Vectorizer","https://vectorizer.kiwi/pt","Vetorizar imagem",[B],FREE,{}),
@@ -36,13 +44,19 @@ T = [
  (3,"3D e jogos","Godot","https://godotengine.org","Motor de jogos",[L,W,M],OPEN,dict(gh="godotengine/godot")),
  (3,"Áudio","Audacity","https://www.audacityteam.org","Editor de áudio",[L,W,M],OPEN,dict(gh="audacity/audacity")),
  (3,"Áudio","LMMS","https://lmms.io","Produção musical",[L,W,M],OPEN,dict(gh="LMMS/lmms")),
+ (3,"Desenhar","Krita","https://krita.org","Pintura digital",[L,W,M],OPEN,{}),
  (3,"Desenhar","Excalidraw","https://excalidraw.com","Quadro branco",[B],OPEN,dict(gh="excalidraw/excalidraw")),
+ (3,"Captura e vídeo","ShareX","https://getsharex.com","Captura de tela",[W],OPEN,dict(gh="ShareX/ShareX")),
+ (3,"Captura e vídeo","OBS Studio","https://obsproject.com","Gravação e transmissão",[L,W,M],OPEN,dict(gh="obsproject/obs-studio")),
+ (3,"Cores","Realtime Colors","https://www.realtimecolors.com","Paleta de cores",[B],FREE,dict(icon="realtimecolors.com")),
  (3,"Pixel art","Pixelorama","https://orama-interactive.itch.io/pixelorama","Pixel art",[L,W,M,B],OPEN,dict(gh="Orama-Interactive/Pixelorama",icon="pixelorama.org")),
  (3,"Pixel art","Novaboard","https://novaboard.app","Pixel art",[B],FREE,{}),
  (3,"Pixel art","LibreSprite","https://libresprite.github.io","Pixel art",[L,W,M],OPEN,dict(gh="LibreSprite/LibreSprite")),
  # 4 Arquivos
  (4,"Baixar e converter","Cobalt","https://cobalt.tools","Baixar mídia",[B],OPEN,dict(gh="imputnet/cobalt")),
  (4,"Baixar e converter","SnapYT","https://www.snapyt.app","Baixar do YouTube",[B],FREE,{}),
+ (4,"Baixar e converter","smdownloader","https://www.smdownloader.com","Baixar mídia",[B],FREE,{}),
+ (4,"Baixar e converter","PDF24 Tools","https://tools.pdf24.org","PDF",[B,W],FREE,{}),
  (4,"Baixar e converter","transmute.sh","https://transmute.sh","Conversor",[],"",{}),
  (4,"Compactar","7-Zip","https://7-zip.org","Compactador",[W,L],OPEN,dict(gh="ip7z/7zip")),
  (4,"Compactar","PeaZip","https://peazip.github.io","Compactador",[L,W],OPEN,dict(gh="peazip/PeaZip")),
@@ -54,6 +68,7 @@ T = [
  (5,"Notas e tarefas","Obsidian","https://obsidian.md","Notas",[L,W,M,A,I],FREE,{}),
  (5,"Notas e tarefas","Tasks.org","https://tasks.org","Tarefas",[A],OPEN,dict(gh="tasks/tasks")),
  (5,"Notas e tarefas","readme.so","https://readme.so","README",[B],OPEN,dict(gh="octokatherine/readme.so")),
+ (5,"Editor de código","VSCodium","https://vscodium.com","Editor de código",[L,W,M],OPEN,dict(gh="VSCodium/vscodium")),
  (5,"Foco","Pomofocus","https://pomofocus.io","Pomodoro",[B],FREEM,{}),
  (5,"Utilidades","QRPine","https://qrpine.com","Gerador de QR code",[B],FREEM,{}),
  (5,"Utilidades","MeuPC.net","https://meupc.net","Montar PC",[B],"",{}),
@@ -70,6 +85,7 @@ T = [
  (7,"Distros Linux","Debian","https://www.debian.org","Distro Linux",[L],OPEN,{}),
  (7,"Distros Linux","Linux Mint","https://linuxmint.com","Distro Linux",[L],OPEN,dict(ini=True)),
  (7,"Distros Linux","Ubuntu","https://ubuntu.com","Distro Linux",[L],OPEN,dict(ini=True)),
+ (7,"Windows","Ninite","https://ninite.com","Instalador de apps",[W],FREEM,{}),
  (7,"Android","Gboard","https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin","Teclado",[A],FREE,dict(mono=True)),
  (7,"Android","FlorisBoard","https://florisboard.org","Teclado",[A],OPEN,dict(gh="florisboard/florisboard")),
  (7,"Android","F-Droid","https://f-droid.org","Loja de apps",[A],OPEN,{}),
@@ -115,7 +131,7 @@ T = [
  (10,"Curiosidades","neal.fun","https://neal.fun","Curiosidades",[B],FREE,{}),
  (10,"Curiosidades","Akinator","https://www.akinator.com","Jogo online",[B,A,I],FREEM,{}),
  # 13 Meus apps
- (13,"Meus apps","MoonDeck","https://github.com/isaac-const/Moondeck","App meu",[L,W,M],OPEN,dict(gh="isaac-const/Moondeck",mono=True)),
+ (13,"Meus apps","MoonDeck","https://github.com/isaac-const/Moondeck","App meu",[L,W,M],OPEN,dict(gh="isaac-const/Moondeck",local_icon="moondeck.png")),
 ]
 
 # Jogos que o Isaac gosta, na ordem de exibição (Deltarune primeiro).
@@ -148,7 +164,7 @@ GAMES = [
 
 # Courier Owls: só existe no CurseForge (a página bloqueia robô, então loaders e ícone ficam sem confirmar).
 EXTRA_MC = [
- dict(grp="Mods secundários", name="Courier Owls", url="https://www.curseforge.com/minecraft/mc-mods/courier-owls", host="curseforge.com"),
+ dict(grp="Mods", name="Courier Owls", url="https://www.curseforge.com/minecraft/mc-mods/courier-owls", host="curseforge.com"),
 ]
 
 # Descrição breve em português, no lugar do "por que uso". Só fatos genéricos sobre cada item.
@@ -301,3 +317,27 @@ DESC = {
  "Complementary Unbound":"Shaders populares, equilibrados e personalizáveis.",
  "Super Duper Vanilla":"Shaders leves que mantêm o visual vanilla.",
 }
+
+# Os que o Isaac mais usa, na ordem de exibição no topo do site.
+TOP = ["CachyOS", "VSCodium", "Godot", "Krita", "Claude", "DeepSeek", "Obsidian", "Ghostty", "Prism Launcher"]
+
+DESC.update({
+ "Bitwarden":"Gerenciador de senhas de código aberto.",
+ "1Password":"Gerenciador de senhas pago.",
+ "VirusTotal":"Analisa arquivos e links com dezenas de antivírus.",
+ "DuckDuckGo":"Buscador que não rastreia suas buscas.",
+ "Proton Mail":"E-mail criptografado da Proton, com plano grátis.",
+ "10 Minute Mail":"E-mail temporário que expira em 10 minutos.",
+ "Temp Mail":"E-mail descartável para cadastros.",
+ "Cloudflare 1.1.1.1":"DNS rápido e privado da Cloudflare, com app de VPN (WARP).",
+ "DeepL":"Tradutor com tradução natural, com plano grátis.",
+ "ShareX":"Captura de tela e gravação para Windows, de código aberto.",
+ "OBS Studio":"Grava e transmite vídeo, de código aberto.",
+ "Realtime Colors":"Testa paletas de cores em um site de exemplo, em tempo real.",
+ "smdownloader":"Baixa vídeos de redes sociais.",
+ "PDF24 Tools":"Ferramentas para juntar, dividir e converter PDF.",
+ "VSCodium":"Build livre do VS Code, sem telemetria.",
+ "Ninite":"Instala vários programas de uma vez no Windows.",
+ "Krita":"Programa livre de pintura e ilustração digital.",
+})
+DESC["Mods"] = ""

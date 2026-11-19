@@ -48,7 +48,9 @@ OPEN_SPDX = re.compile(r"^(MIT|Apache|GPL|AGPL|LGPL|MPL|BSD|ISC|Unlicense|CC0|BS
 for sec, grp, name, url, tipo, plat, lic, ex in T:
     it = dict(sec=sec, grp=grp, name=name, url=url, tipo=tipo, plat=plat, lic=lic, host=host(url),
               note=DESC.get(name, ex.get("note", "")), via=ex.get("via", ""), ini=bool(ex.get("ini")), icon_domain=ex.get("icon") or host(url),
-              mono=bool(ex.get("mono")), kind="item")
+              mono=bool(ex.get("mono")), kind="item", top=name in TOP)
+    if ex.get("local_icon"):
+        it["icon"] = ex["local_icon"]
     if ex.get("gh"):
         try:
             out = subprocess.run(["gh","api",f"repos/{ex['gh']}","--jq",".license.spdx_id + \"|\" + (.archived|tostring)"],
@@ -162,7 +164,7 @@ for tier, name, slug in MC:
             except Exception: icon_file = ""
     loaders = [l for l in p.get("loaders", []) if l in ("fabric", "forge", "neoforge", "quilt")]
     typ = {"fav": "Mod", "sec": "Mod", "pack": "Resource pack", "shader": "Shader"}[tier]
-    grp = {"fav": "Mods favoritos", "sec": "Mods secundários", "pack": "Resource packs", "shader": "Shaders"}[tier]
+    grp = {"fav": "Mods", "sec": "Mods", "pack": "Resource packs", "shader": "Shaders"}[tier]
     items.append(dict(sec=9, grp=grp, name=name, url=f"https://modrinth.com/{p['project_type']}/{slug}", tipo=typ,
                       plat=[], lic=OPEN if is_open else FREE, host="modrinth.com", note=DESC.get(name, p.get("description", "")), via="", ini=False,
                       icon_domain="", mono=False, kind="mc", loaders=loaders, mc_icon=icon_file, lic_src=f"Modrinth: {lic_id or 'sem licença'}"))
@@ -175,7 +177,7 @@ for e in EXTRA_MC:
 # favicons
 SEEN = {}
 for it in items:
-    if it["kind"] != "item" or it["mono"]:
+    if it["kind"] != "item" or it["mono"] or it.get("icon"):
         continue
     dom = it["icon_domain"]
     fn = re.sub(r"[^a-z0-9]+", "-", dom.lower()).strip("-") + ".png"

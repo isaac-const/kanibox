@@ -137,7 +137,7 @@ export function fromParams(p: URLSearchParams): { state: FilterState; loader: st
 }
 
 /** Palavras que fazem a seção Ferramentas aparecer na busca. */
-export const TOOLS_WORDS = /tempo|timer|cronometro|temporizador|foco|pomodoro|relogio|ferramenta/;
+export const TOOLS_WORDS = /tempo|timer|cronometro|temporizador|foco|pomodoro|ferramenta|sorteio|sortear|roleta|calculadora|conversor|unidade|regra|aleatorio|numero|texto|zalgo|versalete|quanto falta|contagem|data|sim ou nao/;
 export function toolsVisible(st: FilterState): boolean {
   if (filtersOn(st)) return false;
   return !st.q || TOOLS_WORDS.test(st.q);

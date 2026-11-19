@@ -31,6 +31,8 @@ export const itemSchema = z.object({
   /** de onde veio a licença: GitHub, Modrinth ou vazio (definida à mão) */
   lic_src: z.string().optional(),
   soon: z.boolean().optional(),
+  /** destaque: aparece no topo do site */
+  top: z.boolean().optional(),
   /** data de entrada no catálogo, AAAA-MM-DD */
   added: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
 });

@@ -59,7 +59,7 @@ const nav = [
         <div class="bar">
           <a class="logo" href={`${base}/`} aria-label="KaniBox, início">
             <svg viewBox="0 0 32 32" aria-hidden="true">
-              <rect x="2" y="12" width="20" height="10" rx="5" fill="#f6f0e6" />
+              <rect x="2" y="12" width="20" height="10" rx="5" fill="var(--knife-body)" stroke="var(--knife-edge)" stroke-width="1.2" />
               <path d="M2 17a5 5 0 015-5h10a5 5 0 015 5z" fill="var(--accent)" />
               <path d="M20 17L29 7" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" />
               <path d="M19 15L26 6" stroke="var(--muted)" stroke-width="3.2" stroke-linecap="round" opacity=".6" />
@@ -112,6 +112,10 @@ const nav = [
                   </button>
                 ))
               }
+              <button class="fchip view" id="viewBtn" type="button" aria-pressed="false" title="Mostrar uma seção por vez, em abas">
+                <Icon name="tabs" size={14} />
+                Abas
+              </button>
               <span class="sum">
                 <button class="clear" id="clear" type="button">Limpar filtros</button>
                 <span id="sum" aria-live="polite" />
@@ -130,13 +134,42 @@ const nav = [
     </main>
 
     <footer class="site">
-      <div class="wrap">
-        <div><b>KaniBox</b><br />Feito pelo Isaac, em Timon.</div>
-        <div><b>Critério</b><br />Só entra o que eu uso ou usaria.<br />Nenhum link é afiliado.</div>
-        <div>
-          <b>Mais</b><br />
-          <a href={`${base}/novidades`}>Novidades</a> · <a href={`${base}/sobre`}>Sobre</a> · <a href={`${base}/rss.xml`}>RSS</a>
+      <div class="stripe" aria-hidden="true"></div>
+      <div class="wrap foot-grid">
+        <div class="brand">
+          <a class="logo" href={`${base}/`} aria-label="KaniBox, início">
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+              <rect x="2" y="12" width="20" height="10" rx="5" fill="var(--knife-body)" stroke="var(--knife-edge)" stroke-width="1.2" />
+              <path d="M2 17a5 5 0 015-5h10a5 5 0 015 5z" fill="var(--accent)" />
+              <path d="M20 17L29 7" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" />
+              <path d="M19 15L26 6" stroke="var(--muted)" stroke-width="3.2" stroke-linecap="round" opacity=".6" />
+            </svg>
+            <span>Kani<b>Box</b></span>
+          </a>
+          <p>Ferramentas, apps e jogos que eu uso e recomendo.</p>
+          <p class="made">Feito pelo Isaac, em Timon, Maranhão.</p>
         </div>
+        <nav aria-label="Explorar">
+          <h2>Explorar</h2>
+          <a href={`${base}/#s13`}>Meus apps</a>
+          <a href={`${base}/#s12`}>Ferramentas</a>
+          <a href={`${base}/novidades`}>Novidades</a>
+          <a href={`${base}/sobre`}>Sobre</a>
+        </nav>
+        <nav aria-label="Links">
+          <h2>Links</h2>
+          <a href="https://github.com/isaac-const" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://github.com/isaac-const/kanibox" target="_blank" rel="noopener noreferrer">Código do site</a>
+          <a href={`${base}/rss.xml`}>Feed RSS</a>
+        </nav>
+        <div>
+          <h2>Critério</h2>
+          <p>Só entra o que eu uso ou usaria. Nenhum link é afiliado e não há anúncio.</p>
+        </div>
+      </div>
+      <div class="wrap legal">
+        <span>Marcas e imagens pertencem aos seus donos.</span>
+        <a href="#main">Voltar ao topo ↑</a>
       </div>
     </footer>
 

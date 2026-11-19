@@ -58,7 +58,7 @@ addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeThemes();
 });
 
-/* ───────── página inicial: busca, filtros, mods e canivete ───────── */
+/* ───────── página inicial: busca, filtros, abas, Minecraft e canivete ───────── */
 const idxEl = document.getElementById('idx');
 if (idxEl) initHome(JSON.parse(idxEl.textContent || '[]') as IndexEntry[]);
 
@@ -72,7 +72,7 @@ function initHome(index: IndexEntry[]) {
   $$('[data-id]').forEach((el) => byId.set(el.dataset.id!, el));
   const sections = $$('.sec');
   const groups = $$('[data-g]');
-  const mods = index.filter((e) => e.ld && (e.g === 'Mods favoritos' || e.g === 'Mods secundários'));
+  const mods = index.filter((e) => e.ld && e.g === 'Mods');
 
   const input = $<HTMLInputElement>('#q')!;
   const box = $('#searchBox')!;
@@ -81,13 +81,19 @@ function initHome(index: IndexEntry[]) {
   const clearBtn = $('#clear')!;
   const emptyEl = $('#empty')!;
   const ldsum = $('#ldsum');
+  const hero = $('#hero-top');
+  const viewBtn = $('#viewBtn')!;
+  const tabsbar = $('#tabsbar')!;
+  const subBtns = $$('[data-sub]');
 
   let { state, loader } = fromParams(new URLSearchParams(location.search));
   let rawQ = new URLSearchParams(location.search).get('q') ?? '';
   let openF: FilterField | null = null;
-  const manual = new Set<string>();
-  const auto = new Set<string>();
-  const pendingAuto = new Set<string>();
+  let view: 'list' | 'tabs' = 'list';
+  try { view = localStorage.getItem('kb-view') === 'tabs' ? 'tabs' : 'list'; } catch { /* sem armazenamento */ }
+  const hashId = Number(location.hash.match(/^#s(\d+)$/)?.[1]);
+  let activeTab = Number.isFinite(hashId) && hashId > 0 ? hashId : Number(sections[0].dataset.s);
+  let activeSub = subBtns.find((b) => b.getAttribute('aria-selected') === 'true')?.dataset.sub ?? '';
 
   /* --- desenho --- */
   function render() {
@@ -95,24 +101,26 @@ function initHome(index: IndexEntry[]) {
     const r = apply(index, state);
     for (const [id, el] of byId) el.hidden = !r.visible.has(id);
 
-    const forceOpen = act || loader !== 'todos';
     for (const g of groups) {
-      const key = g.dataset.g!;
-      const n = r.byGroup.get(key) ?? 0;
+      const n = r.byGroup.get(g.dataset.g!) ?? 0;
       g.hidden = n === 0;
       const c = $('[data-gcount]', g);
       if (c) c.textContent = String(n);
-      if (g instanceof HTMLDetailsElement) {
-        if (forceOpen && !g.open) {
-          pendingAuto.add(key);
-          auto.add(key);
-          g.open = true;
-        } else if (!forceOpen && auto.has(key) && !manual.has(key) && g.open) {
-          pendingAuto.add(key);
-          g.open = false;
-          auto.delete(key);
-        }
-      }
+    }
+
+    // abas do Minecraft: esconde as sem resultado e troca a ativa se ela esvaziou
+    subBtns.forEach((b) => {
+      const n = r.byGroup.get(b.dataset.sub!) ?? 0;
+      b.hidden = n === 0;
+      const c = $('[data-gcount]', b);
+      if (c) c.textContent = String(n);
+    });
+    if (subBtns.length && !(r.byGroup.get(activeSub) ?? 0)) {
+      activeSub = subBtns.find((b) => !b.hidden)?.dataset.sub ?? activeSub;
+    }
+    subBtns.forEach((b) => b.setAttribute('aria-selected', String(b.dataset.sub === activeSub)));
+    for (const g of groups) {
+      if (g.closest('[data-s="9"]')) g.classList.toggle('sub-off', g.dataset.g !== activeSub);
     }
 
     const tools = toolsVisible(state);
@@ -139,9 +147,10 @@ function initHome(index: IndexEntry[]) {
       $('b', chip)!.textContent = n ? String(n) : '';
     });
     box.classList.toggle('has', rawQ !== '');
+    if (hero) hero.hidden = act;
 
     paintLoader();
-    updateBlades();
+    applyView();
     syncUrl();
   }
 
@@ -167,6 +176,42 @@ function initHome(index: IndexEntry[]) {
     const qs = p.toString();
     history.replaceState(null, '', location.pathname + (qs ? `?${qs}` : '') + location.hash);
   }
+
+  /* --- visualização: lista (tudo numa página) ou abas (uma seção por vez) --- */
+  function applyView() {
+    const tabs = view === 'tabs';
+    document.documentElement.classList.toggle('view-tabs', tabs);
+    viewBtn.setAttribute('aria-pressed', String(tabs));
+    const visible = sections.filter((s) => !s.hidden);
+    if (!visible.some((s) => Number(s.dataset.s) === activeTab) && visible.length) activeTab = Number(visible[0].dataset.s);
+    sections.forEach((s) => s.classList.toggle('tab-off', tabs && Number(s.dataset.s) !== activeTab));
+    $$('[data-tab]', tabsbar).forEach((b) => {
+      const sec = document.getElementById(`s${b.dataset.tab}`);
+      b.hidden = !sec || sec.hidden;
+      b.setAttribute('aria-selected', String(tabs && Number(b.dataset.tab) === activeTab));
+    });
+    if (tabs) blades.forEach((b) => (Number(b.dataset.s) === activeTab ? b.setAttribute('aria-current', 'true') : b.removeAttribute('aria-current')));
+    updateBlades();
+  }
+  function setTab(id: number, scroll = true) {
+    activeTab = id;
+    applyView();
+    history.replaceState(null, '', location.pathname + location.search + `#s${id}`);
+    if (scroll) {
+      const top = tabsbar.getBoundingClientRect().top + scrollY - 130;
+      scrollTo({ top: Math.max(0, top), behavior: reducedMotion() ? 'auto' : 'smooth' });
+    }
+  }
+  const reducedMotion = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
+  viewBtn.addEventListener('click', () => {
+    view = view === 'tabs' ? 'list' : 'tabs';
+    try { localStorage.setItem('kb-view', view); } catch { /* sem armazenamento */ }
+    applyView();
+  });
+  tabsbar.addEventListener('click', (e) => {
+    const b = (e.target as HTMLElement).closest<HTMLElement>('[data-tab]');
+    if (b) setTab(Number(b.dataset.tab));
+  });
 
   /* --- busca --- */
   let timer: ReturnType<typeof setTimeout>;
@@ -213,15 +258,15 @@ function initHome(index: IndexEntry[]) {
     panel.style.top = `${r.bottom + 8}px`;
     panel.style.left = `${Math.max(12, Math.min(r.left, innerWidth - panel.offsetWidth - 12))}px`;
     panel.classList.add('on');
-    $$('.fchip').forEach((c) => c.setAttribute('aria-expanded', String(c === btn)));
+    $$('.fchip[data-f]').forEach((c) => c.setAttribute('aria-expanded', String(c === btn)));
   }
   function closePanel() {
     openF = null;
     panel.classList.remove('on');
-    $$('.fchip').forEach((c) => c.setAttribute('aria-expanded', 'false'));
+    $$('.fchip[data-f]').forEach((c) => c.setAttribute('aria-expanded', 'false'));
   }
   $('#filters')!.addEventListener('click', (e) => {
-    const chip = (e.target as HTMLElement).closest<HTMLElement>('.fchip');
+    const chip = (e.target as HTMLElement).closest<HTMLElement>('.fchip[data-f]');
     if (!chip) return;
     const f = chip.dataset.f as FilterField;
     openF === f ? closePanel() : openPanel(f, chip);
@@ -244,12 +289,11 @@ function initHome(index: IndexEntry[]) {
     if (e.key === 'Escape') closePanel();
   });
 
-  /* --- mods: recolher e loader --- */
-  $$<HTMLDetailsElement>('details[data-collapsible]').forEach((d) =>
-    d.addEventListener('toggle', () => {
-      const key = d.dataset.g!;
-      if (pendingAuto.delete(key)) return;
-      d.open ? manual.add(key) : manual.delete(key);
+  /* --- Minecraft: abas e loader --- */
+  subBtns.forEach((b) =>
+    b.addEventListener('click', () => {
+      activeSub = b.dataset.sub!;
+      render();
     })
   );
   $$('.ldbar [data-ld]').forEach((b) =>
@@ -279,10 +323,17 @@ function initHome(index: IndexEntry[]) {
     kd.classList.toggle('open', !fold);
     kh.setAttribute('aria-pressed', String(fold));
   });
+  blades.forEach((b) =>
+    b.addEventListener('click', (e) => {
+      if (view !== 'tabs') return;
+      e.preventDefault();
+      setTab(Number(b.dataset.s));
+    })
+  );
   const spy = new IntersectionObserver(
     (entries) =>
       entries.forEach((en) => {
-        if (!en.isIntersecting) return;
+        if (!en.isIntersecting || view === 'tabs') return;
         const id = (en.target as HTMLElement).dataset.s;
         blades.forEach((b) => (b.dataset.s === id ? b.setAttribute('aria-current', 'true') : b.removeAttribute('aria-current')));
       }),

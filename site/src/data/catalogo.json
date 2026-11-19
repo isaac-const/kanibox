@@ -18,6 +18,7 @@
   "icon_domain": "zen-browser.app",
   "mono": false,
   "kind": "item",
+  "top": false,
   "lic_src": "GitHub: MPL-2.0",
   "icon": "zen-browser-app.png",
   "http": 200
@@ -41,6 +42,7 @@
   "icon_domain": "helium.computer",
   "mono": false,
   "kind": "item",
+  "top": false,
   "lic_src": "GitHub: GPL-3.0",
   "icon": "helium-computer.png",
   "http": 200
@@ -66,6 +68,7 @@
   "icon_domain": "vivaldi.com",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "vivaldi-com.png",
   "http": 200
  },
@@ -89,6 +92,7 @@
   "icon_domain": "ublockorigin.com",
   "mono": false,
   "kind": "item",
+  "top": false,
   "lic_src": "GitHub: GPL-3.0",
   "icon": "ublockorigin-com.png",
   "http": 200
@@ -112,6 +116,7 @@
   "icon_domain": "colorzilla.com",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "colorzilla-com.png",
   "http": 200
  },
@@ -134,6 +139,198 @@
   "icon_domain": "chromewebstore.google.com",
   "mono": true,
   "kind": "item",
+  "top": false,
+  "http": 200
+ },
+ {
+  "sec": 1,
+  "grp": "Segurança",
+  "name": "Bitwarden",
+  "url": "https://bitwarden.com",
+  "tipo": "Gerenciador de senhas",
+  "plat": [
+   "Linux",
+   "Windows",
+   "macOS",
+   "Android",
+   "iOS",
+   "Web"
+  ],
+  "lic": "Código aberto",
+  "host": "bitwarden.com",
+  "note": "Gerenciador de senhas de código aberto.",
+  "via": "",
+  "ini": false,
+  "icon_domain": "bitwarden.com",
+  "mono": false,
+  "kind": "item",
+  "top": false,
+  "icon": "bitwarden-com.png",
+  "http": 200
+ },
+ {
+  "sec": 1,
+  "grp": "Segurança",
+  "name": "1Password",
+  "url": "https://1password.com",
+  "tipo": "Gerenciador de senhas",
+  "plat": [
+   "Linux",
+   "Windows",
+   "macOS",
+   "Android",
+   "iOS",
+   "Web"
+  ],
+  "lic": "Pago",
+  "host": "1password.com",
+  "note": "Gerenciador de senhas pago.",
+  "via": "",
+  "ini": false,
+  "icon_domain": "1password.com",
+  "mono": false,
+  "kind": "item",
+  "top": false,
+  "icon": "1password-com.png",
+  "http": 200
+ },
+ {
+  "sec": 1,
+  "grp": "Segurança",
+  "name": "VirusTotal",
+  "url": "https://www.virustotal.com",
+  "tipo": "Análise de arquivos e links",
+  "plat": [
+   "Web"
+  ],
+  "lic": "Grátis",
+  "host": "virustotal.com",
+  "note": "Analisa arquivos e links com dezenas de antivírus.",
+  "via": "",
+  "ini": false,
+  "icon_domain": "virustotal.com",
+  "mono": false,
+  "kind": "item",
+  "top": false,
+  "icon": "virustotal-com.png",
+  "http": 200
+ },
+ {
+  "sec": 1,
+  "grp": "Busca",
+  "name": "DuckDuckGo",
+  "url": "https://duckduckgo.com",
+  "tipo": "Buscador",
+  "plat": [
+   "Web",
+   "Android",
+   "iOS"
+  ],
+  "lic": "Grátis",
+  "host": "duckduckgo.com",
+  "note": "Buscador que não rastreia suas buscas.",
+  "via": "",
+  "ini": false,
+  "icon_domain": "duckduckgo.com",
+  "mono": false,
+  "kind": "item",
+  "top": false,
+  "icon": "duckduckgo-com.png",
+  "http": 200
+ },
+ {
+  "sec": 1,
+  "grp": "E-mail",
+  "name": "Proton Mail",
+  "url": "https://proton.me/mail",
+  "tipo": "E-mail",
+  "plat": [
+   "Web",
+   "Android",
+   "iOS",
+   "Linux",
+   "Windows",
+   "macOS"
+  ],
+  "lic": "Freemium",
+  "host": "proton.me",
+  "note": "E-mail criptografado da Proton, com plano grátis.",
+  "via": "",
+  "ini": false,
+  "icon_domain": "proton.me",
+  "mono": false,
+  "kind": "item",
+  "top": false,
+  "icon": "proton-me.png",
+  "http": 200
+ },
+ {
+  "sec": 1,
+  "grp": "E-mail",
+  "name": "10 Minute Mail",
+  "url": "https://10minutemail.com",
+  "tipo": "E-mail temporário",
+  "plat": [
+   "Web"
+  ],
+  "lic": "Grátis",
+  "host": "10minutemail.com",
+  "note": "E-mail temporário que expira em 10 minutos.",
+  "via": "",
+  "ini": false,
+  "icon_domain": "10minutemail.com",
+  "mono": false,
+  "kind": "item",
+  "top": false,
+  "icon": "10minutemail-com.png",
+  "http": 403
+ },
+ {
+  "sec": 1,
+  "grp": "E-mail",
+  "name": "Temp Mail",
+  "url": "https://temp-mail.org",
+  "tipo": "E-mail temporário",
+  "plat": [
+   "Web",
+   "Android",
+   "iOS"
+  ],
+  "lic": "Freemium",
+  "host": "temp-mail.org",
+  "note": "E-mail descartável para cadastros.",
+  "via": "",
+  "ini": false,
+  "icon_domain": "temp-mail.org",
+  "mono": false,
+  "kind": "item",
+  "top": false,
+  "icon": "temp-mail-org.png",
+  "http": 200
+ },
+ {
+  "sec": 1,
+  "grp": "VPNs",
+  "name": "Cloudflare 1.1.1.1",
+  "url": "https://one.one.one.one",
+  "tipo": "DNS e VPN",
+  "plat": [
+   "Linux",
+   "Windows",
+   "macOS",
+   "Android",
+   "iOS"
+  ],
+  "lic": "Grátis",
+  "host": "one.one.one.one",
+  "note": "DNS rápido e privado da Cloudflare, com app de VPN (WARP).",
+  "via": "",
+  "ini": false,
+  "icon_domain": "one.one.one.one",
+  "mono": false,
+  "kind": "item",
+  "top": false,
+  "icon": "one-one-one-one.png",
   "http": 200
  },
  {
@@ -157,6 +354,7 @@
   "icon_domain": "protonvpn.com",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "protonvpn-com.png",
   "http": 200
  },
@@ -181,6 +379,7 @@
   "icon_domain": "nordvpn.com",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "nordvpn-com.png",
   "http": 403
  },
@@ -205,6 +404,7 @@
   "icon_domain": "mullvad.net",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "mullvad-net.png",
   "http": 200
  },
@@ -225,6 +425,7 @@
   "icon_domain": "haveibeenpwned.com",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "haveibeenpwned-com.png",
   "http": 200
  },
@@ -247,6 +448,7 @@
   "icon_domain": "deepseek.com",
   "mono": false,
   "kind": "item",
+  "top": true,
   "icon": "deepseek-com.png",
   "http": 200
  },
@@ -271,6 +473,7 @@
   "icon_domain": "claude.com",
   "mono": false,
   "kind": "item",
+  "top": true,
   "icon": "claude-com.png",
   "http": 200
  },
@@ -291,6 +494,7 @@
   "icon_domain": "chat.z.ai",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "chat-z-ai.png",
   "http": 200
  },
@@ -313,6 +517,7 @@
   "icon_domain": "chat.qwen.ai",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "chat-qwen-ai.png",
   "http": 200
  },
@@ -335,6 +540,7 @@
   "icon_domain": "gemini.google.com",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "gemini-google-com.png",
   "http": 200
  },
@@ -355,6 +561,7 @@
   "icon_domain": "meta.ai",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "meta-ai.png",
   "http": 403
  },
@@ -375,7 +582,33 @@
   "icon_domain": "bing.com",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "bing-com.png",
+  "http": 200
+ },
+ {
+  "sec": 2,
+  "grp": "Tradução",
+  "name": "DeepL",
+  "url": "https://www.deepl.com",
+  "tipo": "Tradutor",
+  "plat": [
+   "Web",
+   "Windows",
+   "macOS",
+   "Android",
+   "iOS"
+  ],
+  "lic": "Freemium",
+  "host": "deepl.com",
+  "note": "Tradutor com tradução natural, com plano grátis.",
+  "via": "",
+  "ini": false,
+  "icon_domain": "deepl.com",
+  "mono": false,
+  "kind": "item",
+  "top": false,
+  "icon": "deepl-com.png",
   "http": 200
  },
  {
@@ -397,28 +630,7 @@
   "icon_domain": "gimp.org",
   "mono": true,
   "kind": "item",
-  "http": 200
- },
- {
-  "sec": 3,
-  "grp": "Edição",
-  "name": "Krita",
-  "url": "https://krita.org",
-  "tipo": "Pintura digital",
-  "plat": [
-   "Linux",
-   "Windows",
-   "macOS"
-  ],
-  "lic": "Código aberto",
-  "host": "krita.org",
-  "note": "Programa livre de pintura e ilustração digital.",
-  "via": "",
-  "ini": false,
-  "icon_domain": "krita.org",
-  "mono": false,
-  "kind": "item",
-  "icon": "krita-org.png",
+  "top": false,
   "http": 200
  },
  {
@@ -441,6 +653,7 @@
   "icon_domain": "getartcraft.com",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "getartcraft-com.png",
   "http": 200
  },
@@ -461,6 +674,7 @@
   "icon_domain": "bgclear.ai",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "bgclear-ai.png",
   "http": 200
  },
@@ -481,6 +695,7 @@
   "icon_domain": "vectorizer.kiwi",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "vectorizer-kiwi.png",
   "http": 200
  },
@@ -503,6 +718,7 @@
   "icon_domain": "blender.org",
   "mono": true,
   "kind": "item",
+  "top": false,
   "http": 403
  },
  {
@@ -524,6 +740,7 @@
   "icon_domain": "godotengine.org",
   "mono": false,
   "kind": "item",
+  "top": true,
   "lic_src": "GitHub: MIT",
   "icon": "godotengine-org.png",
   "http": 200
@@ -547,6 +764,7 @@
   "icon_domain": "audacityteam.org",
   "mono": false,
   "kind": "item",
+  "top": false,
   "lic_src": "a conferir (GitHub sem licença legível)",
   "icon": "audacityteam-org.png",
   "http": 200
@@ -570,8 +788,32 @@
   "icon_domain": "lmms.io",
   "mono": false,
   "kind": "item",
+  "top": false,
   "lic_src": "GitHub: GPL-2.0",
   "icon": "lmms-io.png",
+  "http": 200
+ },
+ {
+  "sec": 3,
+  "grp": "Desenhar",
+  "name": "Krita",
+  "url": "https://krita.org",
+  "tipo": "Pintura digital",
+  "plat": [
+   "Linux",
+   "Windows",
+   "macOS"
+  ],
+  "lic": "Código aberto",
+  "host": "krita.org",
+  "note": "Programa livre de pintura e ilustração digital.",
+  "via": "",
+  "ini": false,
+  "icon_domain": "krita.org",
+  "mono": false,
+  "kind": "item",
+  "top": true,
+  "icon": "krita-org.png",
   "http": 200
  },
  {
@@ -591,8 +833,76 @@
   "icon_domain": "excalidraw.com",
   "mono": false,
   "kind": "item",
+  "top": false,
   "lic_src": "GitHub: MIT",
   "icon": "excalidraw-com.png",
+  "http": 200
+ },
+ {
+  "sec": 3,
+  "grp": "Captura e vídeo",
+  "name": "ShareX",
+  "url": "https://getsharex.com",
+  "tipo": "Captura de tela",
+  "plat": [
+   "Windows"
+  ],
+  "lic": "Código aberto",
+  "host": "getsharex.com",
+  "note": "Captura de tela e gravação para Windows, de código aberto.",
+  "via": "",
+  "ini": false,
+  "icon_domain": "getsharex.com",
+  "mono": false,
+  "kind": "item",
+  "top": false,
+  "lic_src": "GitHub: GPL-3.0",
+  "icon": "getsharex-com.png",
+  "http": 200
+ },
+ {
+  "sec": 3,
+  "grp": "Captura e vídeo",
+  "name": "OBS Studio",
+  "url": "https://obsproject.com",
+  "tipo": "Gravação e transmissão",
+  "plat": [
+   "Linux",
+   "Windows",
+   "macOS"
+  ],
+  "lic": "Código aberto",
+  "host": "obsproject.com",
+  "note": "Grava e transmite vídeo, de código aberto.",
+  "via": "",
+  "ini": false,
+  "icon_domain": "obsproject.com",
+  "mono": false,
+  "kind": "item",
+  "top": false,
+  "lic_src": "GitHub: GPL-2.0",
+  "icon": "obsproject-com.png",
+  "http": 200
+ },
+ {
+  "sec": 3,
+  "grp": "Cores",
+  "name": "Realtime Colors",
+  "url": "https://www.realtimecolors.com",
+  "tipo": "Paleta de cores",
+  "plat": [
+   "Web"
+  ],
+  "lic": "Grátis",
+  "host": "realtimecolors.com",
+  "note": "Testa paletas de cores em um site de exemplo, em tempo real.",
+  "via": "",
+  "ini": false,
+  "icon_domain": "realtimecolors.com",
+  "mono": false,
+  "kind": "item",
+  "top": false,
+  "icon": "realtimecolors-com.png",
   "http": 200
  },
  {
@@ -615,6 +925,7 @@
   "icon_domain": "pixelorama.org",
   "mono": false,
   "kind": "item",
+  "top": false,
   "lic_src": "GitHub: MIT",
   "icon": "pixelorama-org.png",
   "http": 200
@@ -636,6 +947,7 @@
   "icon_domain": "novaboard.app",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "novaboard-app.png",
   "http": 200
  },
@@ -658,6 +970,7 @@
   "icon_domain": "libresprite.github.io",
   "mono": false,
   "kind": "item",
+  "top": false,
   "lic_src": "GitHub: GPL-2.0",
   "icon": "libresprite-github-io.png",
   "http": 200
@@ -679,6 +992,7 @@
   "icon_domain": "cobalt.tools",
   "mono": false,
   "kind": "item",
+  "top": false,
   "lic_src": "GitHub: AGPL-3.0",
   "icon": "cobalt-tools.png",
   "http": 200
@@ -700,7 +1014,51 @@
   "icon_domain": "snapyt.app",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "snapyt-app.png",
+  "http": 200
+ },
+ {
+  "sec": 4,
+  "grp": "Baixar e converter",
+  "name": "smdownloader",
+  "url": "https://www.smdownloader.com",
+  "tipo": "Baixar mídia",
+  "plat": [
+   "Web"
+  ],
+  "lic": "Grátis",
+  "host": "smdownloader.com",
+  "note": "Baixa vídeos de redes sociais.",
+  "via": "",
+  "ini": false,
+  "icon_domain": "smdownloader.com",
+  "mono": false,
+  "kind": "item",
+  "top": false,
+  "icon": "smdownloader-com.png",
+  "http": 200
+ },
+ {
+  "sec": 4,
+  "grp": "Baixar e converter",
+  "name": "PDF24 Tools",
+  "url": "https://tools.pdf24.org",
+  "tipo": "PDF",
+  "plat": [
+   "Web",
+   "Windows"
+  ],
+  "lic": "Grátis",
+  "host": "tools.pdf24.org",
+  "note": "Ferramentas para juntar, dividir e converter PDF.",
+  "via": "",
+  "ini": false,
+  "icon_domain": "tools.pdf24.org",
+  "mono": false,
+  "kind": "item",
+  "top": false,
+  "icon": "tools-pdf24-org.png",
   "http": 200
  },
  {
@@ -718,6 +1076,7 @@
   "icon_domain": "transmute.sh",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "transmute-sh.png",
   "http": 200
  },
@@ -739,6 +1098,7 @@
   "icon_domain": "7-zip.org",
   "mono": false,
   "kind": "item",
+  "top": false,
   "lic_src": "a conferir (GitHub sem licença legível)",
   "icon": "7-zip-org.png",
   "http": 200
@@ -761,6 +1121,7 @@
   "icon_domain": "peazip.github.io",
   "mono": false,
   "kind": "item",
+  "top": false,
   "lic_src": "GitHub: LGPL-3.0",
   "icon": "peazip-github-io.png",
   "http": 200
@@ -786,6 +1147,7 @@
   "icon_domain": "localsend.org",
   "mono": false,
   "kind": "item",
+  "top": false,
   "lic_src": "GitHub: Apache-2.0",
   "icon": "localsend-org.png",
   "http": 200
@@ -807,6 +1169,7 @@
   "icon_domain": "app.dashbeam.net",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "app-dashbeam-net.png",
   "http": 200
  },
@@ -827,6 +1190,7 @@
   "icon_domain": "wispfile.com",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "wispfile-com.png",
   "http": 200
  },
@@ -847,6 +1211,7 @@
   "icon_domain": "litterbox.catbox.moe",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "litterbox-catbox-moe.png",
   "http": 200
  },
@@ -871,6 +1236,7 @@
   "icon_domain": "obsidian.md",
   "mono": false,
   "kind": "item",
+  "top": true,
   "icon": "obsidian-md.png",
   "http": 200
  },
@@ -891,6 +1257,7 @@
   "icon_domain": "tasks.org",
   "mono": false,
   "kind": "item",
+  "top": false,
   "lic_src": "GitHub: GPL-3.0",
   "icon": "tasks-org.png",
   "http": 200
@@ -912,8 +1279,33 @@
   "icon_domain": "readme.so",
   "mono": false,
   "kind": "item",
+  "top": false,
   "lic_src": "GitHub: MIT",
   "icon": "readme-so.png",
+  "http": 200
+ },
+ {
+  "sec": 5,
+  "grp": "Editor de código",
+  "name": "VSCodium",
+  "url": "https://vscodium.com",
+  "tipo": "Editor de código",
+  "plat": [
+   "Linux",
+   "Windows",
+   "macOS"
+  ],
+  "lic": "Código aberto",
+  "host": "vscodium.com",
+  "note": "Build livre do VS Code, sem telemetria.",
+  "via": "",
+  "ini": false,
+  "icon_domain": "vscodium.com",
+  "mono": false,
+  "kind": "item",
+  "top": true,
+  "lic_src": "GitHub: MIT",
+  "icon": "vscodium-com.png",
   "http": 200
  },
  {
@@ -933,6 +1325,7 @@
   "icon_domain": "pomofocus.io",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "pomofocus-io.png",
   "http": 200
  },
@@ -953,6 +1346,7 @@
   "icon_domain": "qrpine.com",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "qrpine-com.png",
   "http": 200
  },
@@ -973,6 +1367,7 @@
   "icon_domain": "meupc.net",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "meupc-net.png",
   "http": 200
  },
@@ -991,6 +1386,7 @@
   "icon_domain": "github.com",
   "mono": true,
   "kind": "item",
+  "top": false,
   "lic_src": "GitHub: GPL-3.0",
   "http": 200
  },
@@ -1012,6 +1408,7 @@
   "icon_domain": "ghostty.org",
   "mono": false,
   "kind": "item",
+  "top": true,
   "lic_src": "GitHub: MIT",
   "icon": "ghostty-org.png",
   "http": 200
@@ -1034,6 +1431,7 @@
   "icon_domain": "sw.kovidgoyal.net",
   "mono": true,
   "kind": "item",
+  "top": false,
   "lic_src": "GitHub: GPL-3.0",
   "http": 200
  },
@@ -1056,6 +1454,7 @@
   "icon_domain": "alacritty.org",
   "mono": false,
   "kind": "item",
+  "top": false,
   "lic_src": "GitHub: Apache-2.0",
   "icon": "alacritty-org.png",
   "http": 200
@@ -1079,6 +1478,7 @@
   "icon_domain": "warp.dev",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "warp-dev.png",
   "http": 200
  },
@@ -1099,6 +1499,7 @@
   "icon_domain": "fedoraproject.org",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "fedoraproject-org.png",
   "http": 200
  },
@@ -1119,6 +1520,7 @@
   "icon_domain": "cachyos.org",
   "mono": false,
   "kind": "item",
+  "top": true,
   "icon": "cachyos-org.png",
   "http": 200
  },
@@ -1139,6 +1541,7 @@
   "icon_domain": "zorin.com",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "zorin-com.png",
   "http": 200
  },
@@ -1159,6 +1562,7 @@
   "icon_domain": "debian.org",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "debian-org.png",
   "http": 200
  },
@@ -1179,6 +1583,7 @@
   "icon_domain": "linuxmint.com",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "linuxmint-com.png",
   "http": 200
  },
@@ -1199,7 +1604,29 @@
   "icon_domain": "ubuntu.com",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "ubuntu-com.png",
+  "http": 200
+ },
+ {
+  "sec": 7,
+  "grp": "Windows",
+  "name": "Ninite",
+  "url": "https://ninite.com",
+  "tipo": "Instalador de apps",
+  "plat": [
+   "Windows"
+  ],
+  "lic": "Freemium",
+  "host": "ninite.com",
+  "note": "Instala vários programas de uma vez no Windows.",
+  "via": "",
+  "ini": false,
+  "icon_domain": "ninite.com",
+  "mono": false,
+  "kind": "item",
+  "top": false,
+  "icon": "ninite-com.png",
   "http": 200
  },
  {
@@ -1219,6 +1646,7 @@
   "icon_domain": "play.google.com",
   "mono": true,
   "kind": "item",
+  "top": false,
   "http": 200
  },
  {
@@ -1238,6 +1666,7 @@
   "icon_domain": "florisboard.org",
   "mono": false,
   "kind": "item",
+  "top": false,
   "lic_src": "GitHub: Apache-2.0",
   "icon": "florisboard-org.png",
   "http": 200
@@ -1259,6 +1688,7 @@
   "icon_domain": "f-droid.org",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "f-droid-org.png",
   "http": 200
  },
@@ -1281,6 +1711,7 @@
   "icon_domain": "melonds.kuribo64.net",
   "mono": false,
   "kind": "item",
+  "top": false,
   "lic_src": "GitHub: GPL-3.0",
   "icon": "melonds-kuribo64-net.png",
   "http": 200
@@ -1305,6 +1736,7 @@
   "icon_domain": "azahar-emu.org",
   "mono": false,
   "kind": "item",
+  "top": false,
   "lic_src": "GitHub: GPL-3.0",
   "icon": "azahar-emu-org.png",
   "http": 200
@@ -1328,6 +1760,7 @@
   "icon_domain": "eden-emu.dev",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "eden-emu-dev.png",
   "http": 200
  },
@@ -1352,6 +1785,7 @@
   "icon_domain": "retroarch.com",
   "mono": true,
   "kind": "item",
+  "top": false,
   "lic_src": "GitHub: GPL-3.0",
   "http": 200
  },
@@ -1374,6 +1808,7 @@
   "icon_domain": "mgba.io",
   "mono": false,
   "kind": "item",
+  "top": false,
   "lic_src": "GitHub: MPL-2.0",
   "icon": "mgba-io.png",
   "http": 200
@@ -1397,6 +1832,7 @@
   "icon_domain": "ares-emu.net",
   "mono": false,
   "kind": "item",
+  "top": false,
   "lic_src": "a conferir (GitHub sem licença legível)",
   "icon": "ares-emu-net.png",
   "http": 200
@@ -1418,6 +1854,7 @@
   "icon_domain": "github.com",
   "mono": true,
   "kind": "item",
+  "top": false,
   "lic_src": "a conferir (GitHub sem licença legível)",
   "http": 200
  },
@@ -1440,6 +1877,7 @@
   "icon_domain": "heroicgameslauncher.com",
   "mono": false,
   "kind": "item",
+  "top": false,
   "lic_src": "GitHub: GPL-3.0",
   "icon": "heroicgameslauncher-com.png",
   "http": 200
@@ -1461,6 +1899,7 @@
   "icon_domain": "lutris.net",
   "mono": false,
   "kind": "item",
+  "top": false,
   "lic_src": "GitHub: GPL-3.0",
   "icon": "lutris-net.png",
   "http": 200
@@ -1482,6 +1921,7 @@
   "icon_domain": "usebottles.com",
   "mono": false,
   "kind": "item",
+  "top": false,
   "lic_src": "GitHub: GPL-3.0",
   "icon": "usebottles-com.png",
   "http": 200
@@ -1505,6 +1945,7 @@
   "icon_domain": "prismlauncher.org",
   "mono": false,
   "kind": "item",
+  "top": true,
   "lic_src": "GitHub: GPL-3.0",
   "icon": "prismlauncher-org.png",
   "http": 200
@@ -1528,6 +1969,7 @@
   "icon_domain": "modrinth.com",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "modrinth-com.png",
   "http": 200
  },
@@ -1546,6 +1988,7 @@
   "icon_domain": "hypixel.net",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "hypixel-net.png",
   "http": 200
  },
@@ -1564,6 +2007,7 @@
   "icon_domain": "manacube.com",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "manacube-com.png",
   "http": 200
  },
@@ -1582,6 +2026,7 @@
   "icon_domain": "cobblemon.gg",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "cobblemon-gg.png",
   "http": 200
  },
@@ -1600,6 +2045,7 @@
   "icon_domain": "mc-complex.com",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "mc-complex-com.png",
   "http": 200
  },
@@ -1618,6 +2064,7 @@
   "icon_domain": "modrinth.com",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "modrinth-com.png",
   "http": 200
  },
@@ -1638,6 +2085,7 @@
   "icon_domain": "zty.pe",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "zty-pe.png",
   "http": 200
  },
@@ -1658,6 +2106,7 @@
   "icon_domain": "morse.withgoogle.com",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "morse-withgoogle-com.png",
   "http": 200
  },
@@ -1678,6 +2127,7 @@
   "icon_domain": "morsle.fun",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "morsle-fun.png",
   "http": 200
  },
@@ -1700,6 +2150,7 @@
   "icon_domain": "duolingo.com",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "duolingo-com.png",
   "http": 200
  },
@@ -1725,6 +2176,7 @@
   "icon_domain": "ankiweb.net",
   "mono": false,
   "kind": "item",
+  "top": false,
   "lic_src": "a conferir (GitHub sem licença legível)",
   "icon": "ankiweb-net.png",
   "http": 200
@@ -1746,6 +2198,7 @@
   "icon_domain": "wordbomb.io",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "wordbomb-io.png",
   "http": 200
  },
@@ -1766,6 +2219,7 @@
   "icon_domain": "gartic.io",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "gartic-io.png",
   "http": 200
  },
@@ -1786,6 +2240,7 @@
   "icon_domain": "garticphone.com",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "garticphone-com.png",
   "http": 200
  },
@@ -1806,6 +2261,7 @@
   "icon_domain": "skribbl.io",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "skribbl-io.png",
   "http": 200
  },
@@ -1826,6 +2282,7 @@
   "icon_domain": "stopots.com",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "stopots-com.png",
   "http": 200
  },
@@ -1846,6 +2303,7 @@
   "icon_domain": "codenames.game",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "codenames-game.png",
   "http": 200
  },
@@ -1866,6 +2324,7 @@
   "icon_domain": "tetr.io",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "tetr-io.png",
   "http": 200
  },
@@ -1886,6 +2345,7 @@
   "icon_domain": "jstris.jezevec10.com",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "jstris-jezevec10-com.png",
   "http": 200
  },
@@ -1906,6 +2366,7 @@
   "icon_domain": "geotastic.net",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "geotastic-net.png",
   "http": 200
  },
@@ -1926,6 +2387,7 @@
   "icon_domain": "cityguesser.eu",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "cityguesser-eu.png",
   "http": 200
  },
@@ -1946,6 +2408,7 @@
   "icon_domain": "term.ooo",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "term-ooo.png",
   "http": 200
  },
@@ -1966,6 +2429,7 @@
   "icon_domain": "contexto.me",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "contexto-me.png",
   "http": 200
  },
@@ -1986,6 +2450,7 @@
   "icon_domain": "conexo.ws",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "conexo-ws.png",
   "http": 200
  },
@@ -2006,6 +2471,7 @@
   "icon_domain": "neal.fun",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "neal-fun.png",
   "http": 403
  },
@@ -2028,6 +2494,7 @@
   "icon_domain": "akinator.com",
   "mono": false,
   "kind": "item",
+  "top": false,
   "icon": "akinator-com.png",
   "http": 200
  },
@@ -2048,8 +2515,10 @@
   "via": "",
   "ini": false,
   "icon_domain": "github.com",
-  "mono": true,
+  "mono": false,
   "kind": "item",
+  "top": false,
+  "icon": "moondeck.png",
   "lic_src": "GitHub: MIT",
   "http": 200
  },
@@ -2500,7 +2969,7 @@
  },
  {
   "sec": 9,
-  "grp": "Mods favoritos",
+  "grp": "Mods",
   "name": "TrashSlot",
   "url": "https://modrinth.com/mod/trashslot",
   "tipo": "Mod",
@@ -2523,7 +2992,7 @@
  },
  {
   "sec": 9,
-  "grp": "Mods favoritos",
+  "grp": "Mods",
   "name": "RoadWeaver",
   "url": "https://modrinth.com/mod/roadweaver",
   "tipo": "Mod",
@@ -2546,7 +3015,7 @@
  },
  {
   "sec": 9,
-  "grp": "Mods favoritos",
+  "grp": "Mods",
   "name": "Controlling",
   "url": "https://modrinth.com/mod/controlling",
   "tipo": "Mod",
@@ -2569,7 +3038,7 @@
  },
  {
   "sec": 9,
-  "grp": "Mods favoritos",
+  "grp": "Mods",
   "name": "Polymorph",
   "url": "https://modrinth.com/mod/polymorph",
   "tipo": "Mod",
@@ -2593,7 +3062,7 @@
  },
  {
   "sec": 9,
-  "grp": "Mods favoritos",
+  "grp": "Mods",
   "name": "Lootr",
   "url": "https://modrinth.com/mod/lootr",
   "tipo": "Mod",
@@ -2616,7 +3085,7 @@
  },
  {
   "sec": 9,
-  "grp": "Mods favoritos",
+  "grp": "Mods",
   "name": "Tom's Simple Storage Mod",
   "url": "https://modrinth.com/mod/toms-storage",
   "tipo": "Mod",
@@ -2640,7 +3109,7 @@
  },
  {
   "sec": 9,
-  "grp": "Mods favoritos",
+  "grp": "Mods",
   "name": "Nature's Compass",
   "url": "https://modrinth.com/mod/natures-compass",
   "tipo": "Mod",
@@ -2663,7 +3132,7 @@
  },
  {
   "sec": 9,
-  "grp": "Mods favoritos",
+  "grp": "Mods",
   "name": "Xaero's Minimap",
   "url": "https://modrinth.com/mod/xaeros-minimap",
   "tipo": "Mod",
@@ -2687,7 +3156,7 @@
  },
  {
   "sec": 9,
-  "grp": "Mods favoritos",
+  "grp": "Mods",
   "name": "Xaero's World Map",
   "url": "https://modrinth.com/mod/xaeros-world-map",
   "tipo": "Mod",
@@ -2711,7 +3180,7 @@
  },
  {
   "sec": 9,
-  "grp": "Mods favoritos",
+  "grp": "Mods",
   "name": "Easy Magic",
   "url": "https://modrinth.com/mod/easy-magic",
   "tipo": "Mod",
@@ -2734,7 +3203,7 @@
  },
  {
   "sec": 9,
-  "grp": "Mods favoritos",
+  "grp": "Mods",
   "name": "Ping Wheel",
   "url": "https://modrinth.com/mod/ping-wheel",
   "tipo": "Mod",
@@ -2757,7 +3226,7 @@
  },
  {
   "sec": 9,
-  "grp": "Mods favoritos",
+  "grp": "Mods",
   "name": "Waystones",
   "url": "https://modrinth.com/mod/waystones",
   "tipo": "Mod",
@@ -2780,7 +3249,7 @@
  },
  {
   "sec": 9,
-  "grp": "Mods favoritos",
+  "grp": "Mods",
   "name": "WaterFrames",
   "url": "https://modrinth.com/mod/waterframes",
   "tipo": "Mod",
@@ -2803,7 +3272,7 @@
  },
  {
   "sec": 9,
-  "grp": "Mods favoritos",
+  "grp": "Mods",
   "name": "Jade",
   "url": "https://modrinth.com/mod/jade",
   "tipo": "Mod",
@@ -2827,7 +3296,7 @@
  },
  {
   "sec": 9,
-  "grp": "Mods favoritos",
+  "grp": "Mods",
   "name": "AppleSkin",
   "url": "https://modrinth.com/mod/appleskin",
   "tipo": "Mod",
@@ -2851,7 +3320,7 @@
  },
  {
   "sec": 9,
-  "grp": "Mods favoritos",
+  "grp": "Mods",
   "name": "Mouse Tweaks",
   "url": "https://modrinth.com/mod/mouse-tweaks",
   "tipo": "Mod",
@@ -2874,7 +3343,7 @@
  },
  {
   "sec": 9,
-  "grp": "Mods favoritos",
+  "grp": "Mods",
   "name": "Entity Culling",
   "url": "https://modrinth.com/mod/entityculling",
   "tipo": "Mod",
@@ -2898,7 +3367,7 @@
  },
  {
   "sec": 9,
-  "grp": "Mods favoritos",
+  "grp": "Mods",
   "name": "ModernFix",
   "url": "https://modrinth.com/mod/modernfix",
   "tipo": "Mod",
@@ -2921,7 +3390,7 @@
  },
  {
   "sec": 9,
-  "grp": "Mods favoritos",
+  "grp": "Mods",
   "name": "You're in Grave Danger",
   "url": "https://modrinth.com/mod/yigd",
   "tipo": "Mod",
@@ -2943,7 +3412,7 @@
  },
  {
   "sec": 9,
-  "grp": "Mods favoritos",
+  "grp": "Mods",
   "name": "Traveler's Backpack",
   "url": "https://modrinth.com/mod/travelersbackpack",
   "tipo": "Mod",
@@ -2966,7 +3435,7 @@
  },
  {
   "sec": 9,
-  "grp": "Mods favoritos",
+  "grp": "Mods",
   "name": "Sophisticated Backpacks",
   "url": "https://modrinth.com/mod/sophisticated-backpacks",
   "tipo": "Mod",
@@ -2988,7 +3457,7 @@
  },
  {
   "sec": 9,
-  "grp": "Mods favoritos",
+  "grp": "Mods",
   "name": "Right Click Harvest",
   "url": "https://modrinth.com/mod/rightclickharvest",
   "tipo": "Mod",
@@ -3012,7 +3481,7 @@
  },
  {
   "sec": 9,
-  "grp": "Mods favoritos",
+  "grp": "Mods",
   "name": "Trading Post",
   "url": "https://modrinth.com/mod/trading-post",
   "tipo": "Mod",
@@ -3035,7 +3504,7 @@
  },
  {
   "sec": 9,
-  "grp": "Mods favoritos",
+  "grp": "Mods",
   "name": "Sound Physics Remastered",
   "url": "https://modrinth.com/mod/sound-physics-remastered",
   "tipo": "Mod",
@@ -3059,7 +3528,7 @@
  },
  {
   "sec": 9,
-  "grp": "Mods favoritos",
+  "grp": "Mods",
   "name": "Critters and Companions",
   "url": "https://modrinth.com/mod/critters-and-companions",
   "tipo": "Mod",
@@ -3082,7 +3551,7 @@
  },
  {
   "sec": 9,
-  "grp": "Mods favoritos",
+  "grp": "Mods",
   "name": "Mod Menu",
   "url": "https://modrinth.com/mod/modmenu",
   "tipo": "Mod",
@@ -3104,7 +3573,7 @@
  },
  {
   "sec": 9,
-  "grp": "Mods favoritos",
+  "grp": "Mods",
   "name": "Alex's Caves",
   "url": "https://modrinth.com/mod/alexs-caves",
   "tipo": "Mod",
@@ -3126,7 +3595,7 @@
  },
  {
   "sec": 9,
-  "grp": "Mods favoritos",
+  "grp": "Mods",
   "name": "Artifacts",
   "url": "https://modrinth.com/mod/artifacts",
   "tipo": "Mod",
@@ -3149,7 +3618,7 @@
  },
  {
   "sec": 9,
-  "grp": "Mods favoritos",
+  "grp": "Mods",
   "name": "Biomes O' Plenty",
   "url": "https://modrinth.com/mod/biomes-o-plenty",
   "tipo": "Mod",
@@ -3172,7 +3641,7 @@
  },
  {
   "sec": 9,
-  "grp": "Mods secundários",
+  "grp": "Mods",
   "name": "Storage Drawers",
   "url": "https://modrinth.com/mod/storagedrawers",
   "tipo": "Mod",
@@ -3195,7 +3664,7 @@
  },
  {
   "sec": 9,
-  "grp": "Mods secundários",
+  "grp": "Mods",
   "name": "Supplementaries",
   "url": "https://modrinth.com/mod/supplementaries",
   "tipo": "Mod",
@@ -3218,7 +3687,7 @@
  },
  {
   "sec": 9,
-  "grp": "Mods secundários",
+  "grp": "Mods",
   "name": "Explorer's Compass",
   "url": "https://modrinth.com/mod/explorers-compass",
   "tipo": "Mod",
@@ -3241,7 +3710,7 @@
  },
  {
   "sec": 9,
-  "grp": "Mods secundários",
+  "grp": "Mods",
   "name": "Easy Anvils",
   "url": "https://modrinth.com/mod/easy-anvils",
   "tipo": "Mod",
@@ -3264,7 +3733,7 @@
  },
  {
   "sec": 9,
-  "grp": "Mods secundários",
+  "grp": "Mods",
   "name": "Farmer's Delight",
   "url": "https://modrinth.com/mod/farmers-delight",
   "tipo": "Mod",
@@ -3286,7 +3755,7 @@
  },
  {
   "sec": 9,
-  "grp": "Mods secundários",
+  "grp": "Mods",
   "name": "Enchantment Descriptions",
   "url": "https://modrinth.com/mod/enchantment-descriptions",
   "tipo": "Mod",
@@ -3310,7 +3779,7 @@
  },
  {
   "sec": 9,
-  "grp": "Mods secundários",
+  "grp": "Mods",
   "name": "Clumps",
   "url": "https://modrinth.com/mod/clumps",
   "tipo": "Mod",
@@ -3333,7 +3802,7 @@
  },
  {
   "sec": 9,
-  "grp": "Mods secundários",
+  "grp": "Mods",
   "name": "Visual Workbench",
   "url": "https://modrinth.com/mod/visual-workbench",
   "tipo": "Mod",
@@ -3356,7 +3825,7 @@
  },
  {
   "sec": 9,
-  "grp": "Mods secundários",
+  "grp": "Mods",
   "name": "Relics",
   "url": "https://modrinth.com/mod/relics-mod",
   "tipo": "Mod",
@@ -3378,7 +3847,7 @@
  },
  {
   "sec": 9,
-  "grp": "Mods secundários",
+  "grp": "Mods",
   "name": "Vampirism",
   "url": "https://modrinth.com/mod/vampirism",
   "tipo": "Mod",
@@ -3400,7 +3869,7 @@
  },
  {
   "sec": 9,
-  "grp": "Mods secundários",
+  "grp": "Mods",
   "name": "Origins",
   "url": "https://modrinth.com/mod/origins",
   "tipo": "Mod",
@@ -3423,7 +3892,7 @@
  },
  {
   "sec": 9,
-  "grp": "Mods secundários",
+  "grp": "Mods",
   "name": "Iron's Spells 'n Spellbooks",
   "url": "https://modrinth.com/mod/irons-spells-n-spellbooks",
   "tipo": "Mod",
@@ -3445,7 +3914,7 @@
  },
  {
   "sec": 9,
-  "grp": "Mods secundários",
+  "grp": "Mods",
   "name": "Chat Heads",
   "url": "https://modrinth.com/mod/chat-heads",
   "tipo": "Mod",
@@ -3582,7 +4051,7 @@
  },
  {
   "sec": 9,
-  "grp": "Mods secundários",
+  "grp": "Mods",
   "name": "Courier Owls",
   "url": "https://www.curseforge.com/minecraft/mc-mods/courier-owls",
   "tipo": "Mod",
