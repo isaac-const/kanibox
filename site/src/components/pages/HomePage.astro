@@ -1,0 +1,97 @@
+---
+import Base from '../../layouts/Base.astro';
+import Section from '../Section.astro';
+import Icon from '../Icon.astro';
+import { SECTIONS, TOOLS_SECTION_ID } from '../../lib/sections';
+import { TOTAL, TOP_ITEMS, INITIAL_BATCH, countIn, loc } from '../../lib/catalog';
+import { shortDate } from '../../lib/format';
+import { route, withBase } from '../../lib/url';
+import { t, type Lang } from '../../i18n';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const updated = shortDate(INITIAL_BATCH, lang);
+---
+<Base
+  lang={lang}
+  current="home"
+  filters="all"
+  title={t(lang, 'pageTitleHome')}
+  description={t(lang, 'homeDesc')}
+  alt={{ pt: route('pt', 'home'), en: route('en', 'home') }}
+>
+  <section class="hero" id="hero" aria-labelledby="hero-t">
+    <div class="hero-main">
+      <svg class="hero-knife" viewBox="0 0 32 32" aria-hidden="true">
+        <rect x="2" y="12" width="20" height="10" rx="5" fill="var(--knife-body)" stroke="var(--knife-edge)" stroke-width="1.2" />
+        <path d="M2 17a5 5 0 015-5h10a5 5 0 015 5z" fill="var(--accent)" />
+        <path d="M20 17L29 7" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" />
+        <path d="M19 15L26 6" stroke="var(--muted)" stroke-width="3.2" stroke-linecap="round" opacity=".6" />
+      </svg>
+      <div>
+        <h1 id="hero-t">Kani<b>Box</b></h1>
+        <p class="lead">{t(lang, 'lead')}</p>
+        <p class="meta-line">{t(lang, 'metaLine', { n: TOTAL, date: updated })}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="rec" id="hero-top" aria-labelledby="rec-t">
+    <div class="rec-head">
+      <h2 id="rec-t"><Icon name="star" size={20} class="rec-star" /> {t(lang, 'recTitle')}</h2>
+      <p>{t(lang, 'recSub')}</p>
+    </div>
+    <ul class="rec-list">
+      {
+        TOP_ITEMS.map((i) => (
+          <li>
+            <a href={i.url} target="_blank" rel="noopener noreferrer">
+              <span class="ic">{i.icon ? <img src={withBase(`/icons/${i.icon}`)} alt="" width="26" height="26" loading="eager" decoding="async" /> : <b>{i.name[0]}</b>}</span>
+              <span class="tn">
+                <b>{i.name}</b>
+                <small>{loc(i, lang).tipo}</small>
+              </span>
+              <Icon name="star" size={14} class="pill-star" />
+              <span class="vh"> {t(lang, 'newTab')}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="cats-wrap" id="cats" aria-labelledby="cats-t">
+    <h2 id="cats-t" class="cats-t">{t(lang, 'catsTitle')}</h2>
+    <ul class="cats">
+      {
+        SECTIONS.map((s) => (
+          <li class:list={['cat', { feat: s.id === 13 || s.id === TOOLS_SECTION_ID }]}>
+            <a href={route(lang, s)}>
+              <span class="sec-ic"><Icon name={s.icon} size={22} /></span>
+              <span class="ct">
+                <b>{s.title[lang]}</b>
+                <small>{s.desc[lang]}</small>
+              </span>
+              <span class="cn">{s.id === TOOLS_SECTION_ID ? 12 : countIn(s.id)}</span>
+              <Icon name="arrow" size={16} class="car" />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <div class="tools-hint" id="tools-hint" hidden>
+    <a href={route(lang, SECTIONS[1])}>{t(lang, 'toolsHint')}: {t(lang, 'openTools')} →</a>
+  </div>
+
+  <div id="home-sections">
+    {SECTIONS.filter((s) => s.id !== TOOLS_SECTION_ID).map((s) => <Section section={s} lang={lang} />)}
+  </div>
+  <div class="empty" id="empty">
+    <b>{t(lang, 'emptyTitle')}</b>
+    {t(lang, 'emptyText')}
+  </div>
+</Base>

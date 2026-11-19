@@ -4,32 +4,38 @@ import ItemRow from './ItemRow.astro';
 import GameTile from './GameTile.astro';
 import Tools from './tools/Tools';
 import { groupsOf, countIn, TOOLS_SECTION_ID } from '../lib/catalog';
-import { LOADER_NAMES, MC_DEFAULT_GROUP, type SectionDef } from '../lib/sections';
+import { LOADER_NAMES, SUBTABS, type SectionDef } from '../lib/sections';
+import { t, type Lang } from '../i18n';
 
 interface Props {
   section: SectionDef;
+  lang: Lang;
+  /** página própria da categoria: o título vira h1 */
+  solo?: boolean;
 }
-const { section } = Astro.props;
+const { section, lang, solo = false } = Astro.props;
 const isTools = section.id === TOOLS_SECTION_ID;
-const isMc = section.id === 9;
-const groups = isTools ? [] : groupsOf(section.id);
+const sub = SUBTABS[section.id];
+const groups = isTools ? [] : groupsOf(section.id, lang);
 const total = countIn(section.id);
-const count = isTools ? '12 ferramentas' : `${total} ${total === 1 ? 'item' : 'itens'}`;
+const count = isTools ? t(lang, 'nTools', { n: 12 }) : t(lang, total === 1 ? 'nItem' : 'nItems', { n: total });
+const H = solo ? 'h1' : 'h2';
 ---
 <section class="sec" id={`s${section.id}`} data-s={section.id} aria-labelledby={`h${section.id}`}>
   <header class="sec-head">
     <span class="sec-ic"><Icon name={section.icon} size={22} /></span>
-    <h2 class="sec-t" id={`h${section.id}`}>{section.title}</h2>
+    <H class="sec-t" id={`h${section.id}`}>{section.title[lang]}</H>
     <span class="sec-c" data-seccount>{count}</span>
   </header>
-  <p class="sec-d">{section.desc}</p>
+  <p class="sec-d">{section.desc[lang]}</p>
 
   {
-    isMc && (
-      <div class="tabs subtabs" role="tablist" aria-label="Minecraft">
+    sub && (
+      <div class="seg subtabs" role="tablist" aria-label={section.title[lang]}>
+        <span class="seg-pill" aria-hidden="true" />
         {groups.map((g) => (
-          <button type="button" role="tab" data-sub={g.key} aria-selected={g.key === MC_DEFAULT_GROUP ? 'true' : 'false'}>
-            {g.name} <small data-gcount>{g.items.length}</small>
+          <button type="button" role="tab" data-sub={g.key} aria-selected={g.key === sub ? 'true' : 'false'}>
+            {g.label} <small data-gcount>{g.items.length}</small>
           </button>
         ))}
       </div>
@@ -38,20 +44,20 @@ const count = isTools ? '12 ferramentas' : `${total} ${total === 1 ? 'item' : 'i
 
   {
     groups.map((g) => (
-      <div class="grp" data-g={g.key} role={isMc ? 'tabpanel' : undefined}>
-        {!isMc && (
+      <div class:list={['grp', { 'sub-off': !!sub && g.key !== sub }]} data-g={g.key} role={sub ? 'tabpanel' : undefined}>
+        {!sub && (
           <h3>
-            {g.name} <span class="n" data-gcount>{g.items.length}</span>
+            {g.label} <span class="n" data-gcount>{g.items.length}</span>
           </h3>
         )}
         {
           g.name === 'Mods' && (
             <>
-              <div class="ldbar" role="group" aria-label="Loader dos mods">
-                <span class="lbl">Loader</span>
+              <div class="ldbar" role="group" aria-label={t(lang, 'loaderAria')}>
+                <span class="lbl">{t(lang, 'loaderLabel')}</span>
                 {['todos', 'fabric', 'forge', 'neoforge', 'quilt'].map((l) => (
                   <button type="button" class="opt" data-ld={l} aria-pressed={l === 'todos' ? 'true' : 'false'}>
-                    {l === 'todos' ? 'Todos' : LOADER_NAMES[l]}
+                    {l === 'todos' ? t(lang, 'loaderAll') : LOADER_NAMES[l]}
                   </button>
                 ))}
               </div>
@@ -61,16 +67,16 @@ const count = isTools ? '12 ferramentas' : `${total} ${total === 1 ? 'item' : 'i
         }
         {
           g.view === 'tiles' ? (
-            <ul class="tiles">{g.items.map((i) => <GameTile item={i} />)}</ul>
-          ) : g.name === 'Mods' ? (
-            <ul class="mods">{g.items.map((i) => <ItemRow item={i} compact />)}</ul>
+            <ul class="tiles">{g.items.map((i) => <GameTile item={i} lang={lang} />)}</ul>
+          ) : g.view === 'mods' ? (
+            <ul class="mods">{g.items.map((i) => <ItemRow item={i} lang={lang} compact />)}</ul>
           ) : (
-            <ul class="list">{g.items.map((i) => <ItemRow item={i} />)}</ul>
+            <ul class="list">{g.items.map((i) => <ItemRow item={i} lang={lang} />)}</ul>
           )
         }
       </div>
     ))
   }
 
-  {isTools && <Tools client:visible />}
+  {isTools && <Tools client:load lang={lang} />}
 </section>

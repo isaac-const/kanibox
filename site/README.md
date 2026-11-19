@@ -61,7 +61,7 @@ A lógica fica em `src/lib/tools/` como funções puras, com testes.
 ## Testes
 
 - 76 unitários: integridade dos dados, filtro e as ferramentas (contagem com partes opcionais, estilos de texto com os exemplos do Isaac, unidades, calculadora, regra de 3 e sorteios).
-- 184 de ponta a ponta (92 em desktop e 92 em celular): busca, filtros, abas, Minecraft, canivete (inclusive o rótulo e as cores), temas, rodapé, todas as ferramentas com relógio simulado, som (conta os osciladores do Web Audio), links, imagens, página sem JavaScript, RSS e 404.
+- 212 de ponta a ponta (desktop e celular): rotas por categoria, menu lateral, inglês e seletor de idioma, busca, filtros, abas elásticas, Minecraft, canivete, temas, ferramentas com relógio simulado, som, links, imagens, página sem JavaScript, RSS (PT e EN), 404, axe e checagens de celular (sem zoom, sem rolagem lateral, campos de 16px).
 - Acessibilidade com axe (WCAG 2 A e AA) nos dois temas, nas ferramentas de cada aba e no modo foco.
 
 ## Publicar

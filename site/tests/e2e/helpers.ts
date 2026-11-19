@@ -2,13 +2,14 @@ import type { Page } from '@playwright/test';
 import catalogo from '../../src/data/catalogo.json' with { type: 'json' };
 import soon from '../../src/data/em-desenvolvimento.json' with { type: 'json' };
 
-type Raw = { name: string; plat: string[]; lic: string; tipo: string; kind: string; loaders?: string[]; grp: string; soon?: boolean };
+type Raw = { name: string; plat: string[]; lic: string; tipo: string; kind: string; loaders?: string[]; grp: string; sec: number; soon?: boolean };
 export const ALL = [...(catalogo as Raw[]), ...(soon as Raw[])];
 export const PUBLIC = ALL.filter((i) => !i.soon);
 export const TOTAL = PUBLIC.length;
+export const inSec = (sec: number) => ALL.filter((i) => i.sec === sec);
 
-/** Itens da lista que não estão escondidos pelos filtros (inclui os dentro de grupos recolhidos). */
-export const visibleItems = (page: Page) => page.locator('#sections [data-id]:not([hidden])');
+/** Itens que não estão escondidos pelo filtro (conta também os de abas e de grupos fechados). */
+export const visibleItems = (page: Page) => page.locator('main [data-id]:not([hidden])');
 
 export async function setTheme(page: Page, theme: string) {
   await page.addInitScript((t) => localStorage.setItem('kb-theme', t), theme);

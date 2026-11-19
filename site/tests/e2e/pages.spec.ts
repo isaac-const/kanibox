@@ -6,14 +6,14 @@ const THEMES = ['dark', 'white'];
 
 test.describe('páginas', () => {
   test('novidades lista o lote inicial', async ({ page }) => {
-    await page.goto('/novidades');
+    await page.goto('/novidades/');
     await expect(page.locator('h1')).toHaveText('Novidades');
     await expect(page.locator('.log h2').first()).toContainText(`Lote inicial: ${TOTAL} itens`);
     await expect(page.locator('.log time').first()).toHaveAttribute('datetime', '2026-11-19');
   });
 
   test('sobre diz que não há afiliado', async ({ page }) => {
-    await page.goto('/sobre');
+    await page.goto('/sobre/');
     await expect(page.locator('main')).toContainText('Nenhum link é afiliado');
   });
 
@@ -33,7 +33,7 @@ test.describe('páginas', () => {
   });
 
   test('sem rolagem horizontal em nenhuma página', async ({ page }) => {
-    for (const p of ['/', '/novidades', '/sobre']) {
+    for (const p of ['/', '/ia/', '/jogos/', '/ferramentas/', '/novidades/', '/sobre/', '/en/', '/en/minecraft/', '/en/tools/']) {
       await page.goto(p);
       const over = await page.evaluate(() => document.documentElement.scrollWidth - innerWidth);
       expect(over, p).toBeLessThanOrEqual(0);
@@ -41,15 +41,15 @@ test.describe('páginas', () => {
   });
 
   test('todo link externo abre em outra aba com rel seguro', async ({ page }) => {
-    await page.goto('/');
-    const bad = await page.locator('#sections a[href^="http"]').evaluateAll((as) =>
+    await page.goto('/ia/');
+    const bad = await page.locator('main a[href^="http"]').evaluateAll((as) =>
       as.filter((a) => (a as HTMLAnchorElement).target !== '_blank' || !/noopener/.test((a as HTMLAnchorElement).rel)).map((a) => (a as HTMLAnchorElement).href)
     );
     expect(bad).toEqual([]);
   });
 
   test('imagens carregam (nenhuma quebrada) depois de rolar a página inteira', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/jogos/');
     await page.evaluate(async () => {
       for (let y = 0; y < document.body.scrollHeight; y += 700) {
         window.scrollTo(0, y);
@@ -66,8 +66,8 @@ test.describe('páginas', () => {
   test('funciona sem JavaScript: todo o catálogo está no HTML e os filtros ficam escondidos', async ({ browser }) => {
     const ctx = await browser.newContext({ javaScriptEnabled: false });
     const page = await ctx.newPage();
-    await page.goto('/');
-    await expect(page.locator('#sections [data-id]')).toHaveCount(ALL.length);
+    await page.goto('/ia/');
+    await expect(page.locator('main [data-id]')).toHaveCount(ALL.filter((i) => i.sec === 2).length);
     await expect(page.locator('.filters')).toBeHidden();
     await expect(page.locator('.blade').first()).toBeVisible();
     await ctx.close();
@@ -86,42 +86,63 @@ test.describe('acessibilidade (axe, WCAG 2 A e AA)', () => {
     });
   }
 
-  test('novidades e sobre', async ({ page }) => {
-    for (const p of ['/novidades', '/sobre']) {
+  test('categoria, novidades, sobre e inglês', async ({ page }) => {
+    for (const p of ['/ia/', '/minecraft/', '/jogos/', '/novidades/', '/sobre/', '/en/', '/en/ai/', '/en/about/']) {
       await page.goto(p);
+      await page.waitForTimeout(1000);
       const r = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa']).analyze();
       expect(r.violations.map((v) => `${p} ${v.id}: ${v.nodes[0]?.target?.join(' ')} | ${v.nodes[0]?.failureSummary?.split('\n')[1] ?? ''}`)).toEqual([]);
     }
   });
 
   test('as ferramentas, uma aba por vez e no modo foco', async ({ page }) => {
-    await page.goto('/');
-    await page.locator('#s12').scrollIntoViewIfNeeded();
+    await page.goto('/ferramentas/');
     await page.waitForSelector('astro-island:not([ssr])', { state: 'attached' });
     for (const t of ['tempo', 'texto', 'calculo', 'sorteio']) {
       await page.locator(`#tt-${t}`).click();
-      const r = await new AxeBuilder({ page }).include('#s12').withTags(['wcag2a', 'wcag2aa']).analyze();
+      await page.waitForTimeout(800);
+      const r = await new AxeBuilder({ page }).include('main').withTags(['wcag2a', 'wcag2aa']).analyze();
       expect(r.violations.map((v) => `${t} ${v.id}: ${v.nodes[0]?.target?.join(' ')} | ${v.nodes[0]?.failureSummary?.split('\n')[1] ?? ''}`)).toEqual([]);
     }
     await page.locator('#tt-tempo').click();
+    await page.waitForTimeout(900);
     await page.locator('#t-timer .expand').click();
+    await page.waitForTimeout(900);
     const r = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa']).analyze();
     expect(r.violations.map((v) => `foco ${v.id}: ${v.nodes[0]?.target?.join(' ')}`)).toEqual([]);
   });
 
-  test('com abas ligadas e filtros abertos', async ({ page }) => {
+  test('com menu lateral aberto', async ({ page }) => {
     await page.goto('/');
-    await page.locator('#viewBtn').click();
-    await page.locator('.fchip[data-f="tipo"]').click();
+    await page.locator('#menuBtn').click();
     const r = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa']).analyze();
     expect(r.violations.map((v) => `${v.id}: ${v.nodes[0]?.target?.join(' ')}`)).toEqual([]);
   });
 
-  test('com filtros abertos e mods expandidos', async ({ page }) => {
-    await page.goto('/');
+  test('com filtros abertos e loader escolhido', async ({ page }) => {
+    await page.goto('/minecraft/');
+    await page.waitForTimeout(800);
     await page.locator('.ldbar [data-ld="neoforge"]').click();
     await page.locator('.fchip[data-f="tipo"]').click();
     const r = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa']).analyze();
     expect(r.violations.map((v) => `${v.id}: ${v.nodes[0]?.target?.join(' ')}`)).toEqual([]);
+  });
+});
+
+test.describe('celular', () => {
+  test.use({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true, deviceScaleFactor: 2 });
+  test('sem zoom, sem rolagem lateral, campos com 16px e 2 colunas de recomendados', async ({ page }) => {
+    await page.goto('/');
+    expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(0);
+    expect(await page.evaluate(() => visualViewport!.scale)).toBe(1);
+    const small = await page.locator('input, select, textarea').evaluateAll((els) =>
+      els.filter((e) => e.getBoundingClientRect().width > 0 && parseFloat(getComputedStyle(e).fontSize) < 16).length);
+    expect(small).toBe(0);
+    const cols = await page.locator('#hero-top .rec-list').evaluate((e) => getComputedStyle(e).gridTemplateColumns.split(' ').length);
+    expect(cols).toBe(2);
+    for (const p of ['/ferramentas/', '/en/tools/', '/minecraft/']) {
+      await page.goto(p);
+      expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth), p).toBeLessThanOrEqual(0);
+    }
   });
 });

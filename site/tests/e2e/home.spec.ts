@@ -1,37 +1,54 @@
 import { expect, test } from '@playwright/test';
-import { ALL, PUBLIC, TOTAL, pickFilter, search, setTheme, visibleItems } from './helpers';
+import { ALL, PUBLIC, TOTAL, inSec, pickFilter, search, setTheme, visibleItems } from './helpers';
 
-test.describe('página inicial', () => {
+test.describe('início', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/');
   });
 
-  test('hero com descrição curta, contagem e os destaques na ordem pedida', async ({ page }) => {
-    await expect(page.locator('.sec')).toHaveCount(13);
-    await expect(page.locator('.blade')).toHaveCount(13);
+  test('hero simples, contagem e sem o modo abas', async ({ page }) => {
     await expect(page.locator('#hero h1')).toHaveText('KaniBox');
     await expect(page.locator('#hero .lead')).toHaveText('Ferramentas, apps e jogos que eu uso e recomendo.');
     await expect(page.locator('#hero .meta-line')).toContainText(`${TOTAL} itens`);
-    const top = await page.locator('#hero-top .tn b').allTextContents();
-    expect(top).toEqual(['CachyOS', 'VSCodium', 'Godot', 'Krita', 'Claude', 'DeepSeek', 'Obsidian', 'Ghostty', 'Prism Launcher']);
     await expect(page).toHaveTitle(/KaniBox/);
+    await expect(page.locator('#viewBtn, #tabsbar')).toHaveCount(0);
   });
 
-  test('Meus apps e Ferramentas vêm logo no topo', async ({ page }) => {
-    const titles = await page.locator('.sec .sec-t').allTextContents();
-    expect(titles.slice(0, 3)).toEqual(['Meus apps', 'Ferramentas', 'Navegar']);
+  test('"Mais recomendados": 8 pílulas vermelhas com estrela, sem o DeepSeek', async ({ page }) => {
+    await expect(page.locator('#rec-t')).toHaveText('Mais recomendados');
+    const names = await page.locator('#hero-top .tn b').allTextContents();
+    expect(names).toEqual(['CachyOS', 'VSCodium', 'Godot', 'Krita', 'Claude', 'Obsidian', 'Ghostty', 'Prism Launcher']);
+    expect(names).not.toContain('DeepSeek');
+    await expect(page.locator('#hero-top .pill-star')).toHaveCount(8);
+    const bg = await page.locator('#hero-top .rec-list a').first().evaluate((e) => getComputedStyle(e).backgroundColor);
+    const accent = await page.evaluate(() => getComputedStyle(document.documentElement).getPropertyValue('--accent').trim());
+    expect(bg).not.toBe('rgba(0, 0, 0, 0)');
+    expect(accent).toMatch(/^#/);
   });
 
-  test('o MoonDeck usa o logo enviado e Krita está em Desenhar', async ({ page }) => {
-    await expect(page.locator('[data-id="13-moondeck"] img')).toHaveAttribute('src', /moondeck\.png/);
-    await expect(page.locator('[data-g="3|Desenhar"] [data-id="3-krita"]')).toHaveCount(1);
+  test('categorias: 11 cartões, Meus apps e Ferramentas em destaque e primeiro', async ({ page }) => {
+    const titles = await page.locator('#cats .ct b').allTextContents();
+    expect(titles).toHaveLength(11);
+    expect(titles.slice(0, 2)).toEqual(['Meus apps', 'Ferramentas']);
+    await expect(page.locator('#cats .cat.feat')).toHaveCount(2);
+    expect(titles).not.toContain('Terminal');
+    expect(titles).not.toContain('Emular e jogar');
   });
 
-  test('buscar esconde os destaques do topo', async ({ page }) => {
-    await expect(page.locator('#hero-top')).toBeVisible();
+  test('um cartão leva para a página da categoria', async ({ page }) => {
+    await page.locator('#cats a', { hasText: 'IA' }).first().click();
+    await expect(page).toHaveURL(/\/ia\/$/);
+    await expect(page.locator('h1')).toHaveText('IA');
+  });
+
+  test('a lista completa fica escondida até a pessoa buscar', async ({ page }) => {
+    await expect(page.locator('#home-sections')).toBeHidden();
     await search(page, 'zen browser');
+    await expect(page.locator('#home-sections')).toBeVisible();
     await expect(page.locator('#hero-top')).toBeHidden();
+    await expect(page.locator('#cats')).toBeHidden();
     await page.locator('#qClear').click();
+    await expect(page.locator('#home-sections')).toBeHidden();
     await expect(page.locator('#hero-top')).toBeVisible();
   });
 
@@ -44,9 +61,10 @@ test.describe('página inicial', () => {
     await expect(page.locator('html')).toHaveAttribute('data-theme', theme!);
     await expect(page.locator('#panel')).not.toHaveClass(/on/);
     await expect(page.locator('#q')).not.toBeFocused();
+    await expect(page.locator('#menu')).not.toHaveClass(/on/);
   });
 
-  test('busca por "zen browser" mostra só o Zen Browser', async ({ page }) => {
+  test('busca por "zen browser" acha só o Zen Browser, em qualquer categoria', async ({ page }) => {
     await search(page, 'zen browser');
     await expect(visibleItems(page)).toHaveCount(1);
     await expect(visibleItems(page).first()).toContainText('Zen Browser');
@@ -57,49 +75,51 @@ test.describe('página inicial', () => {
     await expect(visibleItems(page)).toHaveCount(1);
   });
 
-  test('busca por "terminal" mostra os 4 terminais', async ({ page }) => {
+  test('busca por "terminal" mostra os 4 terminais (agora em Produtividade)', async ({ page }) => {
     await search(page, 'terminal');
     await expect(visibleItems(page)).toHaveCount(4);
-    await expect(page.locator('.sec:not([hidden])')).toHaveCount(1);
-    await expect(page.locator('.blade:not([hidden])')).toHaveCount(1);
+    await expect(page.locator('#home-sections .sec:not([hidden])')).toHaveCount(1);
+    await expect(page.locator('#s5')).toBeVisible();
   });
 
-  test('busca sem resultado mostra o aviso, e limpar volta tudo', async ({ page }) => {
+  test('busca por ferramentas mostra um atalho para a página de ferramentas', async ({ page }) => {
+    await search(page, 'pomodoro');
+    await expect(page.locator('#tools-hint')).toBeVisible();
+    await page.locator('#tools-hint a').click();
+    await expect(page).toHaveURL(/\/ferramentas\/$/);
+    await page.goto('/');
+    await search(page, 'zen browser');
+    await expect(page.locator('#tools-hint')).toBeHidden();
+  });
+
+  test('busca sem resultado mostra o aviso, e limpar volta ao início', async ({ page }) => {
     await search(page, 'xyzxyz');
     await expect(visibleItems(page)).toHaveCount(0);
     await expect(page.locator('#empty')).toHaveClass(/on/);
     await page.locator('#qClear').click();
     await expect(page.locator('#empty')).not.toHaveClass(/on/);
-    await expect(visibleItems(page)).toHaveCount(ALL.length);
+    await expect(page.locator('#hero-top')).toBeVisible();
   });
 
-  test('filtro de plataforma confere com os dados', async ({ page }) => {
+  test('filtros no início valem para todas as categorias', async ({ page }) => {
     await pickFilter(page, 'plat', 'Linux');
     await expect(visibleItems(page)).toHaveCount(ALL.filter((i) => i.plat.includes('Linux')).length);
-  });
-
-  test('plataforma + licença combinam em E', async ({ page }) => {
-    await pickFilter(page, 'plat', 'Linux');
     await pickFilter(page, 'lic', 'Código aberto');
     await expect(visibleItems(page)).toHaveCount(ALL.filter((i) => i.plat.includes('Linux') && i.lic === 'Código aberto').length);
-    await expect(page.locator('.fchip.on:not(.view)')).toHaveCount(2);
     await expect(page.locator('#sum')).toContainText(`de ${PUBLIC.length}`);
   });
 
-  test('filtro de tipo: seis emuladores', async ({ page }) => {
+  test('filtro de tipo: seis emuladores, e combinação impossível mostra o aviso', async ({ page }) => {
     await pickFilter(page, 'tipo', 'Emulador');
     await expect(visibleItems(page)).toHaveCount(6);
-  });
-
-  test('combinação impossível mostra o aviso, e "Limpar filtros" restaura', async ({ page }) => {
+    await page.locator('#clear').click();
     await pickFilter(page, 'plat', 'iOS');
     await pickFilter(page, 'lic', 'Código aberto');
     await pickFilter(page, 'tipo', 'Servidor');
     await expect(visibleItems(page)).toHaveCount(0);
     await expect(page.locator('#empty')).toHaveClass(/on/);
     await page.locator('#clear').click();
-    await expect(visibleItems(page)).toHaveCount(ALL.length);
-    await expect(page.locator('.fchip.on:not(.view)')).toHaveCount(0);
+    await expect(page.locator('.fchip.on')).toHaveCount(0);
   });
 
   test('o estado vai para a URL e volta ao recarregar', async ({ page }) => {
@@ -107,15 +127,14 @@ test.describe('página inicial', () => {
     await search(page, 'teclado');
     await expect(page).toHaveURL(/plat=Android/);
     await expect(page).toHaveURL(/q=teclado/);
-    const n = await visibleItems(page).count();
-    expect(n).toBe(2);
+    expect(await visibleItems(page).count()).toBe(2);
     await page.reload();
     await expect(page.locator('#q')).toHaveValue('teclado');
     await expect(page.locator('.fchip[data-f="plat"]')).toHaveClass(/on/);
-    await expect(visibleItems(page)).toHaveCount(n);
+    await expect(visibleItems(page)).toHaveCount(2);
   });
 
-  test('o filtro Plataforma lista só valores que existem nos dados', async ({ page }) => {
+  test('os filtros listam só valores que existem nos dados', async ({ page }) => {
     await page.locator('.fchip[data-f="plat"]').click();
     const opts = await page.locator('#panel .opt').evaluateAll((els) => els.map((e) => (e as HTMLElement).dataset.v));
     expect(opts).toEqual(['Linux', 'Windows', 'macOS', 'Android', 'iOS', 'Web', 'Nintendo', 'PlayStation']);
@@ -123,167 +142,212 @@ test.describe('página inicial', () => {
     const lic = await page.locator('#panel .opt').evaluateAll((els) => els.map((e) => (e as HTMLElement).dataset.v));
     expect(lic).toEqual(['Código aberto', 'Grátis', 'Freemium', 'Pago']);
   });
+});
 
-  test('os itens novos pedidos estão no ar', async ({ page }) => {
-    for (const id of ['1-have-i-been-pwned', '1-bitwarden', '1-proton-mail', '1-cloudflare-1-1-1-1', '2-deepl', '3-realtime-colors', '3-obs-studio', '3-sharex', '4-smdownloader', '4-pdf24-tools', '5-vscodium', '5-meupc-net', '7-ninite', '9-courier-owls']) {
-      await expect(page.locator(`[data-id="${id}"]`), id).toHaveCount(1);
+test.describe('página de categoria', () => {
+  test('mostra só a categoria, com h1, e a busca vale só nela', async ({ page }) => {
+    await page.goto('/criar/');
+    await expect(page.locator('h1')).toHaveText('Criar');
+    await expect(page.locator('main .sec')).toHaveCount(1);
+    await expect(page.locator('main [data-id]')).toHaveCount(inSec(3).length);
+    await expect(page.locator('#hero')).toHaveCount(0);
+    await search(page, 'krita');
+    await expect(visibleItems(page)).toHaveCount(1);
+    await expect(page.locator('[data-g="3|Desenhar"] [data-id="3-krita"]')).toBeVisible();
+  });
+
+  test('sem resultado oferece buscar em todas as categorias, levando a busca junto', async ({ page }) => {
+    await page.goto('/criar/');
+    await search(page, 'bitwarden');
+    await expect(page.locator('#empty')).toHaveClass(/on/);
+    await page.locator('#empty-global').click();
+    await expect(page).toHaveURL(/\/\?q=bitwarden$/);
+    await expect(page.locator('#q')).toHaveValue('bitwarden');
+    await expect(visibleItems(page)).toHaveCount(1);
+  });
+
+  test('os filtros da categoria só contam os itens dela', async ({ page }) => {
+    await page.goto('/ia/');
+    await page.locator('.fchip[data-f="tipo"]').click();
+    const opts = await page.locator('#panel .opt').evaluateAll((els) => els.map((e) => (e as HTMLElement).dataset.v));
+    expect(opts.sort()).toEqual([...new Set(inSec(2).map((i) => i.tipo))].sort());
+  });
+
+  test('Terminal está em Produtividade e Emuladores em Jogos', async ({ page }) => {
+    await page.goto('/produtividade/');
+    await expect(page.locator('[data-g="5|Terminais"] [data-id]')).toHaveCount(4);
+    await page.goto('/jogos/');
+    await expect(page.locator('[data-sub="10|Emuladores"]')).toHaveCount(1);
+  });
+
+  test('Meus apps tem o MoonDeck com o logo enviado', async ({ page }) => {
+    await page.goto('/meus-apps/');
+    await expect(page.locator('[data-id="13-moondeck"] img')).toHaveAttribute('src', /moondeck\.png/);
+  });
+
+  test('itens pedidos estão nas páginas certas', async ({ page }) => {
+    const where: Record<string, string[]> = {
+      '/navegar/': ['1-have-i-been-pwned', '1-bitwarden', '1-proton-mail', '1-cloudflare-1-1-1-1'],
+      '/ia/': ['2-deepl'],
+      '/criar/': ['3-realtime-colors', '3-obs-studio', '3-sharex'],
+      '/arquivos/': ['4-smdownloader', '4-pdf24-tools'],
+      '/produtividade/': ['5-vscodium', '5-meupc-net'],
+      '/sistema/': ['7-ninite'],
+      '/minecraft/': ['9-courier-owls'],
+    };
+    for (const [path, ids] of Object.entries(where)) {
+      await page.goto(path);
+      for (const id of ids) await expect(page.locator(`[data-id="${id}"]`), `${path} ${id}`).toHaveCount(1);
     }
   });
 });
 
-test.describe('Minecraft em abas', () => {
-  test.beforeEach(async ({ page }) => {
+test.describe('menu lateral', () => {
+  test('abre, lista as categorias com contagem e leva à página', async ({ page }) => {
     await page.goto('/');
+    await expect(page.locator('#menu')).toHaveAttribute('inert', '');
+    await page.locator('#menuBtn').click();
+    await expect(page.locator('#menu')).toHaveClass(/on/);
+    await expect(page.locator('#menuBtn')).toHaveAttribute('aria-expanded', 'true');
+    await expect(page.locator('#menu .mi')).toHaveCount(12); // início + 11 categorias
+    await expect(page.locator('#menu .mi', { hasText: 'Minecraft' }).locator('.mc')).toHaveText(String(inSec(9).length));
+    await page.locator('#menu .mi', { hasText: 'Criar' }).click();
+    await expect(page).toHaveURL(/\/criar\/$/);
+    await expect(page.locator('#menu')).not.toHaveClass(/on/);
   });
 
-  test('mods viram um grupo só, em abas com resource packs, shaders e servidores', async ({ page }) => {
+  test('fecha com Esc, com o fundo e com o botão, e devolve o foco', async ({ page }) => {
+    await page.goto('/');
+    await page.locator('#menuBtn').click();
+    await page.keyboard.press('Escape');
+    await expect(page.locator('#menu')).not.toHaveClass(/on/);
+    await expect(page.locator('#menuBtn')).toBeFocused();
+    await page.locator('#menuBtn').click();
+    await page.mouse.click(Math.round(page.viewportSize()!.width - 8), 400);
+    await expect(page.locator('#menu')).not.toHaveClass(/on/);
+    await page.locator('#menuBtn').click();
+    await page.locator('#menuClose').click();
+    await expect(page.locator('#menu')).not.toHaveClass(/on/);
+  });
+
+  test('marca a página atual', async ({ page }) => {
+    await page.goto('/ia/');
+    await page.locator('#menuBtn').click();
+    await expect(page.locator('#menu .mi[aria-current="page"]')).toHaveText(/IA/);
+  });
+});
+
+test.describe('abas elásticas (Rubber Segment)', () => {
+  test('Minecraft: mods num grupo só, em abas com resource packs, shaders e servidores', async ({ page }) => {
+    await page.goto('/minecraft/');
     const tabs = await page.locator('[data-sub]').allTextContents();
     expect(tabs.map((t) => t.replace(/\s+\d+$/, ''))).toEqual(['Launchers', 'Mods', 'Resource packs', 'Shaders', 'Servidores']);
     await expect(page.locator('[data-g="9|Mods"]')).not.toHaveClass(/sub-off/);
     await expect(page.locator('[data-g="9|Shaders"]')).toHaveClass(/sub-off/);
-    await expect(page.locator('[data-g="9|Mods favoritos"], [data-g="9|Mods secundários"]')).toHaveCount(0);
     await expect(page.locator('#s9 .mods li')).toHaveCount(43);
-  });
-
-  test('trocar de aba mostra só aquele grupo', async ({ page }) => {
     await page.locator('[data-sub="9|Servidores"]').click();
     await expect(page.locator('[data-g="9|Servidores"]')).not.toHaveClass(/sub-off/);
     await expect(page.locator('[data-g="9|Mods"]')).toHaveClass(/sub-off/);
-    await expect(page.locator('[data-sub="9|Servidores"]')).toHaveAttribute('aria-selected', 'true');
+  });
+
+  test('o marcador acompanha a aba escolhida', async ({ page }) => {
+    await page.goto('/minecraft/');
+    await page.waitForTimeout(300);
+    const geo = () =>
+      page.evaluate(() => {
+        const seg = document.querySelector('.subtabs')!;
+        const pill = seg.querySelector<HTMLElement>('.seg-pill')!;
+        const sel = seg.querySelector<HTMLElement>('[aria-selected="true"]')!;
+        return { px: pill.style.getPropertyValue('--x'), sx: sel.offsetLeft + 'px', pw: pill.style.getPropertyValue('--w'), sw: sel.offsetWidth + 'px', op: pill.style.opacity };
+      });
+    let g = await geo();
+    expect(g.px).toBe(g.sx);
+    expect(g.pw).toBe(g.sw);
+    expect(g.op).toBe('1');
+    await page.locator('[data-sub="9|Shaders"]').click();
+    await page.waitForTimeout(150);
+    g = await geo();
+    expect(g.px).toBe(g.sx);
+    await expect(page.locator('.subtabs .seg-pill')).toHaveClass(/stretch/);
+  });
+
+  test('Jogos: galeria de 22 com Deltarune primeiro, e emuladores em outra aba', async ({ page }) => {
+    await page.goto('/jogos/');
+    await expect(page.locator('#s10 .tile')).toHaveCount(22);
+    await expect(page.locator('#s10 .tile b').first()).toContainText('Deltarune');
+    await page.locator('[data-sub="10|Emuladores"]').click();
+    await expect(page.locator('[data-g="10|Emuladores"]')).not.toHaveClass(/sub-off/);
+    await expect(page.locator('[data-g="10|Que eu gosto"]')).toHaveClass(/sub-off/);
   });
 
   test('a busca esconde abas sem resultado e muda para uma que tenha', async ({ page }) => {
+    await page.goto('/minecraft/');
     await search(page, 'shader');
     await expect(page.locator('[data-sub="9|Mods"]')).toBeHidden();
     await expect(page.locator('[data-sub="9|Shaders"]')).toHaveAttribute('aria-selected', 'true');
-    await expect(page.locator('[data-g="9|Shaders"]')).not.toHaveClass(/sub-off/);
   });
 
-  test('NeoForge apaga só 2 de 42 mods', async ({ page }) => {
+  test('loader: NeoForge apaga 2 de 42 mods, Fabric 6, e Courier Owls nunca é riscado', async ({ page }) => {
+    await page.goto('/minecraft/');
     await page.locator('.ldbar [data-ld="neoforge"]').click();
     await expect(page.locator('.mods li.dim')).toHaveCount(2);
     await expect(page.locator('#ldsum')).toContainText('40 de 42');
-  });
-
-  test('Fabric apaga 6 mods, e Courier Owls (sem loader confirmado) nunca é riscado', async ({ page }) => {
     await page.locator('.ldbar [data-ld="fabric"]').click();
     await expect(page.locator('.mods li.dim')).toHaveCount(6);
     await expect(page.locator('[data-id="9-courier-owls"]')).not.toHaveClass(/dim/);
     await page.locator('.ldbar [data-ld="todos"]').click();
     await expect(page.locator('.mods li.dim')).toHaveCount(0);
   });
-
-  test('os jogos viram galeria de 22 com Deltarune primeiro', async ({ page }) => {
-    await expect(page.locator('#s10 .tile')).toHaveCount(22);
-    await expect(page.locator('#s10 .tile b').first()).toContainText('Deltarune');
-  });
 });
 
-test.describe('canivete', () => {
-  test.beforeEach(async ({ page }) => {
-    await page.goto('/');
+test.describe('canivete (navegação entre páginas)', () => {
+  test('uma lâmina por categoria, e a da página atual fica acesa', async ({ page }) => {
+    await page.goto('/ia/');
+    await expect(page.locator('.blade')).toHaveCount(11);
+    await expect(page.locator('.blade[aria-current="page"]')).toHaveCount(1);
+    await expect(page.locator('.blade[aria-current="page"]')).toHaveAttribute('data-s', '2');
   });
 
-  test('clicar no cabo dobra e abre', async ({ page, isMobile }) => {
-    test.skip(!!isMobile, 'no celular as lâminas só rolam');
+  test('clicar numa lâmina vai para a página', async ({ page }) => {
+    await page.goto('/');
+    await page.locator('.blade[data-s="9"]').click();
+    await expect(page).toHaveURL(/\/minecraft\/$/);
+  });
+
+  test('clicar no cabo dobra e abre', async ({ page }) => {
+    test.skip((page.viewportSize()?.width ?? 0) < 800, 'no celular as lâminas só rolam');
+    await page.goto('/');
     await expect(page.locator('#kdock')).toHaveClass(/open/);
     await page.locator('#kh').click();
     await expect(page.locator('#kdock')).toHaveClass(/fold/);
-    await expect(page.locator('#kh')).toHaveAttribute('aria-pressed', 'true');
     await page.locator('#kh').click();
     await expect(page.locator('#kdock')).not.toHaveClass(/fold/);
   });
 
-  test('a lâmina da seção visível fica acesa', async ({ page }) => {
-    await page.evaluate(() => document.getElementById('s9')!.scrollIntoView({ block: 'start' }));
-    await expect(page.locator('.blade[data-s="9"]')).toHaveAttribute('aria-current', 'true');
-  });
-
-  test('clicar numa lâmina vai para a seção', async ({ page }) => {
-    await page.locator('.blade[data-s="6"]').click();
-    await expect(page).toHaveURL(/#s6$/);
-    await expect(page.locator('#s6')).toBeInViewport();
-  });
-
-  test('o rótulo da lâmina atual some quando o mouse está em outra (sem texto por cima)', async ({ page, isMobile }) => {
-    test.skip(!!isMobile, 'sem mouse no celular');
-    await page.evaluate(() => document.getElementById('s12')!.scrollIntoView({ block: 'start' }));
-    await expect(page.locator('.blade[data-s="12"]')).toHaveAttribute('aria-current', 'true');
+  test('o rótulo da lâmina atual some quando o mouse está em outra (sem texto por cima)', async ({ page }) => {
+    test.skip((page.viewportSize()?.width ?? 0) < 800, 'sem mouse no celular');
+    await page.goto('/ferramentas/');
+    await page.mouse.move(5, 300);
+    await page.waitForTimeout(1200);
     const op = (s: string) => page.locator(`.blade[data-s="${s}"] .lab`).evaluate((e) => getComputedStyle(e).opacity);
-    await page.waitForTimeout(500);
     expect(await op('12')).toBe('1');
     await page.locator('.blade[data-s="1"]').hover();
-    await page.waitForTimeout(350);
+    await page.waitForTimeout(450);
     expect(await op('1')).toBe('1');
     expect(await op('12')).toBe('0');
     await page.mouse.move(5, 300);
-    await page.waitForTimeout(350);
+    await page.waitForTimeout(450);
     expect(await op('12')).toBe('1');
   });
 
   test('no tema claro o cabo é preto e vermelho; no escuro, creme e vermelho', async ({ page }) => {
+    await page.goto('/');
     await page.locator('#themeBtn').click();
     await page.locator('#themes [data-t="white"]').click();
     const kh = () => page.locator('#kh').evaluate((e) => getComputedStyle(e).backgroundColor);
     expect(await kh()).toBe('rgb(27, 26, 23)');
     await page.locator('#themes [data-t="dark"]').click();
     expect(await kh()).toBe('rgb(246, 240, 230)');
-  });
-});
-
-test.describe('visualização por abas', () => {
-  test.beforeEach(async ({ page }) => {
-    await page.goto('/');
-  });
-
-  test('começa em lista e o botão Abas mostra uma seção por vez', async ({ page }) => {
-    await expect(page.locator('html')).not.toHaveClass(/view-tabs/);
-    await expect(page.locator('.sec:not([hidden]):not(.tab-off)')).toHaveCount(13);
-    await page.locator('#viewBtn').click();
-    await expect(page.locator('html')).toHaveClass(/view-tabs/);
-    await expect(page.locator('#viewBtn')).toHaveAttribute('aria-pressed', 'true');
-    await expect(page.locator('.sec:not(.tab-off)')).toHaveCount(1);
-    await expect(page.locator('#tabsbar [data-tab]')).toHaveCount(13);
-  });
-
-  test('trocar de aba mostra outra seção e a lâmina acompanha', async ({ page }) => {
-    await page.locator('#viewBtn').click();
-    await page.locator('#tabsbar [data-tab="9"]').click();
-    await expect(page.locator('#s9')).not.toHaveClass(/tab-off/);
-    await expect(page.locator('#s13')).toHaveClass(/tab-off/);
-    await expect(page.locator('.blade[data-s="9"]')).toHaveAttribute('aria-current', 'true');
-    await expect(page).toHaveURL(/#s9$/);
-  });
-
-  test('o canivete também troca a aba, sem rolar a página inteira', async ({ page }) => {
-    await page.locator('#viewBtn').click();
-    await page.locator('.blade[data-s="6"]').click();
-    await expect(page.locator('#s6')).not.toHaveClass(/tab-off/);
-    await expect(page.locator('.sec:not(.tab-off)')).toHaveCount(1);
-  });
-
-  test('a escolha é lembrada ao recarregar e dá para voltar à lista', async ({ page }) => {
-    await page.locator('#viewBtn').click();
-    await page.reload();
-    await expect(page.locator('html')).toHaveClass(/view-tabs/);
-    await page.locator('#viewBtn').click();
-    await expect(page.locator('html')).not.toHaveClass(/view-tabs/);
-    await expect(page.locator('.sec:not([hidden]):not(.tab-off)')).toHaveCount(13);
-  });
-
-  test('com busca, só as abas com resultado aparecem', async ({ page }) => {
-    await page.locator('#viewBtn').click();
-    await search(page, 'terminal');
-    await expect(page.locator('#tabsbar [data-tab]:not([hidden])')).toHaveCount(1);
-    await expect(page.locator('#s6')).not.toHaveClass(/tab-off/);
-  });
-
-  test('o link #s9 abre direto a aba do Minecraft', async ({ page }) => {
-    await page.evaluate(() => localStorage.setItem('kb-view', 'tabs'));
-    await page.goto('/#s9');
-    await page.reload(); // mudar só o hash não recarrega a página
-    await expect(page.locator('#s9')).not.toHaveClass(/tab-off/);
-    await expect(page.locator('.sec:not(.tab-off)')).toHaveCount(1);
   });
 });
 
@@ -299,20 +363,14 @@ test.describe('rodapé', () => {
 });
 
 test.describe('tema', () => {
-  test('troca de tema persiste ao recarregar', async ({ page }) => {
-    await page.goto('/');
-    await page.locator('#themeBtn').click();
-    await page.locator('#themes [data-t="white"]').click();
-    await expect(page.locator('html')).toHaveAttribute('data-theme', 'white');
-    await page.reload();
-    await expect(page.locator('html')).toHaveAttribute('data-theme', 'white');
-    await expect(page.locator('#themes [data-t="white"]')).toHaveAttribute('aria-pressed', 'true');
-  });
-
-  test('só dois temas: dark e white', async ({ page }) => {
+  test('troca persiste, e só existem dark e white', async ({ page }) => {
     await page.goto('/');
     const ids = await page.locator('#themes [data-t]').evaluateAll((els) => els.map((e) => (e as HTMLElement).dataset.t));
     expect(ids).toEqual(['dark', 'white']);
+    await page.locator('#themeBtn').click();
+    await page.locator('#themes [data-t="white"]').click();
+    await page.reload();
+    await expect(page.locator('html')).toHaveAttribute('data-theme', 'white');
   });
 
   test.describe('padrão pelo sistema', () => {
@@ -324,13 +382,11 @@ test.describe('tema', () => {
   });
   test.describe('padrão pelo sistema (claro)', () => {
     test.use({ colorScheme: 'light' });
-    test('claro abre em white', async ({ page }) => {
+    test('claro abre em white, e o tema salvo vence', async ({ page }) => {
       await page.goto('/');
       await expect(page.locator('html')).toHaveAttribute('data-theme', 'white');
-    });
-    test('tema salvo vence a preferência do sistema', async ({ page }) => {
       await setTheme(page, 'dark');
-      await page.goto('/');
+      await page.goto('/ia/');
       await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
     });
   });

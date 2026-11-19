@@ -21,7 +21,10 @@
   "top": false,
   "lic_src": "GitHub: MPL-2.0",
   "icon": "zen-browser-app.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Firefox-based browser with vertical tabs and workspaces.",
+  "tipo_en": "Browser",
+  "grp_en": "Browsers"
  },
  {
   "sec": 1,
@@ -45,7 +48,10 @@
   "top": false,
   "lic_src": "GitHub: GPL-3.0",
   "icon": "helium-computer.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Privacy-focused Chromium browser without Google dependencies. In beta.",
+  "tipo_en": "Browser",
+  "grp_en": "Browsers"
  },
  {
   "sec": 1,
@@ -70,7 +76,10 @@
   "kind": "item",
   "top": false,
   "icon": "vivaldi-com.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Highly customizable Chromium-based browser.",
+  "tipo_en": "Browser",
+  "grp_en": "Browsers"
  },
  {
   "sec": 1,
@@ -95,7 +104,10 @@
   "top": false,
   "lic_src": "GitHub: GPL-3.0",
   "icon": "ublockorigin-com.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Lightweight ad and tracker blocker.",
+  "tipo_en": "Extension",
+  "grp_en": "Extensions"
  },
  {
   "sec": 1,
@@ -118,7 +130,10 @@
   "kind": "item",
   "top": false,
   "icon": "colorzilla-com.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Color picker and gradient generator for the browser.",
+  "tipo_en": "Extension",
+  "grp_en": "Extensions"
  },
  {
   "sec": 1,
@@ -140,7 +155,10 @@
   "mono": true,
   "kind": "item",
   "top": false,
-  "http": 200
+  "http": 200,
+  "note_en": "Limits your time on distracting sites.",
+  "tipo_en": "Extension",
+  "grp_en": "Extensions"
  },
  {
   "sec": 1,
@@ -166,7 +184,10 @@
   "kind": "item",
   "top": false,
   "icon": "bitwarden-com.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Open source password manager.",
+  "tipo_en": "Password manager",
+  "grp_en": "Security"
  },
  {
   "sec": 1,
@@ -192,7 +213,10 @@
   "kind": "item",
   "top": false,
   "icon": "1password-com.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Paid password manager.",
+  "tipo_en": "Password manager",
+  "grp_en": "Security"
  },
  {
   "sec": 1,
@@ -213,7 +237,10 @@
   "kind": "item",
   "top": false,
   "icon": "virustotal-com.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Scans files and links with dozens of antivirus engines.",
+  "tipo_en": "File and link scanner",
+  "grp_en": "Security"
  },
  {
   "sec": 1,
@@ -236,7 +263,10 @@
   "kind": "item",
   "top": false,
   "icon": "duckduckgo-com.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Search engine that does not track your searches.",
+  "tipo_en": "Search engine",
+  "grp_en": "Search"
  },
  {
   "sec": 1,
@@ -262,7 +292,10 @@
   "kind": "item",
   "top": false,
   "icon": "proton-me.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Encrypted email from Proton, with a free plan.",
+  "tipo_en": "Email",
+  "grp_en": "Email"
  },
  {
   "sec": 1,
@@ -283,7 +316,10 @@
   "kind": "item",
   "top": false,
   "icon": "10minutemail-com.png",
-  "http": 403
+  "http": 403,
+  "note_en": "Temporary email that expires in 10 minutes.",
+  "tipo_en": "Temporary email",
+  "grp_en": "Email"
  },
  {
   "sec": 1,
@@ -306,7 +342,10 @@
   "kind": "item",
   "top": false,
   "icon": "temp-mail-org.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Disposable email for sign-ups.",
+  "tipo_en": "Temporary email",
+  "grp_en": "Email"
  },
  {
   "sec": 1,
@@ -331,7 +370,9 @@
   "kind": "item",
   "top": false,
   "icon": "one-one-one-one.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Fast, private DNS from Cloudflare, with a VPN app (WARP).",
+  "tipo_en": "DNS and VPN"
  },
  {
   "sec": 1,
@@ -356,7 +397,8 @@
   "kind": "item",
   "top": false,
   "icon": "protonvpn-com.png",
-  "http": 200
+  "http": 200,
+  "note_en": "VPN from Proton, with a free plan."
  },
  {
   "sec": 1,
@@ -381,7 +423,8 @@
   "kind": "item",
   "top": false,
   "icon": "nordvpn-com.png",
-  "http": 403
+  "http": 403,
+  "note_en": "Paid VPN with many servers."
  },
  {
   "sec": 1,
@@ -406,7 +449,8 @@
   "kind": "item",
   "top": false,
   "icon": "mullvad-net.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Paid, private VPN with open source apps."
  },
  {
   "sec": 1,
@@ -427,7 +471,10 @@
   "kind": "item",
   "top": false,
   "icon": "haveibeenpwned-com.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Shows whether your email or password appeared in data breaches.",
+  "tipo_en": "Data breach check",
+  "grp_en": "Security"
  },
  {
   "sec": 2,
@@ -448,9 +495,11 @@
   "icon_domain": "deepseek.com",
   "mono": false,
   "kind": "item",
-  "top": true,
+  "top": false,
   "icon": "deepseek-com.png",
-  "http": 200
+  "http": 200,
+  "note_en": "AI chat from DeepSeek.",
+  "tipo_en": "AI chat"
  },
  {
   "sec": 2,
@@ -475,7 +524,9 @@
   "kind": "item",
   "top": true,
   "icon": "claude-com.png",
-  "http": 200
+  "http": 200,
+  "note_en": "AI assistant from Anthropic.",
+  "tipo_en": "AI chat"
  },
  {
   "sec": 2,
@@ -496,7 +547,9 @@
   "kind": "item",
   "top": false,
   "icon": "chat-z-ai.png",
-  "http": 200
+  "http": 200,
+  "note_en": "AI chat from Z.ai, with the GLM models.",
+  "tipo_en": "AI chat"
  },
  {
   "sec": 2,
@@ -519,7 +572,9 @@
   "kind": "item",
   "top": false,
   "icon": "chat-qwen-ai.png",
-  "http": 200
+  "http": 200,
+  "note_en": "AI chat from Alibaba, with the Qwen models.",
+  "tipo_en": "AI chat"
  },
  {
   "sec": 2,
@@ -542,7 +597,10 @@
   "kind": "item",
   "top": false,
   "icon": "gemini-google-com.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Google assistant that also generates images.",
+  "tipo_en": "Image generator",
+  "grp_en": "Image generators"
  },
  {
   "sec": 2,
@@ -563,7 +621,10 @@
   "kind": "item",
   "top": false,
   "icon": "meta-ai.png",
-  "http": 403
+  "http": 403,
+  "note_en": "Meta assistant that generates and edits images.",
+  "tipo_en": "Image generator",
+  "grp_en": "Image generators"
  },
  {
   "sec": 2,
@@ -584,7 +645,10 @@
   "kind": "item",
   "top": false,
   "icon": "bing-com.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Microsoft image generator.",
+  "tipo_en": "Image generator",
+  "grp_en": "Image generators"
  },
  {
   "sec": 2,
@@ -609,7 +673,10 @@
   "kind": "item",
   "top": false,
   "icon": "deepl-com.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Natural-sounding translator, with a free plan.",
+  "tipo_en": "Translator",
+  "grp_en": "Translation"
  },
  {
   "sec": 3,
@@ -631,7 +698,10 @@
   "mono": true,
   "kind": "item",
   "top": false,
-  "http": 200
+  "http": 200,
+  "note_en": "Free image editor, a Photoshop alternative.",
+  "tipo_en": "Image editor",
+  "grp_en": "Editing"
  },
  {
   "sec": 3,
@@ -655,7 +725,10 @@
   "kind": "item",
   "top": false,
   "icon": "getartcraft-com.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Suite of open creative apps written in Rust, with an AI studio.",
+  "tipo_en": "Creative suite",
+  "grp_en": "Editing"
  },
  {
   "sec": 3,
@@ -676,7 +749,10 @@
   "kind": "item",
   "top": false,
   "icon": "bgclear-ai.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Removes photo backgrounds with AI, no account.",
+  "tipo_en": "Background remover",
+  "grp_en": "Background and vector"
  },
  {
   "sec": 3,
@@ -697,7 +773,10 @@
   "kind": "item",
   "top": false,
   "icon": "vectorizer-kiwi.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Converts PNG and JPEG into SVG vectors, for free.",
+  "tipo_en": "Image vectorizer",
+  "grp_en": "Background and vector"
  },
  {
   "sec": 3,
@@ -719,7 +798,9 @@
   "mono": true,
   "kind": "item",
   "top": false,
-  "http": 403
+  "http": 403,
+  "note_en": "Free 3D modeling, animation and rendering program.",
+  "grp_en": "3D and games"
  },
  {
   "sec": 3,
@@ -743,7 +824,10 @@
   "top": true,
   "lic_src": "GitHub: MIT",
   "icon": "godotengine-org.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Free game engine for 2D and 3D.",
+  "tipo_en": "Game engine",
+  "grp_en": "3D and games"
  },
  {
   "sec": 3,
@@ -767,7 +851,10 @@
   "top": false,
   "lic_src": "a conferir (GitHub sem licença legível)",
   "icon": "audacityteam-org.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Free audio editor.",
+  "tipo_en": "Audio editor",
+  "grp_en": "Audio"
  },
  {
   "sec": 3,
@@ -791,7 +878,10 @@
   "top": false,
   "lic_src": "GitHub: GPL-2.0",
   "icon": "lmms-io.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Free music production studio.",
+  "tipo_en": "Music production",
+  "grp_en": "Audio"
  },
  {
   "sec": 3,
@@ -814,7 +904,10 @@
   "kind": "item",
   "top": true,
   "icon": "krita-org.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Free digital painting and illustration program.",
+  "tipo_en": "Digital painting",
+  "grp_en": "Drawing"
  },
  {
   "sec": 3,
@@ -836,7 +929,10 @@
   "top": false,
   "lic_src": "GitHub: MIT",
   "icon": "excalidraw-com.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Virtual whiteboard with a hand-drawn look.",
+  "tipo_en": "Whiteboard",
+  "grp_en": "Drawing"
  },
  {
   "sec": 3,
@@ -858,7 +954,10 @@
   "top": false,
   "lic_src": "GitHub: GPL-3.0",
   "icon": "getsharex-com.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Open source screen capture and recording for Windows.",
+  "tipo_en": "Screen capture",
+  "grp_en": "Capture and video"
  },
  {
   "sec": 3,
@@ -882,7 +981,10 @@
   "top": false,
   "lic_src": "GitHub: GPL-2.0",
   "icon": "obsproject-com.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Open source video recording and streaming.",
+  "tipo_en": "Recording and streaming",
+  "grp_en": "Capture and video"
  },
  {
   "sec": 3,
@@ -903,7 +1005,10 @@
   "kind": "item",
   "top": false,
   "icon": "realtimecolors-com.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Tests color palettes on a sample site, in real time.",
+  "tipo_en": "Color palette",
+  "grp_en": "Colors"
  },
  {
   "sec": 3,
@@ -928,7 +1033,8 @@
   "top": false,
   "lic_src": "GitHub: MIT",
   "icon": "pixelorama-org.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Free pixel art editor made with Godot."
  },
  {
   "sec": 3,
@@ -949,7 +1055,8 @@
   "kind": "item",
   "top": false,
   "icon": "novaboard-app.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Pixel art editor and animator in the browser, no account, works offline."
  },
  {
   "sec": 3,
@@ -973,7 +1080,8 @@
   "top": false,
   "lic_src": "GitHub: GPL-2.0",
   "icon": "libresprite-github-io.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Free sprite and pixel art animation editor."
  },
  {
   "sec": 4,
@@ -995,7 +1103,10 @@
   "top": false,
   "lic_src": "GitHub: AGPL-3.0",
   "icon": "cobalt-tools.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Downloads video and audio from many sites, no ads.",
+  "tipo_en": "Media downloader",
+  "grp_en": "Download and convert"
  },
  {
   "sec": 4,
@@ -1016,7 +1127,10 @@
   "kind": "item",
   "top": false,
   "icon": "snapyt-app.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Saves YouTube video or audio from the browser.",
+  "tipo_en": "YouTube downloader",
+  "grp_en": "Download and convert"
  },
  {
   "sec": 4,
@@ -1037,7 +1151,10 @@
   "kind": "item",
   "top": false,
   "icon": "smdownloader-com.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Downloads videos from social networks.",
+  "tipo_en": "Media downloader",
+  "grp_en": "Download and convert"
  },
  {
   "sec": 4,
@@ -1059,7 +1176,9 @@
   "kind": "item",
   "top": false,
   "icon": "tools-pdf24-org.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Tools to merge, split and convert PDF.",
+  "grp_en": "Download and convert"
  },
  {
   "sec": 4,
@@ -1078,7 +1197,10 @@
   "kind": "item",
   "top": false,
   "icon": "transmute-sh.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Image, video and audio converter and compressor.",
+  "tipo_en": "Converter",
+  "grp_en": "Download and convert"
  },
  {
   "sec": 4,
@@ -1101,7 +1223,10 @@
   "top": false,
   "lic_src": "a conferir (GitHub sem licença legível)",
   "icon": "7-zip-org.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Free archiver with a high compression ratio.",
+  "tipo_en": "Archiver",
+  "grp_en": "Compress"
  },
  {
   "sec": 4,
@@ -1124,7 +1249,10 @@
   "top": false,
   "lic_src": "GitHub: LGPL-3.0",
   "icon": "peazip-github-io.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Free archiver that supports many formats.",
+  "tipo_en": "Archiver",
+  "grp_en": "Compress"
  },
  {
   "sec": 4,
@@ -1150,7 +1278,10 @@
   "top": false,
   "lic_src": "GitHub: Apache-2.0",
   "icon": "localsend-org.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Sends files between devices on the same network, no internet needed.",
+  "tipo_en": "File transfer",
+  "grp_en": "Send and transfer"
  },
  {
   "sec": 4,
@@ -1171,7 +1302,10 @@
   "kind": "item",
   "top": false,
   "icon": "app-dashbeam-net.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Peer-to-peer file transfer.",
+  "tipo_en": "File transfer",
+  "grp_en": "Send and transfer"
  },
  {
   "sec": 4,
@@ -1192,7 +1326,10 @@
   "kind": "item",
   "top": false,
   "icon": "wispfile-com.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Sends encrypted files straight from your device to the recipient, no account.",
+  "tipo_en": "File transfer",
+  "grp_en": "Send and transfer"
  },
  {
   "sec": 4,
@@ -1213,7 +1350,10 @@
   "kind": "item",
   "top": false,
   "icon": "litterbox-catbox-moe.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Temporary file hosting.",
+  "tipo_en": "Temporary hosting",
+  "grp_en": "Send and transfer"
  },
  {
   "sec": 5,
@@ -1238,7 +1378,10 @@
   "kind": "item",
   "top": true,
   "icon": "obsidian-md.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Markdown notes stored on your computer.",
+  "tipo_en": "Notes",
+  "grp_en": "Notes and tasks"
  },
  {
   "sec": 5,
@@ -1260,7 +1403,10 @@
   "top": false,
   "lic_src": "GitHub: GPL-3.0",
   "icon": "tasks-org.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Open source to-do list for Android.",
+  "tipo_en": "Tasks",
+  "grp_en": "Notes and tasks"
  },
  {
   "sec": 5,
@@ -1282,7 +1428,9 @@
   "top": false,
   "lic_src": "GitHub: MIT",
   "icon": "readme-so.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Editor to build a project README.",
+  "grp_en": "Notes and tasks"
  },
  {
   "sec": 5,
@@ -1306,7 +1454,10 @@
   "top": true,
   "lic_src": "GitHub: MIT",
   "icon": "vscodium-com.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Free build of VS Code, without telemetry.",
+  "tipo_en": "Code editor",
+  "grp_en": "Code editor"
  },
  {
   "sec": 5,
@@ -1327,7 +1478,9 @@
   "kind": "item",
   "top": false,
   "icon": "pomofocus-io.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Pomodoro timer in the browser.",
+  "grp_en": "Focus"
  },
  {
   "sec": 5,
@@ -1348,7 +1501,10 @@
   "kind": "item",
   "top": false,
   "icon": "qrpine-com.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Generates QR codes with no sign-up and no watermark.",
+  "tipo_en": "QR code generator",
+  "grp_en": "Utilities"
  },
  {
   "sec": 5,
@@ -1369,7 +1525,10 @@
   "kind": "item",
   "top": false,
   "icon": "meupc-net.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Builds PCs and compares prices from Brazilian stores.",
+  "tipo_en": "PC builder",
+  "grp_en": "Utilities"
  },
  {
   "sec": 5,
@@ -1388,10 +1547,13 @@
   "kind": "item",
   "top": false,
   "lic_src": "GitHub: GPL-3.0",
-  "http": 200
+  "http": 200,
+  "note_en": "Open source media player for phone, desktop and TV.",
+  "tipo_en": "Media player",
+  "grp_en": "Media"
  },
  {
-  "sec": 6,
+  "sec": 5,
   "grp": "Terminais",
   "name": "Ghostty",
   "url": "https://ghostty.org",
@@ -1411,10 +1573,12 @@
   "top": true,
   "lic_src": "GitHub: MIT",
   "icon": "ghostty-org.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Fast terminal with GPU acceleration.",
+  "grp_en": "Terminals"
  },
  {
-  "sec": 6,
+  "sec": 5,
   "grp": "Terminais",
   "name": "Kitty",
   "url": "https://sw.kovidgoyal.net/kitty/",
@@ -1433,10 +1597,12 @@
   "kind": "item",
   "top": false,
   "lic_src": "GitHub: GPL-3.0",
-  "http": 200
+  "http": 200,
+  "note_en": "GPU-accelerated terminal with many features.",
+  "grp_en": "Terminals"
  },
  {
-  "sec": 6,
+  "sec": 5,
   "grp": "Terminais",
   "name": "Alacritty",
   "url": "https://alacritty.org",
@@ -1457,10 +1623,12 @@
   "top": false,
   "lic_src": "GitHub: Apache-2.0",
   "icon": "alacritty-org.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Minimal, fast terminal with GPU acceleration.",
+  "grp_en": "Terminals"
  },
  {
-  "sec": 6,
+  "sec": 5,
   "grp": "Terminais",
   "name": "Warp",
   "url": "https://www.warp.dev",
@@ -1480,7 +1648,9 @@
   "kind": "item",
   "top": false,
   "icon": "warp-dev.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Modern terminal with built-in AI.",
+  "grp_en": "Terminals"
  },
  {
   "sec": 7,
@@ -1501,7 +1671,10 @@
   "kind": "item",
   "top": false,
   "icon": "fedoraproject-org.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Community Linux distro with recent versions.",
+  "tipo_en": "Linux distro",
+  "grp_en": "Linux distros"
  },
  {
   "sec": 7,
@@ -1522,7 +1695,10 @@
   "kind": "item",
   "top": true,
   "icon": "cachyos-org.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Arch-based Linux distro tuned for performance.",
+  "tipo_en": "Linux distro",
+  "grp_en": "Linux distros"
  },
  {
   "sec": 7,
@@ -1543,7 +1719,10 @@
   "kind": "item",
   "top": false,
   "icon": "zorin-com.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Linux distro that looks like Windows.",
+  "tipo_en": "Linux distro",
+  "grp_en": "Linux distros"
  },
  {
   "sec": 7,
@@ -1564,7 +1743,10 @@
   "kind": "item",
   "top": false,
   "icon": "debian-org.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Stable, universal Linux distro.",
+  "tipo_en": "Linux distro",
+  "grp_en": "Linux distros"
  },
  {
   "sec": 7,
@@ -1585,7 +1767,10 @@
   "kind": "item",
   "top": false,
   "icon": "linuxmint-com.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Easy-to-use Linux distro with a traditional look.",
+  "tipo_en": "Linux distro",
+  "grp_en": "Linux distros"
  },
  {
   "sec": 7,
@@ -1606,7 +1791,10 @@
   "kind": "item",
   "top": false,
   "icon": "ubuntu-com.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Popular Linux distro, good for starting out.",
+  "tipo_en": "Linux distro",
+  "grp_en": "Linux distros"
  },
  {
   "sec": 7,
@@ -1627,7 +1815,9 @@
   "kind": "item",
   "top": false,
   "icon": "ninite-com.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Installs several programs at once on Windows.",
+  "tipo_en": "App installer"
  },
  {
   "sec": 7,
@@ -1647,7 +1837,9 @@
   "mono": true,
   "kind": "item",
   "top": false,
-  "http": 200
+  "http": 200,
+  "note_en": "Google keyboard for Android.",
+  "tipo_en": "Keyboard"
  },
  {
   "sec": 7,
@@ -1669,7 +1861,9 @@
   "top": false,
   "lic_src": "GitHub: Apache-2.0",
   "icon": "florisboard-org.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Open source keyboard for Android.",
+  "tipo_en": "Keyboard"
  },
  {
   "sec": 7,
@@ -1690,10 +1884,12 @@
   "kind": "item",
   "top": false,
   "icon": "f-droid-org.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Open source Android app store.",
+  "tipo_en": "App store"
  },
  {
-  "sec": 8,
+  "sec": 10,
   "grp": "Emuladores",
   "name": "melonDS",
   "url": "https://melonds.kuribo64.net",
@@ -1714,10 +1910,13 @@
   "top": false,
   "lic_src": "GitHub: GPL-3.0",
   "icon": "melonds-kuribo64-net.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Nintendo DS emulator.",
+  "tipo_en": "Emulator",
+  "grp_en": "Emulators"
  },
  {
-  "sec": 8,
+  "sec": 10,
   "grp": "Emuladores",
   "name": "Azahar",
   "url": "https://azahar-emu.org",
@@ -1739,10 +1938,13 @@
   "top": false,
   "lic_src": "GitHub: GPL-3.0",
   "icon": "azahar-emu-org.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Nintendo 3DS emulator.",
+  "tipo_en": "Emulator",
+  "grp_en": "Emulators"
  },
  {
-  "sec": 8,
+  "sec": 10,
   "grp": "Emuladores",
   "name": "Eden",
   "url": "https://eden-emu.dev",
@@ -1762,10 +1964,13 @@
   "kind": "item",
   "top": false,
   "icon": "eden-emu-dev.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Nintendo Switch emulator.",
+  "tipo_en": "Emulator",
+  "grp_en": "Emulators"
  },
  {
-  "sec": 8,
+  "sec": 10,
   "grp": "Emuladores",
   "name": "RetroArch",
   "url": "https://www.retroarch.com",
@@ -1787,10 +1992,13 @@
   "kind": "item",
   "top": false,
   "lic_src": "GitHub: GPL-3.0",
-  "http": 200
+  "http": 200,
+  "note_en": "Frontend that runs emulators for many consoles.",
+  "tipo_en": "Emulator",
+  "grp_en": "Emulators"
  },
  {
-  "sec": 8,
+  "sec": 10,
   "grp": "Emuladores",
   "name": "mGBA",
   "url": "https://mgba.io",
@@ -1811,10 +2019,13 @@
   "top": false,
   "lic_src": "GitHub: MPL-2.0",
   "icon": "mgba-io.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Game Boy Advance emulator.",
+  "tipo_en": "Emulator",
+  "grp_en": "Emulators"
  },
  {
-  "sec": 8,
+  "sec": 10,
   "grp": "Emuladores",
   "name": "ares",
   "url": "https://ares-emu.net",
@@ -1835,10 +2046,13 @@
   "top": false,
   "lic_src": "a conferir (GitHub sem licença legível)",
   "icon": "ares-emu-net.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Multi-system emulator focused on accuracy.",
+  "tipo_en": "Emulator",
+  "grp_en": "Emulators"
  },
  {
-  "sec": 8,
+  "sec": 10,
   "grp": "Jogar no Linux",
   "name": "Proton",
   "url": "https://github.com/ValveSoftware/Proton",
@@ -1856,10 +2070,13 @@
   "kind": "item",
   "top": false,
   "lic_src": "a conferir (GitHub sem licença legível)",
-  "http": 200
+  "http": 200,
+  "note_en": "Valve compatibility layer to run Windows games on Linux.",
+  "tipo_en": "Compatibility",
+  "grp_en": "Gaming on Linux"
  },
  {
-  "sec": 8,
+  "sec": 10,
   "grp": "Jogar no Linux",
   "name": "Heroic",
   "url": "https://heroicgameslauncher.com",
@@ -1880,10 +2097,13 @@
   "top": false,
   "lic_src": "GitHub: GPL-3.0",
   "icon": "heroicgameslauncher-com.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Free launcher for Epic, GOG and Amazon games.",
+  "tipo_en": "Game launcher",
+  "grp_en": "Gaming on Linux"
  },
  {
-  "sec": 8,
+  "sec": 10,
   "grp": "Jogar no Linux",
   "name": "Lutris",
   "url": "https://lutris.net",
@@ -1902,10 +2122,13 @@
   "top": false,
   "lic_src": "GitHub: GPL-3.0",
   "icon": "lutris-net.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Manages games from many sources on Linux.",
+  "tipo_en": "Game launcher",
+  "grp_en": "Gaming on Linux"
  },
  {
-  "sec": 8,
+  "sec": 10,
   "grp": "Jogar no Linux",
   "name": "Bottles",
   "url": "https://usebottles.com",
@@ -1924,7 +2147,10 @@
   "top": false,
   "lic_src": "GitHub: GPL-3.0",
   "icon": "usebottles-com.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Manages Wine environments to run Windows programs.",
+  "tipo_en": "Compatibility",
+  "grp_en": "Gaming on Linux"
  },
  {
   "sec": 9,
@@ -1948,7 +2174,8 @@
   "top": true,
   "lic_src": "GitHub: GPL-3.0",
   "icon": "prismlauncher-org.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Free Minecraft launcher with multiple instances."
  },
  {
   "sec": 9,
@@ -1971,7 +2198,8 @@
   "kind": "item",
   "top": false,
   "icon": "modrinth-com.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Minecraft launcher from Modrinth."
  },
  {
   "sec": 9,
@@ -1990,7 +2218,10 @@
   "kind": "item",
   "top": false,
   "icon": "hypixel-net.png",
-  "http": 200
+  "http": 200,
+  "note_en": "One of the biggest Minecraft servers, with minigames.",
+  "tipo_en": "Server",
+  "grp_en": "Servers"
  },
  {
   "sec": 9,
@@ -2009,7 +2240,10 @@
   "kind": "item",
   "top": false,
   "icon": "manacube-com.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Minecraft server with several game modes.",
+  "tipo_en": "Server",
+  "grp_en": "Servers"
  },
  {
   "sec": 9,
@@ -2028,7 +2262,10 @@
   "kind": "item",
   "top": false,
   "icon": "cobblemon-gg.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Cobblemon server, Pokémon inside Minecraft.",
+  "tipo_en": "Server",
+  "grp_en": "Servers"
  },
  {
   "sec": 9,
@@ -2047,7 +2284,10 @@
   "kind": "item",
   "top": false,
   "icon": "mc-complex-com.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Cobblemon server, Pokémon inside Minecraft.",
+  "tipo_en": "Server",
+  "grp_en": "Servers"
  },
  {
   "sec": 9,
@@ -2066,7 +2306,10 @@
   "kind": "item",
   "top": false,
   "icon": "modrinth-com.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Cobblemon server. The link is the official modpack on Modrinth; I did not find a confirmed official site.",
+  "tipo_en": "Server",
+  "grp_en": "Servers"
  },
  {
   "sec": 11,
@@ -2087,7 +2330,10 @@
   "kind": "item",
   "top": false,
   "icon": "zty-pe.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Typing practice by shooting words.",
+  "tipo_en": "Typing",
+  "grp_en": "Typing"
  },
  {
   "sec": 11,
@@ -2108,7 +2354,8 @@
   "kind": "item",
   "top": false,
   "icon": "morse-withgoogle-com.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Google's Morse code course."
  },
  {
   "sec": 11,
@@ -2129,7 +2376,8 @@
   "kind": "item",
   "top": false,
   "icon": "morsle-fun.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Wordle in Morse."
  },
  {
   "sec": 11,
@@ -2152,7 +2400,10 @@
   "kind": "item",
   "top": false,
   "icon": "duolingo-com.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Short language lessons.",
+  "tipo_en": "Languages",
+  "grp_en": "Languages and memory"
  },
  {
   "sec": 11,
@@ -2179,7 +2430,9 @@
   "top": false,
   "lic_src": "a conferir (GitHub sem licença legível)",
   "icon": "ankiweb-net.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Spaced-repetition flashcards.",
+  "grp_en": "Languages and memory"
  },
  {
   "sec": 10,
@@ -2200,7 +2453,10 @@
   "kind": "item",
   "top": false,
   "icon": "wordbomb-io.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Multiplayer word game.",
+  "tipo_en": "Online game",
+  "grp_en": "In the browser"
  },
  {
   "sec": 10,
@@ -2221,7 +2477,10 @@
   "kind": "item",
   "top": false,
   "icon": "gartic-io.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Draw and guess with other players.",
+  "tipo_en": "Online game",
+  "grp_en": "In the browser"
  },
  {
   "sec": 10,
@@ -2242,7 +2501,10 @@
   "kind": "item",
   "top": false,
   "icon": "garticphone-com.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Telephone game with drawings.",
+  "tipo_en": "Online game",
+  "grp_en": "In the browser"
  },
  {
   "sec": 10,
@@ -2263,7 +2525,10 @@
   "kind": "item",
   "top": false,
   "icon": "skribbl-io.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Draw and guess online.",
+  "tipo_en": "Online game",
+  "grp_en": "In the browser"
  },
  {
   "sec": 10,
@@ -2284,7 +2549,10 @@
   "kind": "item",
   "top": false,
   "icon": "stopots-com.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Online Stop (Scattergories-style) game.",
+  "tipo_en": "Online game",
+  "grp_en": "In the browser"
  },
  {
   "sec": 10,
@@ -2305,7 +2573,10 @@
   "kind": "item",
   "top": false,
   "icon": "codenames-game.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Team word game.",
+  "tipo_en": "Online game",
+  "grp_en": "In the browser"
  },
  {
   "sec": 10,
@@ -2326,7 +2597,10 @@
   "kind": "item",
   "top": false,
   "icon": "tetr-io.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Competitive online Tetris.",
+  "tipo_en": "Online game",
+  "grp_en": "In the browser"
  },
  {
   "sec": 10,
@@ -2347,7 +2621,10 @@
   "kind": "item",
   "top": false,
   "icon": "jstris-jezevec10-com.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Online Tetris with practice modes.",
+  "tipo_en": "Online game",
+  "grp_en": "In the browser"
  },
  {
   "sec": 10,
@@ -2368,7 +2645,10 @@
   "kind": "item",
   "top": false,
   "icon": "geotastic-net.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Guess places around the world.",
+  "tipo_en": "Online game",
+  "grp_en": "In the browser"
  },
  {
   "sec": 10,
@@ -2389,7 +2669,10 @@
   "kind": "item",
   "top": false,
   "icon": "cityguesser-eu.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Guess the city from the picture.",
+  "tipo_en": "Online game",
+  "grp_en": "In the browser"
  },
  {
   "sec": 10,
@@ -2410,7 +2693,10 @@
   "kind": "item",
   "top": false,
   "icon": "term-ooo.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Wordle in Portuguese.",
+  "tipo_en": "Online game",
+  "grp_en": "In the browser"
  },
  {
   "sec": 10,
@@ -2431,7 +2717,10 @@
   "kind": "item",
   "top": false,
   "icon": "contexto-me.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Find the word of the day by meaning proximity.",
+  "tipo_en": "Online game",
+  "grp_en": "In the browser"
  },
  {
   "sec": 10,
@@ -2452,7 +2741,10 @@
   "kind": "item",
   "top": false,
   "icon": "conexo-ws.png",
-  "http": 200
+  "http": 200,
+  "note_en": "Group words by category.",
+  "tipo_en": "Online game",
+  "grp_en": "In the browser"
  },
  {
   "sec": 10,
@@ -2473,7 +2765,10 @@
   "kind": "item",
   "top": false,
   "icon": "neal-fun.png",
-  "http": 403
+  "http": 403,
+  "note_en": "Web games and curiosities.",
+  "tipo_en": "Curiosities",
+  "grp_en": "Curiosities"
  },
  {
   "sec": 10,
@@ -2496,7 +2791,10 @@
   "kind": "item",
   "top": false,
   "icon": "akinator-com.png",
-  "http": 200
+  "http": 200,
+  "note_en": "The genie that guesses the character you thought of.",
+  "tipo_en": "Online game",
+  "grp_en": "Curiosities"
  },
  {
   "sec": 13,
@@ -2520,7 +2818,10 @@
   "top": false,
   "icon": "moondeck.png",
   "lic_src": "GitHub: MIT",
-  "http": 200
+  "http": 200,
+  "note_en": "Desktop app I built, with Tauri 2 and React 19.",
+  "tipo_en": "My app",
+  "grp_en": "My apps"
  },
  {
   "sec": 10,
@@ -2540,7 +2841,9 @@
   "icon_domain": "",
   "mono": false,
   "kind": "game",
-  "img": "1671210.jpg"
+  "img": "1671210.jpg",
+  "tipo_en": "Game",
+  "grp_en": "Favorites"
  },
  {
   "sec": 10,
@@ -2564,7 +2867,9 @@
   "mono": false,
   "kind": "game",
   "img": "wiki-minecraft.png",
-  "img_fit": "contain"
+  "img_fit": "contain",
+  "tipo_en": "Game",
+  "grp_en": "Favorites"
  },
  {
   "sec": 10,
@@ -2583,7 +2888,9 @@
   "icon_domain": "",
   "mono": false,
   "kind": "game",
-  "img": "3527290.jpg"
+  "img": "3527290.jpg",
+  "tipo_en": "Game",
+  "grp_en": "Favorites"
  },
  {
   "sec": 10,
@@ -2603,7 +2910,9 @@
   "icon_domain": "",
   "mono": false,
   "kind": "game",
-  "img": "210970.jpg"
+  "img": "210970.jpg",
+  "tipo_en": "Game",
+  "grp_en": "Favorites"
  },
  {
   "sec": 10,
@@ -2624,7 +2933,9 @@
   "icon_domain": "",
   "mono": false,
   "kind": "game",
-  "img": "736260.jpg"
+  "img": "736260.jpg",
+  "tipo_en": "Game",
+  "grp_en": "Favorites"
  },
  {
   "sec": 10,
@@ -2645,7 +2956,9 @@
   "icon_domain": "",
   "mono": false,
   "kind": "game",
-  "img": "239030.jpg"
+  "img": "239030.jpg",
+  "tipo_en": "Game",
+  "grp_en": "Favorites"
  },
  {
   "sec": 10,
@@ -2665,7 +2978,9 @@
   "icon_domain": "",
   "mono": false,
   "kind": "game",
-  "img": "653530.jpg"
+  "img": "653530.jpg",
+  "tipo_en": "Game",
+  "grp_en": "Favorites"
  },
  {
   "sec": 10,
@@ -2686,7 +3001,9 @@
   "icon_domain": "",
   "mono": false,
   "kind": "game",
-  "img": "1037020.jpg"
+  "img": "1037020.jpg",
+  "tipo_en": "Game",
+  "grp_en": "Favorites"
  },
  {
   "sec": 10,
@@ -2707,7 +3024,9 @@
   "icon_domain": "",
   "mono": false,
   "kind": "game",
-  "img": "1989270.jpg"
+  "img": "1989270.jpg",
+  "tipo_en": "Game",
+  "grp_en": "Favorites"
  },
  {
   "sec": 10,
@@ -2726,7 +3045,9 @@
   "icon_domain": "",
   "mono": false,
   "kind": "game",
-  "img": "1903340.jpg"
+  "img": "1903340.jpg",
+  "tipo_en": "Game",
+  "grp_en": "Favorites"
  },
  {
   "sec": 10,
@@ -2745,7 +3066,9 @@
   "icon_domain": "",
   "mono": false,
   "kind": "game",
-  "img": "2161700.jpg"
+  "img": "2161700.jpg",
+  "tipo_en": "Game",
+  "grp_en": "Favorites"
  },
  {
   "sec": 10,
@@ -2764,7 +3087,9 @@
   "icon_domain": "",
   "mono": false,
   "kind": "game",
-  "img": "2963950.jpg"
+  "img": "2963950.jpg",
+  "tipo_en": "Game",
+  "grp_en": "Favorites"
  },
  {
   "sec": 10,
@@ -2785,7 +3110,9 @@
   "icon_domain": "",
   "mono": false,
   "kind": "game",
-  "img": "413150.jpg"
+  "img": "413150.jpg",
+  "tipo_en": "Game",
+  "grp_en": "Favorites"
  },
  {
   "sec": 10,
@@ -2805,7 +3132,9 @@
   "mono": false,
   "kind": "game",
   "img": "wiki-paper-mario-64.jpg",
-  "img_fit": "contain"
+  "img_fit": "contain",
+  "tipo_en": "Game",
+  "grp_en": "Favorites"
  },
  {
   "sec": 10,
@@ -2825,7 +3154,9 @@
   "mono": false,
   "kind": "game",
   "img": "wiki-paper-mario-a-lenda-dos-portais-milenares.jpg",
-  "img_fit": "contain"
+  "img_fit": "contain",
+  "tipo_en": "Game",
+  "grp_en": "Favorites"
  },
  {
   "sec": 10,
@@ -2845,7 +3176,9 @@
   "mono": false,
   "kind": "game",
   "img": "wiki-zelda-ocarina-of-time.jpg",
-  "img_fit": "contain"
+  "img_fit": "contain",
+  "tipo_en": "Game",
+  "grp_en": "Favorites"
  },
  {
   "sec": 10,
@@ -2865,7 +3198,9 @@
   "mono": false,
   "kind": "game",
   "img": "wiki-zelda-a-link-to-the-past.jpg",
-  "img_fit": "contain"
+  "img_fit": "contain",
+  "tipo_en": "Game",
+  "grp_en": "Favorites"
  },
  {
   "sec": 10,
@@ -2885,7 +3220,9 @@
   "mono": false,
   "kind": "game",
   "img": "wiki-castlevania-symphony-of-the-night.jpg",
-  "img_fit": "contain"
+  "img_fit": "contain",
+  "tipo_en": "Game",
+  "grp_en": "Favorites"
  },
  {
   "sec": 10,
@@ -2905,7 +3242,9 @@
   "mono": false,
   "kind": "game",
   "img": "wiki-super-mario-64.png",
-  "img_fit": "contain"
+  "img_fit": "contain",
+  "tipo_en": "Game",
+  "grp_en": "Favorites"
  },
  {
   "sec": 10,
@@ -2925,7 +3264,9 @@
   "mono": false,
   "kind": "game",
   "img": "wiki-super-mario-bros-3.png",
-  "img_fit": "contain"
+  "img_fit": "contain",
+  "tipo_en": "Game",
+  "grp_en": "Favorites"
  },
  {
   "sec": 10,
@@ -2945,7 +3286,9 @@
   "mono": false,
   "kind": "game",
   "img": "wiki-mario-luigi-superstar-saga.jpg",
-  "img_fit": "contain"
+  "img_fit": "contain",
+  "tipo_en": "Game",
+  "grp_en": "Favorites"
  },
  {
   "sec": 10,
@@ -2965,7 +3308,9 @@
   "mono": false,
   "kind": "game",
   "img": "wiki-kirby-the-amazing-mirror.jpg",
-  "img_fit": "contain"
+  "img_fit": "contain",
+  "tipo_en": "Game",
+  "grp_en": "Favorites"
  },
  {
   "sec": 9,
@@ -2988,7 +3333,8 @@
    "neoforge"
   ],
   "mc_icon": "trashslot.png",
-  "lic_src": "Modrinth: LicenseRef-All-Rights-Reserved"
+  "lic_src": "Modrinth: LicenseRef-All-Rights-Reserved",
+  "note_en": "Trash slot in every inventory."
  },
  {
   "sec": 9,
@@ -3011,7 +3357,8 @@
    "neoforge"
   ],
   "mc_icon": "roadweaver.webp",
-  "lic_src": "Modrinth: MIT"
+  "lic_src": "Modrinth: MIT",
+  "note_en": "Generates roads linking world structures."
  },
  {
   "sec": 9,
@@ -3034,7 +3381,8 @@
    "neoforge"
   ],
   "mc_icon": "controlling.webp",
-  "lic_src": "Modrinth: MIT"
+  "lic_src": "Modrinth: MIT",
+  "note_en": "Search bar in the key bindings screen."
  },
  {
   "sec": 9,
@@ -3058,7 +3406,8 @@
    "quilt"
   ],
   "mc_icon": "polymorph.png",
-  "lic_src": "Modrinth: LGPL-3.0-or-later"
+  "lic_src": "Modrinth: LGPL-3.0-or-later",
+  "note_en": "Fixes recipe conflicts."
  },
  {
   "sec": 9,
@@ -3081,7 +3430,8 @@
    "neoforge"
   ],
   "mc_icon": "lootr.webp",
-  "lic_src": "Modrinth: MIT"
+  "lic_src": "Modrinth: MIT",
+  "note_en": "Per-player loot chests."
  },
  {
   "sec": 9,
@@ -3105,7 +3455,8 @@
    "quilt"
   ],
   "mc_icon": "toms-storage.webp",
-  "lic_src": "Modrinth: MIT"
+  "lic_src": "Modrinth: MIT",
+  "note_en": "Simple storage connected by cables."
  },
  {
   "sec": 9,
@@ -3128,7 +3479,8 @@
    "neoforge"
   ],
   "mc_icon": "natures-compass.png",
-  "lic_src": "Modrinth: CC-BY-NC-SA-4.0"
+  "lic_src": "Modrinth: CC-BY-NC-SA-4.0",
+  "note_en": "Finds biomes in the world."
  },
  {
   "sec": 9,
@@ -3152,7 +3504,8 @@
    "quilt"
   ],
   "mc_icon": "xaeros-minimap.webp",
-  "lic_src": "Modrinth: LicenseRef-All-Rights-Reserved"
+  "lic_src": "Modrinth: LicenseRef-All-Rights-Reserved",
+  "note_en": "Minimap with waypoints."
  },
  {
   "sec": 9,
@@ -3176,7 +3529,8 @@
    "quilt"
   ],
   "mc_icon": "xaeros-world-map.webp",
-  "lic_src": "Modrinth: LicenseRef-All-Rights-Reserved"
+  "lic_src": "Modrinth: LicenseRef-All-Rights-Reserved",
+  "note_en": "Full-screen world map."
  },
  {
   "sec": 9,
@@ -3199,7 +3553,8 @@
    "neoforge"
   ],
   "mc_icon": "easy-magic.webp",
-  "lic_src": "Modrinth: MPL-2.0"
+  "lic_src": "Modrinth: MPL-2.0",
+  "note_en": "Enchanting table that keeps your items."
  },
  {
   "sec": 9,
@@ -3222,7 +3577,8 @@
    "neoforge"
   ],
   "mc_icon": "ping-wheel.webp",
-  "lic_src": "Modrinth: MIT"
+  "lic_src": "Modrinth: MIT",
+  "note_en": "Marks places and entities for allies."
  },
  {
   "sec": 9,
@@ -3245,7 +3601,8 @@
    "neoforge"
   ],
   "mc_icon": "waystones.webp",
-  "lic_src": "Modrinth: LicenseRef-All-Rights-Reserved"
+  "lic_src": "Modrinth: LicenseRef-All-Rights-Reserved",
+  "note_en": "Teleport between marked points."
  },
  {
   "sec": 9,
@@ -3268,7 +3625,8 @@
    "neoforge"
   ],
   "mc_icon": "waterframes.webp",
-  "lic_src": "Modrinth: LicenseRef-All-Rights-Reserved"
+  "lic_src": "Modrinth: LicenseRef-All-Rights-Reserved",
+  "note_en": "Frames and projectors that show video and images."
  },
  {
   "sec": 9,
@@ -3292,7 +3650,8 @@
    "quilt"
   ],
   "mc_icon": "jade.webp",
-  "lic_src": "Modrinth: CC-BY-NC-SA-4.0"
+  "lic_src": "Modrinth: CC-BY-NC-SA-4.0",
+  "note_en": "Shows info about the block or entity you look at."
  },
  {
   "sec": 9,
@@ -3316,7 +3675,8 @@
    "quilt"
   ],
   "mc_icon": "appleskin.png",
-  "lic_src": "Modrinth: Unlicense"
+  "lic_src": "Modrinth: Unlicense",
+  "note_en": "Shows hunger and saturation on the HUD."
  },
  {
   "sec": 9,
@@ -3339,7 +3699,8 @@
    "neoforge"
   ],
   "mc_icon": "mouse-tweaks.webp",
-  "lic_src": "Modrinth: BSD-3-Clause"
+  "lic_src": "Modrinth: BSD-3-Clause",
+  "note_en": "Mouse shortcuts for the inventory."
  },
  {
   "sec": 9,
@@ -3363,7 +3724,8 @@
    "quilt"
   ],
   "mc_icon": "entityculling.webp",
-  "lic_src": "Modrinth: LicenseRef-tr7zw-Protective-License"
+  "lic_src": "Modrinth: LicenseRef-tr7zw-Protective-License",
+  "note_en": "Skips drawing hidden entities, for more FPS."
  },
  {
   "sec": 9,
@@ -3386,7 +3748,8 @@
    "neoforge"
   ],
   "mc_icon": "modernfix.webp",
-  "lic_src": "Modrinth: LGPL-3.0-only"
+  "lic_src": "Modrinth: LGPL-3.0-only",
+  "note_en": "Fixes bugs and improves performance and memory."
  },
  {
   "sec": 9,
@@ -3408,7 +3771,8 @@
    "neoforge"
   ],
   "mc_icon": "yigd.webp",
-  "lic_src": "Modrinth: MIT"
+  "lic_src": "Modrinth: MIT",
+  "note_en": "Creates graves when you die."
  },
  {
   "sec": 9,
@@ -3431,7 +3795,8 @@
    "neoforge"
   ],
   "mc_icon": "travelersbackpack.webp",
-  "lic_src": "Modrinth: LGPL-3.0-only"
+  "lic_src": "Modrinth: LGPL-3.0-only",
+  "note_en": "Customizable, upgradeable backpacks."
  },
  {
   "sec": 9,
@@ -3453,7 +3818,8 @@
    "neoforge"
   ],
   "mc_icon": "sophisticated-backpacks.webp",
-  "lic_src": "Modrinth: LicenseRef-All-Rights-Reserved"
+  "lic_src": "Modrinth: LicenseRef-All-Rights-Reserved",
+  "note_en": "Backpacks with upgrades and a better inventory."
  },
  {
   "sec": 9,
@@ -3477,7 +3843,8 @@
    "quilt"
   ],
   "mc_icon": "rightclickharvest.webp",
-  "lic_src": "Modrinth: MIT"
+  "lic_src": "Modrinth: MIT",
+  "note_en": "Harvests crops with right click."
  },
  {
   "sec": 9,
@@ -3500,7 +3867,8 @@
    "neoforge"
   ],
   "mc_icon": "trading-post.webp",
-  "lic_src": "Modrinth: MPL-2.0"
+  "lic_src": "Modrinth: MPL-2.0",
+  "note_en": "Trade with all villagers at once."
  },
  {
   "sec": 9,
@@ -3524,7 +3892,8 @@
    "quilt"
   ],
   "mc_icon": "sound-physics-remastered.png",
-  "lic_src": "Modrinth: GPL-3.0-only"
+  "lic_src": "Modrinth: GPL-3.0-only",
+  "note_en": "Realistic sound with echo, reverb and muffling."
  },
  {
   "sec": 9,
@@ -3547,7 +3916,8 @@
    "neoforge"
   ],
   "mc_icon": "critters-and-companions.webp",
-  "lic_src": "Modrinth: LicenseRef-All-Rights-Reserved"
+  "lic_src": "Modrinth: LicenseRef-All-Rights-Reserved",
+  "note_en": "Adds a few new creatures."
  },
  {
   "sec": 9,
@@ -3569,7 +3939,8 @@
    "quilt"
   ],
   "mc_icon": "modmenu.png",
-  "lic_src": "Modrinth: MIT"
+  "lic_src": "Modrinth: MIT",
+  "note_en": "Mod list in the game menu, for Fabric and Quilt."
  },
  {
   "sec": 9,
@@ -3591,7 +3962,8 @@
    "neoforge"
   ],
   "mc_icon": "alexs-caves.png",
-  "lic_src": "Modrinth: LGPL-3.0-only"
+  "lic_src": "Modrinth: LGPL-3.0-only",
+  "note_en": "New, rare, themed caves."
  },
  {
   "sec": 9,
@@ -3614,7 +3986,8 @@
    "neoforge"
   ],
   "mc_icon": "artifacts.png",
-  "lic_src": "Modrinth: MIT"
+  "lic_src": "Modrinth: MIT",
+  "note_en": "Rare artifacts with special abilities."
  },
  {
   "sec": 9,
@@ -3637,7 +4010,8 @@
    "neoforge"
   ],
   "mc_icon": "biomes-o-plenty.png",
-  "lic_src": "Modrinth: LicenseRef-All-Rights-Reserved"
+  "lic_src": "Modrinth: LicenseRef-All-Rights-Reserved",
+  "note_en": "Dozens of new biomes."
  },
  {
   "sec": 9,
@@ -3660,7 +4034,8 @@
    "neoforge"
   ],
   "mc_icon": "storagedrawers.png",
-  "lic_src": "Modrinth: MIT"
+  "lic_src": "Modrinth: MIT",
+  "note_en": "Drawers to store lots of items."
  },
  {
   "sec": 9,
@@ -3683,7 +4058,8 @@
    "neoforge"
   ],
   "mc_icon": "supplementaries.webp",
-  "lic_src": "Modrinth: LicenseRef-Supplementaries-Team-License"
+  "lic_src": "Modrinth: LicenseRef-Supplementaries-Team-License",
+  "note_en": "New items and blocks that complement the base game."
  },
  {
   "sec": 9,
@@ -3706,7 +4082,8 @@
    "neoforge"
   ],
   "mc_icon": "explorers-compass.png",
-  "lic_src": "Modrinth: CC-BY-NC-SA-4.0"
+  "lic_src": "Modrinth: CC-BY-NC-SA-4.0",
+  "note_en": "Compass that finds structures."
  },
  {
   "sec": 9,
@@ -3729,7 +4106,8 @@
    "neoforge"
   ],
   "mc_icon": "easy-anvils.webp",
-  "lic_src": "Modrinth: MPL-2.0"
+  "lic_src": "Modrinth: MPL-2.0",
+  "note_en": "Makes the anvil friendlier."
  },
  {
   "sec": 9,
@@ -3751,7 +4129,8 @@
    "neoforge"
   ],
   "mc_icon": "farmers-delight.png",
-  "lic_src": "Modrinth: MIT"
+  "lic_src": "Modrinth: MIT",
+  "note_en": "Deeper farming and cooking."
  },
  {
   "sec": 9,
@@ -3775,7 +4154,8 @@
    "quilt"
   ],
   "mc_icon": "enchantment-descriptions.webp",
-  "lic_src": "Modrinth: LGPL-2.1-only"
+  "lic_src": "Modrinth: LGPL-2.1-only",
+  "note_en": "Shows what each enchantment does."
  },
  {
   "sec": 9,
@@ -3798,7 +4178,8 @@
    "neoforge"
   ],
   "mc_icon": "clumps.webp",
-  "lic_src": "Modrinth: MIT"
+  "lic_src": "Modrinth: MIT",
+  "note_en": "Merges XP orbs to reduce lag."
  },
  {
   "sec": 9,
@@ -3821,7 +4202,8 @@
    "neoforge"
   ],
   "mc_icon": "visual-workbench.webp",
-  "lic_src": "Modrinth: MPL-2.0"
+  "lic_src": "Modrinth: MPL-2.0",
+  "note_en": "Shows the recipe on the crafting table."
  },
  {
   "sec": 9,
@@ -3843,7 +4225,8 @@
    "neoforge"
   ],
   "mc_icon": "relics-mod.gif",
-  "lic_src": "Modrinth: LicenseRef-All-Rights-Reserved"
+  "lic_src": "Modrinth: LicenseRef-All-Rights-Reserved",
+  "note_en": "Relics with special abilities."
  },
  {
   "sec": 9,
@@ -3865,7 +4248,8 @@
    "neoforge"
   ],
   "mc_icon": "vampirism.png",
-  "lic_src": "Modrinth: LGPL-3.0-only"
+  "lic_src": "Modrinth: LGPL-3.0-only",
+  "note_en": "Vampires, hunters and blood mechanics."
  },
  {
   "sec": 9,
@@ -3888,7 +4272,8 @@
    "quilt"
   ],
   "mc_icon": "origins.png",
-  "lic_src": "Modrinth: MIT"
+  "lic_src": "Modrinth: MIT",
+  "note_en": "Pick an origin, with powers and weaknesses."
  },
  {
   "sec": 9,
@@ -3910,7 +4295,8 @@
    "neoforge"
   ],
   "mc_icon": "irons-spells-n-spellbooks.png",
-  "lic_src": "Modrinth: LicenseRef-All-Rights-Reserved"
+  "lic_src": "Modrinth: LicenseRef-All-Rights-Reserved",
+  "note_en": "Spells and spellbooks."
  },
  {
   "sec": 9,
@@ -3933,7 +4319,8 @@
    "neoforge"
   ],
   "mc_icon": "chat-heads.png",
-  "lic_src": "Modrinth: MPL-2.0"
+  "lic_src": "Modrinth: MPL-2.0",
+  "note_en": "Shows the player's head in chat."
  },
  {
   "sec": 9,
@@ -3952,7 +4339,8 @@
   "kind": "mc",
   "loaders": [],
   "mc_icon": "dark-coffe-gui.png",
-  "lic_src": "Modrinth: LicenseRef-All-Rights-Reserved"
+  "lic_src": "Modrinth: LicenseRef-All-Rights-Reserved",
+  "note_en": "Dark coffee-toned interface."
  },
  {
   "sec": 9,
@@ -3971,7 +4359,8 @@
   "kind": "mc",
   "loaders": [],
   "mc_icon": "unique-dark.webp",
-  "lic_src": "Modrinth: LicenseRef-All-Rights-Reserved"
+  "lic_src": "Modrinth: LicenseRef-All-Rights-Reserved",
+  "note_en": "Dark theme for the interface."
  },
  {
   "sec": 9,
@@ -3990,7 +4379,8 @@
   "kind": "mc",
   "loaders": [],
   "mc_icon": "new-glowing-ores.png",
-  "lic_src": "Modrinth: CC-BY-NC-SA-4.0"
+  "lic_src": "Modrinth: CC-BY-NC-SA-4.0",
+  "note_en": "Glowing ores."
  },
  {
   "sec": 9,
@@ -4009,7 +4399,8 @@
   "kind": "mc",
   "loaders": [],
   "mc_icon": "low-on-fire.png",
-  "lic_src": "Modrinth: LicenseRef-All-Rights-Reserved"
+  "lic_src": "Modrinth: LicenseRef-All-Rights-Reserved",
+  "note_en": "Lower fire on screen."
  },
  {
   "sec": 9,
@@ -4028,7 +4419,8 @@
   "kind": "mc",
   "loaders": [],
   "mc_icon": "complementary-unbound.webp",
-  "lic_src": "Modrinth: LicenseRef-Custom"
+  "lic_src": "Modrinth: LicenseRef-Custom",
+  "note_en": "Popular, balanced, customizable shaders."
  },
  {
   "sec": 9,
@@ -4047,7 +4439,8 @@
   "kind": "mc",
   "loaders": [],
   "mc_icon": "super-duper-vanilla.webp",
-  "lic_src": "Modrinth: LicenseRef-FlameRender-TM-Studios-License"
+  "lic_src": "Modrinth: LicenseRef-FlameRender-TM-Studios-License",
+  "note_en": "Light shaders that keep the vanilla look."
  },
  {
   "sec": 9,
@@ -4065,6 +4458,7 @@
   "mono": true,
   "kind": "mc",
   "loaders": [],
-  "mc_icon": ""
+  "mc_icon": "",
+  "note_en": "Messenger owls."
  }
 ]

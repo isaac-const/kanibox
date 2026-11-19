@@ -1,0 +1,30 @@
+---
+import Base from '../../layouts/Base.astro';
+import { route } from '../../lib/url';
+import { t, type Lang } from '../../i18n';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+---
+<Base lang={lang} current="about" title={`${t(lang, 'aboutTitle')} · KaniBox`} description={t(lang, 'aboutDesc')} alt={{ pt: route('pt', 'about'), en: route('en', 'about') }}>
+  <div class="page">
+    <h1>{t(lang, 'aboutTitle')}</h1>
+    <p>{t(lang, 'aboutP1')}</p>
+
+    <h2>{t(lang, 'aboutH1')}</h2>
+    <ul>
+      <li>{t(lang, 'aboutL1')}</li>
+      <li>{t(lang, 'aboutL2')}</li>
+      <li>{t(lang, 'aboutL3')}</li>
+      <li>{t(lang, 'aboutL4')}</li>
+    </ul>
+
+    <h2>{t(lang, 'aboutH2')}</h2>
+    <p>{t(lang, 'aboutP2')}</p>
+
+    <h2>{t(lang, 'aboutH3')}</h2>
+    <p><a href="https://github.com/isaac-const">GitHub</a>. {t(lang, 'aboutP3')}</p>
+  </div>
+</Base>

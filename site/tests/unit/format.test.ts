@@ -8,6 +8,10 @@ describe('datas', () => {
     expect(shortDate('2027-03-05')).toBe('5 mar 2027');
     expect(longDate('2027-03-05')).toBe('5 de março de 2027');
   });
+  it('inglês', () => {
+    expect(shortDate('2026-11-19', 'en')).toBe('Nov 19, 2026');
+    expect(longDate('2026-11-19', 'en')).toBe('November 19, 2026');
+  });
   it('recusa data inválida', () => {
     expect(() => shortDate('19/11/2026')).toThrow();
     expect(() => longDate('')).toThrow();

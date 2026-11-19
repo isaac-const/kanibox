@@ -1,0 +1,10 @@
+---
+import CategoryPage from '../../components/pages/CategoryPage.astro';
+import { SECTIONS } from '../../lib/sections';
+
+export function getStaticPaths() {
+  return SECTIONS.map((section) => ({ params: { cat: section.slug.en }, props: { section } }));
+}
+const { section } = Astro.props;
+---
+<CategoryPage lang="en" section={section} />

@@ -1,4 +1,14 @@
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from 'react';
+import type { Lang } from '../../i18n';
+import { tt } from '../../i18n/tools';
+
+export const LangCtx = createContext<Lang>('pt');
+export const useLang = () => useContext(LangCtx);
+/** Tradutor dos textos das ferramentas no idioma da página. */
+export function useT() {
+  const l = useLang();
+  return (k: string, v?: Record<string, string | number>) => tt(l, k, v);
+}
 
 export const CIRC = 440; // 2 * pi * 70
 
@@ -76,6 +86,7 @@ export function useStored(key: string, initial: boolean): [boolean, (v: boolean)
 
 /** Botão de som de uma ferramenta. Começa desligado e só toca se o Isaac ligar. */
 export function SoundToggle({ id, on, set }: { id: string; on: boolean; set: (v: boolean) => void }) {
+  const T = useT();
   return (
     <button
       type="button"
@@ -91,7 +102,7 @@ export function SoundToggle({ id, on, set }: { id: string; on: boolean; set: (v:
         }
       }}
     >
-      Som {on ? 'ligado' : 'desligado'}
+      {on ? T('soonOn') : T('soonOff')}
     </button>
   );
 }
@@ -181,13 +192,14 @@ export function Ring({ total, left, finished, label }: { total: number; left: nu
   );
 }
 
-export function startLabel(running: boolean, left: number, total: number) {
-  if (running) return 'Pausar';
-  return left > 0 && left < total ? 'Continuar' : 'Iniciar';
+export function startLabel(T: (k: string) => string, running: boolean, left: number, total: number) {
+  if (running) return T('pause');
+  return left > 0 && left < total ? T('resume') : T('start');
 }
 
 /* ───────── cartão de ferramenta, com modo foco (tela cheia) ───────── */
 export function ToolCard({ id, title, badge, children, wide }: { id: string; title: string; badge?: string; children: ReactNode; wide?: boolean }) {
+  const T = useT();
   const [open, setOpen] = useState(false);
   useEffect(() => {
     if (!open) return;
@@ -212,11 +224,11 @@ export function ToolCard({ id, title, badge, children, wide }: { id: string; tit
         <h3>
           {title} {badge && <small>{badge}</small>}
         </h3>
-        <button type="button" className="expand" aria-label={open ? `Fechar ${title}` : `Expandir ${title} em tela cheia`} aria-expanded={open} onClick={() => setOpen(!open)}>
+        <button type="button" className="expand" aria-label={open ? T('closeAria', { t: title }) : T('expandAria', { t: title })} aria-expanded={open} onClick={() => setOpen(!open)}>
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             {open ? <path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5" /> : <path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" />}
           </svg>
-          <span>{open ? 'Fechar' : 'Expandir'}</span>
+          <span>{open ? T('close') : T('expand')}</span>
         </button>
       </div>
       <div className="tool-body">{children}</div>

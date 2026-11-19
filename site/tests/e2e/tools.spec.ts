@@ -1,7 +1,7 @@
 import { expect, test, type Page } from '@playwright/test';
 
 /** Abre a página com o relógio simulado (19 nov 2026, 12:00 UTC) e espera as ferramentas hidratarem. */
-async function open(page: Page, opts: { osc?: boolean } = {}) {
+async function open(page: Page, opts: { osc?: boolean; en?: boolean } = {}) {
   if (opts.osc) {
     // Conta quantos osciladores o Web Audio criou: cada nota do sino cria 3.
     await page.addInitScript(() => {
@@ -14,8 +14,7 @@ async function open(page: Page, opts: { osc?: boolean } = {}) {
     });
   }
   await page.clock.install({ time: new Date(2026, 10, 19, 12, 0, 0) });
-  await page.goto('/');
-  await page.locator('#s12').scrollIntoViewIfNeeded();
+  await page.goto(opts.en ? '/en/tools/' : '/ferramentas/');
   await page.waitForSelector('astro-island:not([ssr])', { state: 'attached' });
 }
 const osc = (page: Page) => page.evaluate(() => (window as unknown as { __osc: number }).__osc);
@@ -35,7 +34,7 @@ test.describe('Tempo', () => {
     await expect(page).toHaveTitle(/·\s*KaniBox/);
     await page.locator('#t-timer [data-a="start"]').click();
     await expect(page.locator('#t-timer [data-a="start"]')).toHaveText('Continuar');
-    await expect(page).toHaveTitle(/^KaniBox/);
+    await expect(page).toHaveTitle(/^Ferramentas · KaniBox/);
   });
 
   test('tempo personalizado em horas, minutos e segundos', async ({ page }) => {
@@ -229,7 +228,6 @@ test.describe('som opcional', () => {
     await expect(page.locator('#soundBtn-timer')).toHaveText('Som desligado');
     await page.locator('#soundBtn-pomo').click();
     await page.reload();
-    await page.locator('#s12').scrollIntoViewIfNeeded();
     await page.waitForSelector('astro-island:not([ssr])', { state: 'attached' });
     await expect(page.locator('#soundBtn-pomo')).toHaveText('Som ligado');
     await expect(page.locator('#soundBtn-timer')).toHaveText('Som desligado');
@@ -418,16 +416,26 @@ test.describe('Sorteio', () => {
 });
 
 test.describe('ferramentas na busca', () => {
-  test('somem com filtro e aparecem quando a busca fala delas', async ({ page }) => {
+  test('a página de ferramentas está fora do catálogo; a busca do início aponta para ela', async ({ page }) => {
     await page.goto('/');
-    await expect(page.locator('#s12')).toBeVisible();
     await page.locator('#q').fill('zen browser');
     await page.waitForTimeout(150);
-    await expect(page.locator('#s12')).toBeHidden();
+    await expect(page.locator('#tools-hint')).toBeHidden();
     for (const w of ['pomodoro', 'roleta', 'calculadora', 'zalgo']) {
       await page.locator('#q').fill(w);
       await page.waitForTimeout(150);
-      await expect(page.locator('#s12'), w).toBeVisible();
+      await expect(page.locator('#tools-hint'), w).toBeVisible();
     }
+  });
+});
+
+test.describe('Tools (English)', () => {
+  test('page loads in English and the timer works', async ({ page }) => {
+    await open(page, { en: true });
+    await expect(page.locator('html')).toHaveAttribute('lang', 'en');
+    await expect(page.locator('#t-timer h3')).toHaveText('Timer');
+    await page.locator('#t-timer [data-a="start"]').click();
+    await page.clock.runFor(1500);
+    await expect(page.locator('#t-timer .t')).toHaveText(/04:5[89]/);
   });
 });

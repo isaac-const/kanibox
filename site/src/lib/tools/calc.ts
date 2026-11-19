@@ -1,4 +1,4 @@
-/** Calculadora: analisador próprio, sem eval. */
+/** Calculadora: analisador próprio, sem eval. Os erros são códigos: div0, paren, incomplete, unknown:nome, use:nome, empty, trailing, invalid. */
 const FUNCS: Record<string, (x: number, deg: boolean) => number> = {
   sqrt: (x) => Math.sqrt(x),
   abs: (x) => Math.abs(x),
@@ -34,7 +34,7 @@ export function evaluate(input: string, degrees = false): number {
     for (;;) {
       const c = peek();
       if (c === '*') { i++; v *= unary(); }
-      else if (c === '/') { i++; const r = unary(); if (r === 0) fail('divisão por zero'); v /= r; }
+      else if (c === '/') { i++; const r = unary(); if (r === 0) fail('div0'); v /= r; }
       else return v;
     }
   }
@@ -59,7 +59,7 @@ export function evaluate(input: string, degrees = false): number {
     if (c === '(') {
       i++;
       const v = expr();
-      if (peek() !== ')') fail('falta fechar o parêntese');
+      if (peek() !== ')') fail('paren');
       i++;
       return v;
     }
@@ -71,31 +71,31 @@ export function evaluate(input: string, degrees = false): number {
       i += name.length;
       if (name in CONSTS) return CONSTS[name];
       if (name in FUNCS) {
-        if (peek() !== '(') fail(`use ${name}(...)`);
+        if (peek() !== '(') fail(`use:${name}`);
         i++;
         const arg = expr();
-        if (peek() !== ')') fail('falta fechar o parêntese');
+        if (peek() !== ')') fail('paren');
         i++;
         return FUNCS[name](arg, degrees);
       }
-      fail(`não conheço "${name}"`);
+      fail(`unknown:${name}`);
     }
-    return fail('expressão incompleta');
+    return fail('incomplete');
   }
 
-  if (!src.trim()) fail('vazio');
+  if (!src.trim()) fail('empty');
   const v = expr();
-  if (peek() !== undefined) fail('sobrou algo no fim da conta');
-  if (!Number.isFinite(v)) fail('resultado inválido');
+  if (peek() !== undefined) fail('trailing');
+  if (!Number.isFinite(v)) fail('invalid');
   return v;
 }
 
 /** Regra de três simples. Direta: A está para B como C está para X. Inversa: o produto é constante. */
 export function ruleOfThree(a: number, b: number, c: number, inverse = false): number {
   if (inverse) {
-    if (c === 0) throw new Error('divisão por zero');
+    if (c === 0) throw new Error('div0');
     return (a * b) / c;
   }
-  if (a === 0) throw new Error('divisão por zero');
+  if (a === 0) throw new Error('div0');
   return (b * c) / a;
 }

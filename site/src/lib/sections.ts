@@ -1,41 +1,54 @@
+import type { Lang } from '../i18n';
+
 export interface SectionDef {
   id: number;
   icon: string;
-  title: string;
-  desc: string;
+  slug: Record<Lang, string>;
+  title: Record<Lang, string>;
+  desc: Record<Lang, string>;
 }
 
-/** Ordem de exibição: Meus apps e Ferramentas ficam no topo. Os ids não mudam (são usados nos links #sN). */
+const s = (id: number, icon: string, slug: [string, string], title: [string, string], desc: [string, string]): SectionDef => ({
+  id,
+  icon,
+  slug: { pt: slug[0], en: slug[1] },
+  title: { pt: title[0], en: title[1] },
+  desc: { pt: desc[0], en: desc[1] },
+});
+
+/**
+ * Categorias, na ordem do menu. Meus apps e Ferramentas vêm primeiro.
+ * Terminal virou parte de Produtividade e Emular e jogar virou parte de Jogos.
+ */
 export const SECTIONS: SectionDef[] = [
-  { id: 13, icon: 'mine', title: 'Meus apps', desc: 'O que eu mesmo fiz.' },
-  { id: 12, icon: 'tool', title: 'Ferramentas', desc: 'Tempo, texto, cálculo e sorteio, direto aqui.' },
-  { id: 1, icon: 'nav', title: 'Navegar', desc: 'Navegadores, extensões, VPNs, segurança e e-mail.' },
-  { id: 2, icon: 'ai', title: 'IA', desc: 'Chats, geradores de imagem e tradução.' },
-  { id: 3, icon: 'make', title: 'Criar', desc: 'Imagem, desenho, 3D, áudio, captura, jogos e pixel art.' },
-  { id: 4, icon: 'file', title: 'Arquivos', desc: 'Baixar, converter, compactar e enviar.' },
-  { id: 5, icon: 'prod', title: 'Produtividade', desc: 'Notas, tarefas, código, foco e utilidades.' },
-  { id: 6, icon: 'term', title: 'Terminal', desc: 'Terminais que eu recomendo.' },
-  { id: 7, icon: 'sys', title: 'Sistema', desc: 'Distros Linux, Windows e apps para Android.' },
-  { id: 8, icon: 'emu', title: 'Emular e jogar', desc: 'Emuladores e jogos de PC no Linux.' },
-  { id: 9, icon: 'mc', title: 'Minecraft', desc: 'Launchers, mods, packs, shaders e servidores.' },
-  { id: 10, icon: 'fun', title: 'Jogos', desc: 'Os que eu gosto e os que dá para jogar no navegador.' },
-  { id: 11, icon: 'learn', title: 'Aprender', desc: 'Digitação, Morse, idiomas e memória.' },
+  s(13, 'mine', ['meus-apps', 'my-apps'], ['Meus apps', 'My apps'], ['O que eu mesmo fiz.', 'What I built myself.']),
+  s(12, 'tool', ['ferramentas', 'tools'], ['Ferramentas', 'Tools'], ['Tempo, texto, cálculo e sorteio, direto aqui.', 'Time, text, math and draw tools, right here.']),
+  s(1, 'nav', ['navegar', 'browse'], ['Navegar', 'Browse'], ['Navegadores, extensões, VPNs, segurança e e-mail.', 'Browsers, extensions, VPNs, security and email.']),
+  s(2, 'ai', ['ia', 'ai'], ['IA', 'AI'], ['Chats, geradores de imagem e tradução.', 'Chats, image generators and translation.']),
+  s(3, 'make', ['criar', 'create'], ['Criar', 'Create'], ['Imagem, desenho, 3D, áudio, captura, jogos e pixel art.', 'Image, drawing, 3D, audio, capture, games and pixel art.']),
+  s(4, 'file', ['arquivos', 'files'], ['Arquivos', 'Files'], ['Baixar, converter, compactar e enviar.', 'Download, convert, compress and send.']),
+  s(5, 'prod', ['produtividade', 'productivity'], ['Produtividade', 'Productivity'], ['Terminais, código, notas, tarefas, foco e utilidades.', 'Terminals, code, notes, tasks, focus and utilities.']),
+  s(7, 'sys', ['sistema', 'system'], ['Sistema', 'System'], ['Distros Linux, Windows e apps para Android.', 'Linux distros, Windows and Android apps.']),
+  s(10, 'fun', ['jogos', 'games'], ['Jogos', 'Games'], ['Os que eu gosto, emuladores, Linux e jogos de navegador.', 'My favorites, emulators, Linux gaming and browser games.']),
+  s(9, 'mc', ['minecraft', 'minecraft'], ['Minecraft', 'Minecraft'], ['Launchers, mods, packs, shaders e servidores.', 'Launchers, mods, packs, shaders and servers.']),
+  s(11, 'learn', ['aprender', 'learn'], ['Aprender', 'Learn'], ['Digitação, Morse, idiomas e memória.', 'Typing, Morse, languages and memory.']),
 ];
 
-/** A seção Ferramentas não vem dos dados: são ilhas React. */
 export const TOOLS_SECTION_ID = 12;
+
+export const bySlug = (lang: Lang, slug: string): SectionDef | undefined => SECTIONS.find((x) => x.slug[lang] === slug);
 
 /** Ordem dos grupos quando não é a de aparição nos dados. */
 export const GROUP_ORDER: Record<number, string[]> = {
   9: ['Launchers', 'Mods', 'Resource packs', 'Shaders', 'Servidores'],
-  10: ['Que eu gosto', 'No navegador', 'Curiosidades'],
+  10: ['Que eu gosto', 'Emuladores', 'Jogar no Linux', 'No navegador', 'Curiosidades'],
 };
 
-/** Os que o Isaac mais usa, na ordem de exibição no topo. */
-export const TOP_ORDER = ['CachyOS', 'VSCodium', 'Godot', 'Krita', 'Claude', 'DeepSeek', 'Obsidian', 'Ghostty', 'Prism Launcher'];
+/** Seções cujos grupos viram abas elásticas, uma por vez. O valor é o grupo que abre primeiro. */
+export const SUBTABS: Record<number, string> = { 9: '9|Mods', 10: '10|Que eu gosto' };
 
-/** Grupo de Minecraft que aparece aberto ao entrar. */
-export const MC_DEFAULT_GROUP = '9|Mods';
+/** Os que o Isaac mais usa, na ordem de exibição no topo. */
+export const TOP_ORDER = ['CachyOS', 'VSCodium', 'Godot', 'Krita', 'Claude', 'Obsidian', 'Ghostty', 'Prism Launcher'];
 
 export const LOADER_NAMES: Record<string, string> = {
   fabric: 'Fabric',

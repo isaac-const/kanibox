@@ -200,6 +200,12 @@ for it in items:
     report["links"][it["name"]] = st
     it["http"] = st
 
+for it in items:
+    en = DESC_EN.get(it["name"])
+    if en: it["note_en"] = en
+    if it["tipo"] in TIPO_EN and TIPO_EN[it["tipo"]] != it["tipo"]: it["tipo_en"] = TIPO_EN[it["tipo"]]
+    if it["grp"] in GRP_EN and GRP_EN[it["grp"]] != it["grp"]: it["grp_en"] = GRP_EN[it["grp"]]
+
 json.dump(items, open(os.path.join(ROOT, "dados", "catalogo.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 open(os.path.join(ASSETS, "data.js"), "w", encoding="utf-8").write("window.CAT = " + json.dumps(items, ensure_ascii=False) + ";\n")
 json.dump(report, open(os.path.join(ROOT, "dados", "verificacao.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)

@@ -3,40 +3,51 @@ import '../styles/fonts.css';
 import '../styles/global.css';
 import Icon from '../components/Icon.astro';
 import { SECTIONS, THEMES } from '../lib/sections';
-import { FILTER_INDEX } from '../lib/catalog';
+import { countIn, filterIndex, filterLabels } from '../lib/catalog';
+import { route, type Page } from '../lib/url';
+import { t, ui, LANGS, type Lang } from '../i18n';
+import type { SectionDef } from '../lib/sections';
 import hankenUrl from '../assets/fonts/hanken-grotesk-400.woff2?url';
 import familjenUrl from '../assets/fonts/familjen-grotesk-700.woff2?url';
 
 interface Props {
+  lang: Lang;
   title: string;
   description: string;
-  /** página inicial: mostra busca, filtros e o canivete */
-  home?: boolean;
+  /** página atual, para o menu e o canivete */
+  current: Page;
+  /** mostra busca e filtros, com o índice indicado (home: tudo; categoria: só ela) */
+  filters?: 'all' | SectionDef;
+  /** endereço da mesma página nos outros idiomas */
+  alt: Record<Lang, string>;
 }
-const { title, description, home = false } = Astro.props;
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const { lang, title, description, current, filters, alt } = Astro.props;
 const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined;
-const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 const nav = [
-  { href: `${base}/`, label: 'Início', match: '/' },
-  { href: `${base}/novidades`, label: 'Novidades', match: '/novidades' },
-  { href: `${base}/sobre`, label: 'Sobre', match: '/sobre' },
+  { page: 'home' as Page, label: t(lang, 'home') },
+  { page: 'news' as Page, label: t(lang, 'news') },
+  { page: 'about' as Page, label: t(lang, 'about') },
 ];
+const isCurrent = (p: Page) => (typeof p === 'string' || typeof current === 'string' ? p === current : p.id === current.id);
+const index = filters ? filterIndex(lang, filters === 'all' ? undefined : filters.id) : [];
+const clientText = Object.fromEntries(['ofTotal', 'nItems', 'nItem', 'loaderHint', 'loaderSum'].map((k) => [k, ui[lang][k]]));
+const logo = `<svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="12" width="20" height="10" rx="5" fill="var(--knife-body)" stroke="var(--knife-edge)" stroke-width="1.2" /><path d="M2 17a5 5 0 015-5h10a5 5 0 015 5z" fill="var(--accent)" /><path d="M20 17L29 7" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" /><path d="M19 15L26 6" stroke="var(--muted)" stroke-width="3.2" stroke-linecap="round" opacity=".6" /></svg>`;
 ---
 <!doctype html>
-<html lang="pt-BR" data-theme="dark">
+<html lang={lang === 'en' ? 'en' : 'pt-BR'} data-theme="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
     {canonical && <link rel="canonical" href={canonical} />}
+    {LANGS.map((l) => <link rel="alternate" hreflang={l === 'en' ? 'en' : 'pt-BR'} href={alt[l]} />)}
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content="pt_BR" />
-    <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
-    <link rel="alternate" type="application/rss+xml" title="KaniBox: novidades" href={`${base}/rss.xml`} />
+    <meta property="og:locale" content={lang === 'en' ? 'en_US' : 'pt_BR'} />
+    <link rel="icon" type="image/svg+xml" href={route(lang, 'home').replace(/(\/en)?\/$/, '') + '/favicon.svg'} />
+    <link rel="alternate" type="application/rss+xml" title="KaniBox" href={route(lang, 'rss')} />
     <link rel="preload" as="font" type="font/woff2" href={hankenUrl} crossorigin />
     <link rel="preload" as="font" type="font/woff2" href={familjenUrl} crossorigin />
     <script is:inline>
@@ -52,48 +63,52 @@ const nav = [
       })();
     </script>
   </head>
-  <body>
-    <a class="skip" href="#main">Pular para o conteúdo</a>
+  <body data-lang={lang} data-scope={filters === 'all' ? 'home' : filters ? 'section' : 'other'}>
+    <a class="skip" href="#main">{t(lang, 'skip')}</a>
     <header class="top">
       <div class="wrap">
         <div class="bar">
-          <a class="logo" href={`${base}/`} aria-label="KaniBox, início">
-            <svg viewBox="0 0 32 32" aria-hidden="true">
-              <rect x="2" y="12" width="20" height="10" rx="5" fill="var(--knife-body)" stroke="var(--knife-edge)" stroke-width="1.2" />
-              <path d="M2 17a5 5 0 015-5h10a5 5 0 015 5z" fill="var(--accent)" />
-              <path d="M20 17L29 7" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" />
-              <path d="M19 15L26 6" stroke="var(--muted)" stroke-width="3.2" stroke-linecap="round" opacity=".6" />
-            </svg>
+          <button class="round menu-btn" id="menuBtn" type="button" aria-label={t(lang, 'menu')} aria-expanded="false" aria-controls="menu">
+            <Icon name="menu" size={19} />
+          </button>
+          <a class="logo" href={route(lang, 'home')} aria-label={`KaniBox, ${t(lang, 'home')}`}>
+            <Fragment set:html={logo} />
             <span>Kani<b>Box</b></span>
           </a>
           {
-            home ? (
+            filters ? (
               <label class="search" id="searchBox">
                 <Icon name="search" size={17} />
-                <input id="q" type="search" placeholder="Buscar por nome, tipo ou site" autocomplete="off" spellcheck="false" aria-label="Buscar" />
-                <button type="button" id="qClear" aria-label="Limpar busca">
+                <input id="q" type="search" placeholder={t(lang, 'searchPlaceholder')} autocomplete="off" spellcheck="false" aria-label={t(lang, 'searchAria')} />
+                <button type="button" id="qClear" aria-label={t(lang, 'searchClear')}>
                   <Icon name="close" size={14} />
                 </button>
               </label>
             ) : (
-              <nav class="navlinks" aria-label="Páginas">
+              <nav class="navlinks" aria-label={t(lang, 'pages')}>
                 {nav.map((n) => (
-                  <a href={n.href} aria-current={path === n.match ? 'page' : undefined}>{n.label}</a>
+                  <a href={route(lang, n.page)} aria-current={isCurrent(n.page) ? 'page' : undefined}>{n.label}</a>
                 ))}
               </nav>
             )
           }
-          <a class="round" href={`${base}/novidades`} aria-label="Novidades"><Icon name="bell" size={19} /></a>
+          <div class="seg lang" role="group" aria-label={t(lang, 'lang')}>
+            <span class="seg-pill" aria-hidden="true" />
+            {LANGS.map((l) => (
+              <a href={alt[l]} lang={l === 'en' ? 'en' : 'pt-BR'} hreflang={l === 'en' ? 'en' : 'pt-BR'} aria-current={l === lang ? 'true' : undefined}>{l.toUpperCase()}</a>
+            ))}
+          </div>
+          <a class="round bell" href={route(lang, 'news')} aria-label={t(lang, 'news')}><Icon name="bell" size={19} /></a>
           <div class="theme-wrap">
-            <button class="round" id="themeBtn" type="button" aria-label="Trocar tema" aria-expanded="false" aria-controls="themes">
+            <button class="round" id="themeBtn" type="button" aria-label={t(lang, 'themeToggle')} aria-expanded="false" aria-controls="themes">
               <Icon name="theme" size={19} />
             </button>
-            <div class="themes" id="themes" role="group" aria-label="Temas">
+            <div class="themes" id="themes" role="group" aria-label={t(lang, 'themes')}>
               {
-                THEMES.map((t) => (
-                  <button type="button" data-t={t.id} aria-pressed="false">
-                    <span class="sw" style={`background:${t.bg};--c2:${t.accent}`} />
-                    {t.name}
+                THEMES.map((th) => (
+                  <button type="button" data-t={th.id} aria-pressed="false">
+                    <span class="sw" style={`background:${th.bg};--c2:${th.accent}`} />
+                    {th.name}
                   </button>
                 ))
               }
@@ -101,23 +116,19 @@ const nav = [
           </div>
         </div>
         {
-          home && (
+          filters && (
             <div class="filters" id="filters">
               {
-                [['plat', 'Plataforma'], ['tipo', 'Tipo'], ['lic', 'Licença']].map(([f, label]) => (
+                [['plat', 'fPlat'], ['tipo', 'fTipo'], ['lic', 'fLic']].map(([f, k]) => (
                   <button class="fchip" type="button" data-f={f} aria-expanded="false" aria-controls="panel">
-                    {label}
+                    {t(lang, k)}
                     <b />
                     <Icon name="chev" size={12} />
                   </button>
                 ))
               }
-              <button class="fchip view" id="viewBtn" type="button" aria-pressed="false" title="Mostrar uma seção por vez, em abas">
-                <Icon name="tabs" size={14} />
-                Abas
-              </button>
               <span class="sum">
-                <button class="clear" id="clear" type="button">Limpar filtros</button>
+                <button class="clear" id="clear" type="button">{t(lang, 'fClear')}</button>
                 <span id="sum" aria-live="polite" />
               </span>
             </div>
@@ -125,7 +136,34 @@ const nav = [
         }
       </div>
     </header>
-    {home && <div class="fpanel" id="panel" role="dialog" aria-label="Filtro" />}
+    {filters && <div class="fpanel" id="panel" role="dialog" aria-label={t(lang, 'fFilter')} />}
+
+    <aside class="menu" id="menu" aria-label={t(lang, 'menuTitle')} aria-hidden="true">
+      <div class="menu-head">
+        <h2>{t(lang, 'menuTitle')}</h2>
+        <button type="button" class="round" id="menuClose" aria-label={t(lang, 'menuClose')}><Icon name="close" size={18} /></button>
+      </div>
+      <nav aria-label={t(lang, 'menuTitle')}>
+        <a class="mi" href={route(lang, 'home')} aria-current={isCurrent('home') ? 'page' : undefined}>
+          <span class="sec-ic"><Icon name="star" size={18} /></span>
+          <span class="mt">{t(lang, 'home')}</span>
+        </a>
+        {
+          SECTIONS.map((s) => (
+            <a class="mi" href={route(lang, s)} aria-current={isCurrent(s) ? 'page' : undefined}>
+              <span class="sec-ic"><Icon name={s.icon} size={18} /></span>
+              <span class="mt">{s.title[lang]}</span>
+              <span class="mc">{s.id === 12 ? 12 : countIn(s.id)}</span>
+            </a>
+          ))
+        }
+        <div class="menu-foot">
+          <a href={route(lang, 'news')} aria-current={isCurrent('news') ? 'page' : undefined}>{t(lang, 'news')}</a>
+          <a href={route(lang, 'about')} aria-current={isCurrent('about') ? 'page' : undefined}>{t(lang, 'about')}</a>
+        </div>
+      </nav>
+    </aside>
+    <div class="scrim" id="scrim"></div>
 
     <main id="main">
       <div class="wrap">
@@ -137,60 +175,53 @@ const nav = [
       <div class="stripe" aria-hidden="true"></div>
       <div class="wrap foot-grid">
         <div class="brand">
-          <a class="logo" href={`${base}/`} aria-label="KaniBox, início">
-            <svg viewBox="0 0 32 32" aria-hidden="true">
-              <rect x="2" y="12" width="20" height="10" rx="5" fill="var(--knife-body)" stroke="var(--knife-edge)" stroke-width="1.2" />
-              <path d="M2 17a5 5 0 015-5h10a5 5 0 015 5z" fill="var(--accent)" />
-              <path d="M20 17L29 7" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" />
-              <path d="M19 15L26 6" stroke="var(--muted)" stroke-width="3.2" stroke-linecap="round" opacity=".6" />
-            </svg>
+          <a class="logo" href={route(lang, 'home')} aria-label={`KaniBox, ${t(lang, 'home')}`}>
+            <Fragment set:html={logo} />
             <span>Kani<b>Box</b></span>
           </a>
-          <p>Ferramentas, apps e jogos que eu uso e recomendo.</p>
-          <p class="made">Feito pelo Isaac, em Timon, Maranhão.</p>
+          <p>{t(lang, 'footTagline')}</p>
+          <p class="made">{t(lang, 'footMade')}</p>
         </div>
-        <nav aria-label="Explorar">
-          <h2>Explorar</h2>
-          <a href={`${base}/#s13`}>Meus apps</a>
-          <a href={`${base}/#s12`}>Ferramentas</a>
-          <a href={`${base}/novidades`}>Novidades</a>
-          <a href={`${base}/sobre`}>Sobre</a>
+        <nav aria-label={t(lang, 'footExplore')}>
+          <h2>{t(lang, 'footExplore')}</h2>
+          <a href={route(lang, SECTIONS[0])}>{SECTIONS[0].title[lang]}</a>
+          <a href={route(lang, SECTIONS[1])}>{SECTIONS[1].title[lang]}</a>
+          <a href={route(lang, 'news')}>{t(lang, 'news')}</a>
+          <a href={route(lang, 'about')}>{t(lang, 'about')}</a>
         </nav>
-        <nav aria-label="Links">
-          <h2>Links</h2>
+        <nav aria-label={t(lang, 'footLinks')}>
+          <h2>{t(lang, 'footLinks')}</h2>
           <a href="https://github.com/isaac-const" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="https://github.com/isaac-const/kanibox" target="_blank" rel="noopener noreferrer">Código do site</a>
-          <a href={`${base}/rss.xml`}>Feed RSS</a>
+          <a href="https://github.com/isaac-const/kanibox" target="_blank" rel="noopener noreferrer">{t(lang, 'footSite')}</a>
+          <a href={route(lang, 'rss')}>{t(lang, 'footRss')}</a>
         </nav>
         <div>
-          <h2>Critério</h2>
-          <p>Só entra o que eu uso ou usaria. Nenhum link é afiliado e não há anúncio.</p>
+          <h2>{t(lang, 'footCriteria')}</h2>
+          <p>{t(lang, 'footCriteriaText')}</p>
         </div>
       </div>
       <div class="wrap legal">
-        <span>Marcas e imagens pertencem aos seus donos.</span>
-        <a href="#main">Voltar ao topo ↑</a>
+        <span>{t(lang, 'footLegal')}</span>
+        <a href="#main">{t(lang, 'footTop')}</a>
       </div>
     </footer>
 
-    {
-      home && (
-        <nav class="kdock" id="kdock" aria-label="Seções">
-          <button class="kh" id="kh" type="button" aria-label="Dobrar ou abrir o canivete" aria-pressed="false" title="Dobrar ou abrir o canivete"><i /></button>
-          <div class="blades" id="blades">
-            {
-              SECTIONS.map((s, k) => (
-                <a class="blade" style={`--k:${k}`} href={`#s${s.id}`} data-s={s.id} aria-label={s.title}>
-                  <Icon name={s.icon} size={19} />
-                  <span class="lab">{s.title}</span>
-                </a>
-              ))
-            }
-          </div>
-        </nav>
-      )
-    }
-    {home && <script is:inline type="application/json" id="idx" set:html={JSON.stringify(FILTER_INDEX)} />}
+    <nav class="kdock" id="kdock" aria-label={t(lang, 'dockNav')}>
+      <button class="kh" id="kh" type="button" aria-label={t(lang, 'dockFold')} aria-pressed="false" title={t(lang, 'dockFold')}><i /></button>
+      <div class="blades" id="blades">
+        {
+          SECTIONS.map((s, k) => (
+            <a class="blade" style={`--k:${k}`} href={route(lang, s)} data-s={s.id} aria-label={s.title[lang]} aria-current={isCurrent(s) ? 'page' : undefined}>
+              <Icon name={s.icon} size={19} />
+              <span class="lab">{s.title[lang]}</span>
+            </a>
+          ))
+        }
+      </div>
+    </nav>
+    {filters && <script is:inline type="application/json" id="idx" set:html={JSON.stringify(index)} />}
+    {filters && <script is:inline type="application/json" id="lbl" set:html={JSON.stringify(filterLabels(lang))} />}
+    <script is:inline type="application/json" id="i18n" set:html={JSON.stringify(clientText)} />
     <script>
       import '../scripts/app.ts';
     </script>

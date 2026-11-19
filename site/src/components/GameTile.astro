@@ -1,10 +1,12 @@
 ---
-import type { Item } from '../lib/catalog';
+import { loc, type Item } from '../lib/catalog';
 import { withBase } from '../lib/url';
+import { t, type Lang } from '../i18n';
 interface Props {
   item: Item;
+  lang: Lang;
 }
-const { item } = Astro.props;
+const { item, lang } = Astro.props;
 ---
 <li class="tile" data-id={item.id}>
   {
@@ -18,9 +20,9 @@ const { item } = Astro.props;
     <b>
       <a href={item.url} target="_blank" rel="noopener noreferrer">
         {item.name}
-        <span class="vh"> (abre em outra aba)</span>
+        <span class="vh"> {t(lang, 'newTab')}</span>
       </a>
     </b>
-    <span>{item.plat.join(' · ') || item.note}</span>
+    <span>{item.plat.join(' · ') || loc(item, lang).note}</span>
   </div>
 </li>

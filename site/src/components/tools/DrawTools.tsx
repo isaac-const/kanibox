@@ -1,8 +1,10 @@
 import { useRef, useState } from 'react';
-import { Num, ToolCard } from './shared';
+import { Num, ToolCard, useLang, useT } from './shared';
+import { errText } from '../../i18n/tools';
 import { parseList, pick, randomFloat, randomInt, uniqueInts, cryptoRng } from '../../lib/tools/random';
 
 export function NameDraw() {
+  const T = useT();
   const [text, setText] = useState('Ana\nBruno\nCarla\nDiego');
   const [count, setCount] = useState('1');
   const [remove, setRemove] = useState(false);
@@ -13,27 +15,27 @@ export function NameDraw() {
   const pool = remove ? all.filter((n) => !drawn.includes(n)) : all;
   function run() {
     const n = Math.max(1, Math.floor(Number(count) || 1));
-    if (pool.length === 0) return setMsg(remove && all.length ? 'Todos já foram sorteados. Limpe a lista de sorteados.' : 'Digite ao menos um nome.');
+    if (pool.length === 0) return setMsg(remove && all.length ? T('namesAllDone') : T('namesNone'));
     const w = pick(pool, n);
     setWinners(w);
-    setMsg(n > pool.length ? `Só havia ${pool.length} ${pool.length === 1 ? 'nome' : 'nomes'} disponíveis.` : '');
+    setMsg(n > pool.length ? T('namesOnly', { n: pool.length, w: pool.length === 1 ? T('name') : T('names') }) : '');
     if (remove) setDrawn((d) => [...d, ...w]);
   }
   return (
-    <ToolCard id="t-names" title="Sorteio de nomes">
+    <ToolCard id="t-names" title={T('namesTitle')}>
       <label className="field">
-        <span>Nomes (um por linha ou separados por vírgula)</span>
+        <span>{T('namesLabel')}</span>
         <textarea id="nm-in" className="inp" rows={4} value={text} onChange={(e) => setText(e.target.value)} />
       </label>
       <div className="row2 aend">
-        <Num label="Quantos" id="nm-n" value={count} min={1} max={999} set={setCount} />
+        <Num label={T('namesCount')} id="nm-n" value={count} min={1} max={999} set={setCount} />
         <label className="check">
-          <input type="checkbox" checked={remove} onChange={(e) => setRemove(e.target.checked)} /> Não repetir sorteados
+          <input type="checkbox" checked={remove} onChange={(e) => setRemove(e.target.checked)} /> {T('namesNoRepeat')}
         </label>
       </div>
       <div className="row2">
-        <button type="button" className="btn solid" id="nm-go" onClick={run}>Sortear</button>
-        {drawn.length > 0 && <button type="button" className="btn ghost" onClick={() => { setDrawn([]); setWinners([]); setMsg(''); }}>Limpar sorteados</button>}
+        <button type="button" className="btn solid" id="nm-go" onClick={run}>{T('namesGo')}</button>
+        {drawn.length > 0 && <button type="button" className="btn ghost" onClick={() => { setDrawn([]); setWinners([]); setMsg(''); }}>{T('namesClear')}</button>}
       </div>
       <div className="winners" id="nm-out" aria-live="polite">
         {winners.map((w, i) => (
@@ -41,12 +43,14 @@ export function NameDraw() {
         ))}
         {msg && <p className="h">{msg}</p>}
       </div>
-      <p className="h">{pool.length} {pool.length === 1 ? 'nome' : 'nomes'} na disputa{drawn.length > 0 ? `, ${drawn.length} já sorteados` : ''}.</p>
+      <p className="h">{T('namesPool', { n: pool.length, w: pool.length === 1 ? T('name') : T('names'), extra: drawn.length > 0 ? T('namesExtra', { n: drawn.length }) : '' })}</p>
     </ToolCard>
   );
 }
 
 export function RandomNumber() {
+  const T = useT();
+  const lang = useLang();
   const [min, setMin] = useState('1');
   const [max, setMax] = useState('100');
   const [count, setCount] = useState('1');
@@ -57,29 +61,30 @@ export function RandomNumber() {
   function run() {
     try {
       const a = Number(min), b = Number(max), n = Math.max(1, Math.min(500, Math.floor(Number(count) || 1))), d = Math.max(0, Math.min(6, Math.floor(Number(dec) || 0)));
-      if (!Number.isFinite(a) || !Number.isFinite(b)) throw new Error('Preencha o menor e o maior número.');
+      if (!Number.isFinite(a) || !Number.isFinite(b)) throw new Error('fill');
       let list: number[];
       if (d === 0) list = unique ? uniqueInts(Math.round(a), Math.round(b), n) : Array.from({ length: n }, () => randomInt(Math.round(a), Math.round(b)));
       else list = Array.from({ length: n }, () => randomFloat(a, b, d));
       setOut(list.map(String));
       setErr('');
     } catch (e) {
-      setErr((e as Error).message);
+      const m = (e as Error).message;
+      setErr(m === 'fill' ? T('randFill') : errText(lang, m));
       setOut([]);
     }
   }
   return (
-    <ToolCard id="t-rand" title="Número aleatório">
-      <div className="fields" role="group" aria-label="Intervalo">
-        <Num label="De" id="rn-min" value={min} step="any" set={setMin} />
-        <Num label="Até" id="rn-max" value={max} step="any" set={setMax} />
-        <Num label="Quantos" id="rn-n" value={count} min={1} max={500} set={setCount} />
-        <Num label="Casas decimais" id="rn-d" value={dec} min={0} max={6} set={setDec} />
+    <ToolCard id="t-rand" title={T('randTitle')}>
+      <div className="fields" role="group" aria-label={T('randRange')}>
+        <Num label={T('randFrom')} id="rn-min" value={min} step="any" set={setMin} />
+        <Num label={T('randTo')} id="rn-max" value={max} step="any" set={setMax} />
+        <Num label={T('randCount')} id="rn-n" value={count} min={1} max={500} set={setCount} />
+        <Num label={T('randDec')} id="rn-d" value={dec} min={0} max={6} set={setDec} />
       </div>
       <label className="check">
-        <input type="checkbox" checked={unique} disabled={Number(dec) > 0} onChange={(e) => setUnique(e.target.checked)} /> Sem repetir (só inteiros)
+        <input type="checkbox" checked={unique} disabled={Number(dec) > 0} onChange={(e) => setUnique(e.target.checked)} /> {T('randUnique')}
       </label>
-      <button type="button" className="btn solid" id="rn-go" onClick={run}>Gerar</button>
+      <button type="button" className="btn solid" id="rn-go" onClick={run}>{T('randGo')}</button>
       <div className="winners big" id="rn-out" aria-live="polite">
         {out.map((v, i) => (
           <span key={`${v}-${i}-${out.length}`} className="win num">{v}</span>
@@ -93,7 +98,8 @@ export function RandomNumber() {
 const COLORS = ['#ff5a36', '#f2b134', '#4cc38a', '#4ea8de', '#a78bfa', '#f472b6', '#94a3b8', '#fb923c'];
 
 export function Roulette() {
-  const [text, setText] = useState('Pizza\nHambúrguer\nSushi\nLanche');
+  const T = useT();
+  const [text, setText] = useState(T('wheelDefault'));
   const [deg, setDeg] = useState(0);
   const [spinning, setSpinning] = useState(false);
   const [result, setResult] = useState('');
@@ -124,10 +130,10 @@ export function Roulette() {
     return { d, label, color: COLORS[i % COLORS.length], tx: 62 * Math.cos(mid), ty: 62 * Math.sin(mid), rot: (mid * 180) / Math.PI };
   });
   return (
-    <ToolCard id="t-wheel" title="Roleta">
+    <ToolCard id="t-wheel" title={T('wheelTitle')}>
       <div className="wheel-wrap">
         <div className="pointer" aria-hidden="true" />
-        <svg viewBox="-104 -104 208 208" className="wheel" style={{ transform: `rotate(${deg}deg)`, transition: spinning && !reduce ? 'transform 4s cubic-bezier(.12,.7,.1,1)' : 'none' }} role="img" aria-label={`Roleta com ${n} opções`}>
+        <svg viewBox="-104 -104 208 208" className="wheel" style={{ transform: `rotate(${deg}deg)`, transition: spinning && !reduce ? 'transform 4s cubic-bezier(.12,.7,.1,1)' : 'none' }} role="img" aria-label={T('wheelAria', { n })}>
           {paths.map((p, i) => (
             <g key={i}>
               <path d={p.d} fill={p.color} stroke="rgba(0,0,0,.25)" strokeWidth="0.8" />
@@ -138,11 +144,11 @@ export function Roulette() {
         </svg>
       </div>
       <div className="row2">
-        <button type="button" className="btn solid" id="wh-go" disabled={n < 2 || spinning} onClick={spin}>{spinning ? 'Girando…' : 'Girar'}</button>
+        <button type="button" className="btn solid" id="wh-go" disabled={n < 2 || spinning} onClick={spin}>{spinning ? T('wheelSpinning') : T('wheelGo')}</button>
       </div>
-      <output id="wh-out" className="calc-out" aria-live="polite">{result ? `Saiu: ${result}` : n < 2 ? 'Escreva ao menos duas opções' : ' '}</output>
+      <output id="wh-out" className="calc-out" aria-live="polite">{result ? T('wheelWon', { x: result }) : n < 2 ? T('wheelMin') : ' '}</output>
       <label className="field">
-        <span>Opções (uma por linha, até 24)</span>
+        <span>{T('wheelOptions')}</span>
         <textarea id="wh-in" className="inp" rows={3} value={text} onChange={(e) => setText(e.target.value)} />
       </label>
     </ToolCard>
@@ -150,24 +156,25 @@ export function Roulette() {
 }
 
 export function YesNo() {
-  const [res, setRes] = useState<'Sim' | 'Não' | null>(null);
+  const T = useT();
+  const [res, setRes] = useState<'yes' | 'no' | null>(null);
   const [n, setN] = useState(0);
   const [tally, setTally] = useState({ s: 0, n: 0 });
   function flip() {
-    const r = randomInt(0, 1) === 0 ? 'Sim' : 'Não';
+    const r = randomInt(0, 1) === 0 ? 'yes' : 'no';
     setRes(r);
     setN((x) => x + 1);
-    setTally((t) => (r === 'Sim' ? { ...t, s: t.s + 1 } : { ...t, n: t.n + 1 }));
+    setTally((t) => (r === 'yes' ? { ...t, s: t.s + 1 } : { ...t, n: t.n + 1 }));
   }
   return (
-    <ToolCard id="t-yesno" title="Sim ou não">
-      <button type="button" className="coin" id="yn-go" onClick={flip} aria-label="Sortear sim ou não">
-        <span key={n} className={`face ${res === 'Sim' ? 'yes' : res === 'Não' ? 'no' : ''}`} id="yn-out" aria-live="polite">
-          {res ?? '?'}
+    <ToolCard id="t-yesno" title={T('ynTitle')}>
+      <button type="button" className="coin" id="yn-go" onClick={flip} aria-label={T('ynAria')}>
+        <span key={n} className={`face ${res ?? ''}`} id="yn-out" aria-live="polite">
+          {res === 'yes' ? T('ynYes') : res === 'no' ? T('ynNo') : '?'}
         </span>
       </button>
-      <p className="h">Toque na moeda. Sim: {tally.s} · Não: {tally.n}</p>
-      {n > 0 && <button type="button" className="btn ghost" onClick={() => { setRes(null); setN(0); setTally({ s: 0, n: 0 }); }}>Zerar placar</button>}
+      <p className="h">{T('ynHint', { s: tally.s, n: tally.n })}</p>
+      {n > 0 && <button type="button" className="btn ghost" onClick={() => { setRes(null); setN(0); setTally({ s: 0, n: 0 }); }}>{T('ynReset')}</button>}
     </ToolCard>
   );
 }

@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { existsSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { ITEMS, TOTAL, FILTER_INDEX, TOP_ITEMS, groupsOf, batches, INITIAL_BATCH } from '../../src/lib/catalog';
-import { SECTIONS, TOOLS_SECTION_ID } from '../../src/lib/sections';
+import { ITEMS, TOTAL, filterIndex, TOP_ITEMS, groupsOf, batches, INITIAL_BATCH } from '../../src/lib/catalog';
+import { SECTIONS, TOOLS_SECTION_ID, SUBTABS } from '../../src/lib/sections';
 import { optionsFor, apply, emptyState } from '../../src/lib/filter';
 
 const pub = (...p: string[]) => resolve(__dirname, '../../public', ...p);
@@ -22,7 +22,7 @@ describe('integridade do catálogo', () => {
     for (const s of SECTIONS) {
       const n = ITEMS.filter((i) => i.sec === s.id).length;
       if (s.id === TOOLS_SECTION_ID) expect(n).toBe(0);
-      else expect(n, s.title).toBeGreaterThan(0);
+      else expect(n, s.title.pt).toBeGreaterThan(0);
     }
   });
 
@@ -95,11 +95,11 @@ describe('grupos', () => {
 
   it('Krita fica em Desenhar e os destaques existem na ordem pedida', () => {
     expect(ITEMS.find((i) => i.name === 'Krita')!.grp).toBe('Desenhar');
-    expect(TOP_ITEMS.map((i) => i.name)).toEqual(['CachyOS', 'VSCodium', 'Godot', 'Krita', 'Claude', 'DeepSeek', 'Obsidian', 'Ghostty', 'Prism Launcher']);
+    expect(TOP_ITEMS.map((i) => i.name)).toEqual(['CachyOS', 'VSCodium', 'Godot', 'Krita', 'Claude', 'Obsidian', 'Ghostty', 'Prism Launcher']);
   });
 
   it('Meus apps e Ferramentas vêm primeiro, e o MoonDeck usa o logo próprio', () => {
-    expect(SECTIONS.slice(0, 2).map((x) => x.title)).toEqual(['Meus apps', 'Ferramentas']);
+    expect(SECTIONS.slice(0, 2).map((x) => x.title.pt)).toEqual(['Meus apps', 'Ferramentas']);
     expect(ITEMS.find((i) => i.name === 'MoonDeck')!.icon).toBe('moondeck.png');
   });
 
@@ -115,27 +115,27 @@ describe('contra os dados reais', () => {
     const st = emptyState();
     st.plat.add('Linux');
     const expected = ITEMS.filter((i) => i.plat.includes('Linux')).length;
-    expect(apply(FILTER_INDEX, st).visible.size).toBe(expected);
+    expect(apply(filterIndex('pt'), st).visible.size).toBe(expected);
   });
 
   it('as quatro licenças existem e vêm na ordem fixa', () => {
-    expect(optionsFor(FILTER_INDEX, 'lic').map((x) => x[0])).toEqual(['Código aberto', 'Grátis', 'Freemium', 'Pago']);
+    expect(optionsFor(filterIndex('pt'), 'lic').map((x) => x[0])).toEqual(['Código aberto', 'Grátis', 'Freemium', 'Pago']);
   });
 
   it('seis emuladores', () => {
     const st = emptyState();
     st.tipo.add('Emulador');
-    expect(apply(FILTER_INDEX, st).visible.size).toBe(6);
+    expect(apply(filterIndex('pt'), st).visible.size).toBe(6);
   });
 
   it('quatro terminais pela busca por "terminal"', () => {
     const st = emptyState();
     st.q = 'terminal';
-    expect(apply(FILTER_INDEX, st).visible.size).toBe(4);
+    expect(apply(filterIndex('pt'), st).visible.size).toBe(4);
   });
 
   it('NeoForge: 40 de 42 mods; Fabric: 6 ficam de fora', () => {
-    const mods = FILTER_INDEX.filter((e) => e.ld && e.g === 'Mods');
+    const mods = filterIndex('pt').filter((e) => e.ld && e.g === 'Mods');
     expect(mods.length).toBe(42);
     expect(mods.filter((m) => !m.ld!.includes('neoforge')).length).toBe(2);
     expect(mods.filter((m) => !m.ld!.includes('fabric')).length).toBe(6);

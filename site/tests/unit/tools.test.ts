@@ -164,9 +164,9 @@ describe('calculadora', () => {
     expect(evaluate('abs(-3)')).toBe(3);
   });
   it('erros claros, sem eval', () => {
-    expect(() => evaluate('1/0')).toThrow('divisão por zero');
+    expect(() => evaluate('1/0')).toThrow('div0');
     expect(() => evaluate('2+')).toThrow();
-    expect(() => evaluate('(1+2')).toThrow('parêntese');
+    expect(() => evaluate('(1+2')).toThrow('paren');
     expect(() => evaluate('foo(1)')).toThrow();
     expect(() => evaluate('alert(1)')).toThrow();
     expect(() => evaluate('')).toThrow();
@@ -191,7 +191,7 @@ describe('sorteios', () => {
   it('sem repetição e com limite', () => {
     const n = uniqueInts(1, 10, 10);
     expect([...n].sort((a, b) => a - b)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-    expect(() => uniqueInts(1, 3, 4)).toThrow('só existem 3');
+    expect(() => uniqueInts(1, 3, 4)).toThrow('only:3');
   });
   it('embaralhar preserva os itens e não altera a lista original', () => {
     const l = [1, 2, 3, 4, 5];

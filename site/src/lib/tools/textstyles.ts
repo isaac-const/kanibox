@@ -85,26 +85,27 @@ const circled = (s: string) =>
 export interface TextStyle {
   id: string;
   name: string;
+  en: string;
   fn: (s: string, opts?: { zalgo?: number }) => string;
 }
 
 export const STYLES: TextStyle[] = [
-  { id: 'smallcaps', name: 'Versalete', fn: (s) => mapStr(s.toLowerCase(), SMALL_CAPS) },
-  { id: 'super', name: 'Pequenas (sobrescrito)', fn: (s) => mapStr(s.toLowerCase(), SUPER) },
-  { id: 'sub', name: 'Subscrito', fn: (s) => mapStr(s.toLowerCase(), SUB) },
-  { id: 'reverse', name: 'Invertido', fn: reverse },
-  { id: 'mirror', name: 'Espelhado', fn: (s) => mapStr(reverse(s), MIRROR) },
-  { id: 'flip', name: 'De cabeça para baixo', fn: (s) => mapStr(reverse(s), FLIP) },
-  { id: 'strike', name: 'Riscado', fn: (s) => chars(s).map((c) => (/\s/.test(c) ? c : c + '̶')).join('') },
-  { id: 'underline', name: 'Sublinhado', fn: (s) => chars(s).map((c) => (/\s/.test(c) ? c : c + '̲')).join('') },
-  { id: 'leet', name: 'Leet', fn: (s) => mapStr(s, LEET) },
-  { id: 'zalgo', name: 'Zalgo', fn: (s, o) => zalgo(s, o?.zalgo ?? 3) },
-  { id: 'fraktur', name: 'Gótico', fn: block(0x1d504, 0x1d51e, null, { C: 'ℭ', H: 'ℌ', I: 'ℑ', R: 'ℜ', Z: 'ℨ' }) },
-  { id: 'script', name: 'Cursivo', fn: block(0x1d4d0, 0x1d4ea, null) },
-  { id: 'bold', name: 'Negrito', fn: block(0x1d400, 0x1d41a, 0x1d7ce) },
-  { id: 'italic', name: 'Itálico', fn: block(0x1d434, 0x1d44e, null, { h: 'ℎ' }) },
-  { id: 'double', name: 'Contorno duplo', fn: block(0x1d538, 0x1d552, 0x1d7d8, { C: 'ℂ', H: 'ℍ', N: 'ℕ', P: 'ℙ', Q: 'ℚ', R: 'ℝ', Z: 'ℤ' }) },
-  { id: 'mono', name: 'Monoespaçado', fn: block(0x1d670, 0x1d68a, 0x1d7f6) },
-  { id: 'circle', name: 'Círculos', fn: circled },
-  { id: 'wide', name: 'Largo', fn: wide },
+  { id: 'smallcaps', name: 'Versalete', en: 'Small caps', fn: (s) => mapStr(s.toLowerCase(), SMALL_CAPS) },
+  { id: 'super', name: 'Pequenas (sobrescrito)', en: 'Superscript', fn: (s) => mapStr(s.toLowerCase(), SUPER) },
+  { id: 'sub', name: 'Subscrito', en: 'Subscript', fn: (s) => mapStr(s.toLowerCase(), SUB) },
+  { id: 'reverse', name: 'Invertido', en: 'Reversed', fn: reverse },
+  { id: 'mirror', name: 'Espelhado', en: 'Mirrored', fn: (s) => mapStr(reverse(s), MIRROR) },
+  { id: 'flip', name: 'De cabeça para baixo', en: 'Upside down', fn: (s) => mapStr(reverse(s), FLIP) },
+  { id: 'strike', name: 'Riscado', en: 'Strikethrough', fn: (s) => chars(s).map((c) => (/\s/.test(c) ? c : c + '̶')).join('') },
+  { id: 'underline', name: 'Sublinhado', en: 'Underline', fn: (s) => chars(s).map((c) => (/\s/.test(c) ? c : c + '̲')).join('') },
+  { id: 'leet', name: 'Leet', en: 'Leet', fn: (s) => mapStr(s, LEET) },
+  { id: 'zalgo', name: 'Zalgo', en: 'Zalgo', fn: (s, o) => zalgo(s, o?.zalgo ?? 3) },
+  { id: 'fraktur', name: 'Gótico', en: 'Gothic', fn: block(0x1d504, 0x1d51e, null, { C: 'ℭ', H: 'ℌ', I: 'ℑ', R: 'ℜ', Z: 'ℨ' }) },
+  { id: 'script', name: 'Cursivo', en: 'Script', fn: block(0x1d4d0, 0x1d4ea, null) },
+  { id: 'bold', name: 'Negrito', en: 'Bold', fn: block(0x1d400, 0x1d41a, 0x1d7ce) },
+  { id: 'italic', name: 'Itálico', en: 'Italic', fn: block(0x1d434, 0x1d44e, null, { h: 'ℎ' }) },
+  { id: 'double', name: 'Contorno duplo', en: 'Double-struck', fn: block(0x1d538, 0x1d552, 0x1d7d8, { C: 'ℂ', H: 'ℍ', N: 'ℕ', P: 'ℙ', Q: 'ℚ', R: 'ℝ', Z: 'ℤ' }) },
+  { id: 'mono', name: 'Monoespaçado', en: 'Monospace', fn: block(0x1d670, 0x1d68a, 0x1d7f6) },
+  { id: 'circle', name: 'Círculos', en: 'Circled', fn: circled },
+  { id: 'wide', name: 'Largo', en: 'Wide', fn: wide },
 ];

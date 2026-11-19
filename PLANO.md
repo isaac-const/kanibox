@@ -220,3 +220,15 @@ Pedidos do Isaac e o que foi feito:
 - **Itens novos:** RealtimeColors, Bitwarden, 1Password, Proton Mail, DuckDuckGo, Cloudflare 1.1.1.1, VirusTotal, Ninite, PDF24 Tools, ShareX, OBS Studio, 10 Minute Mail, Temp Mail, DeepL, smdownloader, VSCodium. Catálogo agora com 184 itens.
 
 Bugs que os testes acharam: erro de hidratação do React no zalgo (acaso diferente no servidor), lista de unidades rolável sem acesso por teclado e 2 px de rolagem horizontal no celular, causada pela grade do rodapé. Os três foram corrigidos.
+
+## 19. Rodada 3 de 19/11/2026: páginas por categoria, menu lateral e inglês
+
+- **Estrutura:** o modo abas saiu. Cada categoria tem página própria (`/ia/`, `/ferramentas/`, `/minecraft/` ...) com só os itens dela. O início virou hero, "Mais recomendados" e cartões das categorias; a lista completa aparece só ao buscar.
+- **Menu lateral:** botão no cabeçalho abre uma gaveta com as categorias e a contagem. Esc, fundo e botão fecham, e o foco volta ao botão.
+- **Reorganização:** Terminal foi para Produtividade; Emuladores e Jogar no Linux foram para Jogos. Onze categorias no total.
+- **Mais recomendados:** oito pílulas vermelhas com estrela (sem DeepSeek). No celular ficam em 2 colunas e sem o texto do tipo.
+- **Abas elásticas:** inspiradas no Rubber Segment do ReactBits, com implementação própria (nenhum código copiado), usadas nas subabas, no seletor de ferramentas e no idioma.
+- **Inglês:** `/en/` com slugs próprios (`/en/ai/`, `/en/tools/` ...), seletor PT/EN que leva à mesma página, `hreflang`, RSS e textos dos itens traduzidos.
+- **Zoom no celular:** causa provável é o zoom automático do iOS ao focar campos com fonte menor que 16px. Campos agora têm 16px ou mais, `touch-action: manipulation` e `overflow-x: clip`. Não foi possível testar num iPhone de verdade.
+- **Bugs achados pelos testes:** lâmina da página atual nunca acendia (CSS esperava `aria-current="true"`, o HTML usa `page`); texto escuro sobre vermelho ao passar o mouse na aba selecionada; contraste do texto pequeno nas pílulas vermelhas (acento do tema claro escurecido para `#c9340f`).
+- **Testes:** 97 unitários e 212 de ponta a ponta (desktop e celular), incluindo axe em categoria, menu aberto, ferramentas e páginas em inglês.

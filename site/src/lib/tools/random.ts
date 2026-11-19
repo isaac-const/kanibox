@@ -8,7 +8,7 @@ export const cryptoRng: Rng = () => {
 };
 
 export function randomInt(min: number, max: number, rng: Rng = cryptoRng): number {
-  if (!Number.isInteger(min) || !Number.isInteger(max)) throw new Error('use números inteiros');
+  if (!Number.isInteger(min) || !Number.isInteger(max)) throw new Error('integers');
   if (min > max) [min, max] = [max, min];
   return Math.floor(rng() * (max - min + 1)) + min;
 }
@@ -37,7 +37,7 @@ export function pick<T>(list: readonly T[], n: number, rng: Rng = cryptoRng): T[
 export function uniqueInts(min: number, max: number, count: number, rng: Rng = cryptoRng): number[] {
   if (min > max) [min, max] = [max, min];
   const size = max - min + 1;
-  if (count > size) throw new Error(`só existem ${size} números diferentes nesse intervalo`);
+  if (count > size) throw new Error(`only:${size}`);
   return pick(Array.from({ length: size }, (_, i) => min + i), count, rng);
 }
 

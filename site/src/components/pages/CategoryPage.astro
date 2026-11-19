@@ -1,0 +1,36 @@
+---
+import Base from '../../layouts/Base.astro';
+import Section from '../Section.astro';
+import { TOOLS_SECTION_ID, type SectionDef } from '../../lib/sections';
+import { route } from '../../lib/url';
+import { t, type Lang } from '../../i18n';
+
+interface Props {
+  lang: Lang;
+  section: SectionDef;
+}
+const { lang, section } = Astro.props;
+const isTools = section.id === TOOLS_SECTION_ID;
+---
+<Base
+  lang={lang}
+  current={section}
+  filters={isTools ? undefined : section}
+  title={`${section.title[lang]} · KaniBox`}
+  description={section.desc[lang]}
+  alt={{ pt: route('pt', section), en: route('en', section) }}
+>
+  <div class="solo">
+    <Section section={section} lang={lang} solo />
+    {
+      !isTools && (
+        <div class="empty" id="empty">
+          <b>{t(lang, 'emptyTitle')}</b>
+          {t(lang, 'emptyText')}
+          <br />
+          <a class="empty-link" id="empty-global" href={route(lang, 'home')}>{t(lang, 'emptyGlobal')}</a>
+        </div>
+      )
+    }
+  </div>
+</Base>

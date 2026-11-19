@@ -1,21 +1,24 @@
 ---
 import Icon from './Icon.astro';
-import type { Item } from '../lib/catalog';
+import { loc, type Item } from '../lib/catalog';
 import { LOADER_NAMES } from '../lib/sections';
 import { withBase } from '../lib/url';
+import { t, type Lang } from '../i18n';
 
 interface Props {
   item: Item;
+  lang: Lang;
   /** versão compacta, usada nos mods */
   compact?: boolean;
 }
-const { item, compact = false } = Astro.props;
+const { item, lang, compact = false } = Astro.props;
+const l = loc(item, lang);
 
 const LIC_CLASS: Record<string, string> = { 'Código aberto': 'open', Grátis: 'free', Freemium: 'freem', Pago: 'paid' };
 const licClass = LIC_CLASS[item.lic] ?? '';
 const verified = item.lic_src?.startsWith('GitHub:') || item.lic_src?.startsWith('Modrinth:');
-const licTitle = item.lic ? (verified ? `Fonte: ${item.lic_src}` : 'Informada à mão, ainda não conferida') : undefined;
-const sub = [item.tipo, item.host].filter(Boolean).join(' · ');
+const licTitle = item.lic ? (verified ? t(lang, 'licSource', { src: item.lic_src ?? '' }) : t(lang, 'licHand')) : undefined;
+const sub = [l.tipo, item.host].filter(Boolean).join(' · ');
 const isMod = item.tipo === 'Mod';
 const isMc = item.kind === 'mc';
 const iconSrc = isMc && item.mc_icon ? withBase(`/mc/${item.mc_icon}`) : item.icon && !item.mono ? withBase(`/icons/${item.icon}`) : null;
@@ -31,28 +34,28 @@ const px = isMc ? 40 : 26;
         item.url ? (
           <a href={item.url} target="_blank" rel="noopener noreferrer">
             {item.name}
-            <span class="vh"> (abre em outra aba)</span>
+            <span class="vh"> {t(lang, 'newTab')}</span>
           </a>
         ) : (
           <span>{item.name}</span>
         )
       }
-      {item.via && <span class="bd">via {item.via}</span>}
-      {item.ini && <span class="bd on">Para iniciantes</span>}
-      {item.soon && <span class="bd">em desenvolvimento</span>}
+      {item.via && <span class="bd">{t(lang, 'via', { x: item.via })}</span>}
+      {item.ini && <span class="bd on">{t(lang, 'beginners')}</span>}
+      {item.soon && <span class="bd">{t(lang, 'soon')}</span>}
     </div>
     {!compact && <div class="sub">{sub}</div>}
   </div>
   <div class="meta">
     {
       isMod ? (
-        <span class="ld">{item.loaders?.map((l) => <span data-l={l}>{LOADER_NAMES[l]}</span>)}</span>
+        <span class="ld">{item.loaders?.map((x) => <span data-l={x}>{LOADER_NAMES[x]}</span>)}</span>
       ) : (
         <>
           {item.lic && (
             <span class:list={['lic', licClass]} title={licTitle}>
               <i />
-              {item.lic}
+              {t(lang, `lic.${item.lic}`)}
             </span>
           )}
           {item.plat.length > 0 && <span class="pl">{item.plat.join(' · ')}</span>}
@@ -60,10 +63,6 @@ const px = isMc ? 40 : 26;
       )
     }
   </div>
-  {
-    !compact && (
-      <span class="go">{item.url ? <Icon name="arrow" size={15} /> : null}</span>
-    )
-  }
-  {item.note && <p class="note">{item.note}</p>}
+  {!compact && <span class="go">{item.url ? <Icon name="arrow" size={15} /> : null}</span>}
+  {l.note && <p class="note">{l.note}</p>}
 </li>

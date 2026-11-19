@@ -170,7 +170,7 @@ Como ler as colunas:
 | WispFile | wispfile.com | Transferência | Web | Grátis (definido por mim, a conferir) | ok |
 | Litterbox | litterbox.catbox.moe | Hospedagem temporária | Web | Grátis (definido por mim, a conferir) | ok |
 
-## 5 · Produtividade (8)
+## 5 · Produtividade (12)
 
 ### Notas e tarefas (3)
 
@@ -205,8 +205,6 @@ Como ler as colunas:
 |---|---|---|---|---|---|
 | Nuvio | github.com | Player de mídia |  | Código aberto (GitHub: GPL-3.0) | ok |
 
-## 6 · Terminal (4)
-
 ### Terminais (4)
 
 | Nome | Link | Tipo | Plataformas | Licença (fonte) | Site |
@@ -215,6 +213,8 @@ Como ler as colunas:
 | Kitty | sw.kovidgoyal.net | Terminal | Linux, macOS | Código aberto (GitHub: GPL-3.0) | ok |
 | Alacritty | alacritty.org | Terminal | Linux, Windows, macOS | Código aberto (GitHub: Apache-2.0) | ok |
 | Warp | warp.dev | Terminal | Linux, Windows, macOS | Freemium (definido por mim, a conferir) | ok |
+
+## 6 · Terminal (0)
 
 ## 7 · Sistema (10)
 
@@ -243,27 +243,7 @@ Como ler as colunas:
 | FlorisBoard | florisboard.org | Teclado | Android | Código aberto (GitHub: Apache-2.0) | ok |
 | F-Droid | f-droid.org | Loja de apps | Android | Código aberto (definido por mim, a conferir) | ok |
 
-## 8 · Emular e jogar (10)
-
-### Emuladores (6)
-
-| Nome | Link | Tipo | Plataformas | Licença (fonte) | Site |
-|---|---|---|---|---|---|
-| melonDS | melonds.kuribo64.net | Emulador | Linux, Windows, macOS | Código aberto (GitHub: GPL-3.0) | ok |
-| Azahar | azahar-emu.org | Emulador | Linux, Windows, macOS, Android | Código aberto (GitHub: GPL-3.0) | ok |
-| Eden | eden-emu.dev | Emulador | Linux, Windows, Android | Código aberto (definido por mim, a conferir) | ok |
-| RetroArch | retroarch.com | Emulador | Linux, Windows, macOS, Android, iOS | Código aberto (GitHub: GPL-3.0) | ok |
-| mGBA | mgba.io | Emulador | Linux, Windows, macOS | Código aberto (GitHub: MPL-2.0) | ok |
-| ares | ares-emu.net | Emulador | Linux, Windows, macOS | Código aberto (definido por mim, a conferir) | ok |
-
-### Jogar no Linux (4)
-
-| Nome | Link | Tipo | Plataformas | Licença (fonte) | Site |
-|---|---|---|---|---|---|
-| Proton | github.com | Compatibilidade | Linux | Código aberto (definido por mim, a conferir) | ok |
-| Heroic | heroicgameslauncher.com | Launcher de jogos | Linux, Windows, macOS | Código aberto (GitHub: GPL-3.0) | ok |
-| Lutris | lutris.net | Launcher de jogos | Linux | Código aberto (GitHub: GPL-3.0) | ok |
-| Bottles | usebottles.com | Compatibilidade | Linux | Código aberto (GitHub: GPL-3.0) | ok |
+## 8 · Emular e jogar (0)
 
 ## 9 · Minecraft (56)
 
@@ -348,7 +328,7 @@ Como ler as colunas:
 | Chat Heads | chat-heads | fabric, forge, neoforge | Código aberto (Modrinth: MPL-2.0) |
 | Courier Owls | courier-owls |  |  () |
 
-## 10 · Jogos (37)
+## 10 · Jogos (47)
 
 ### Que eu gosto (22)
 
@@ -401,6 +381,26 @@ Como ler as colunas:
 |---|---|---|---|---|---|
 | neal.fun | neal.fun | Curiosidades | Web | Grátis (definido por mim, a conferir) | bloqueia robô |
 | Akinator | akinator.com | Jogo online | Web, Android, iOS | Freemium (definido por mim, a conferir) | ok |
+
+### Emuladores (6)
+
+| Nome | Link | Tipo | Plataformas | Licença (fonte) | Site |
+|---|---|---|---|---|---|
+| melonDS | melonds.kuribo64.net | Emulador | Linux, Windows, macOS | Código aberto (GitHub: GPL-3.0) | ok |
+| Azahar | azahar-emu.org | Emulador | Linux, Windows, macOS, Android | Código aberto (GitHub: GPL-3.0) | ok |
+| Eden | eden-emu.dev | Emulador | Linux, Windows, Android | Código aberto (definido por mim, a conferir) | ok |
+| RetroArch | retroarch.com | Emulador | Linux, Windows, macOS, Android, iOS | Código aberto (GitHub: GPL-3.0) | ok |
+| mGBA | mgba.io | Emulador | Linux, Windows, macOS | Código aberto (GitHub: MPL-2.0) | ok |
+| ares | ares-emu.net | Emulador | Linux, Windows, macOS | Código aberto (definido por mim, a conferir) | ok |
+
+### Jogar no Linux (4)
+
+| Nome | Link | Tipo | Plataformas | Licença (fonte) | Site |
+|---|---|---|---|---|---|
+| Proton | github.com | Compatibilidade | Linux | Código aberto (definido por mim, a conferir) | ok |
+| Heroic | heroicgameslauncher.com | Launcher de jogos | Linux, Windows, macOS | Código aberto (GitHub: GPL-3.0) | ok |
+| Lutris | lutris.net | Launcher de jogos | Linux | Código aberto (GitHub: GPL-3.0) | ok |
+| Bottles | usebottles.com | Compatibilidade | Linux | Código aberto (GitHub: GPL-3.0) | ok |
 
 ## 11 · Aprender (5)
 

@@ -1,0 +1,33 @@
+---
+import Base from '../../layouts/Base.astro';
+import { batches } from '../../lib/catalog';
+import { longDate } from '../../lib/format';
+import { route } from '../../lib/url';
+import { t, type Lang } from '../../i18n';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const list = batches();
+---
+<Base lang={lang} current="news" title={`${t(lang, 'newsTitle')} · KaniBox`} description={t(lang, 'newsDesc')} alt={{ pt: route('pt', 'news'), en: route('en', 'news') }}>
+  <div class="page">
+    <h1>{t(lang, 'newsTitle')}</h1>
+    <p>{t(lang, 'newsIntro')} <a href={route(lang, 'rss')}>RSS</a></p>
+    <div class="log">
+      {
+        list.map((b, i) => (
+          <section>
+            <time datetime={b.date}>{longDate(b.date, lang)}</time>
+            <h2>{i === list.length - 1 ? t(lang, 'newsInitial') : t(lang, 'newsNew')}: {b.items.length} {t(lang, 'nItems', { n: '' }).trim()}</h2>
+            <ul>
+              {b.bySection.map((x) => <li><b>{x.section.title[lang]}</b> · {x.count}</li>)}
+            </ul>
+          </section>
+        ))
+      }
+    </div>
+    <p style="margin-top:28px">{t(lang, 'newsNote')}</p>
+  </div>
+</Base>
