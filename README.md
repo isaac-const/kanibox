@@ -1,6 +1,6 @@
 # KaniBox
 
-**Versão 1.2.6.** Meu diretório pessoal de ferramentas, apps e jogos que eu uso e recomendo. Canivete na barra de navegação, busca com filtros de plataforma, tipo e licença, e mini ferramentas de tempo com sino no fim.
+**Versão 1.2.7.** Meu diretório pessoal de ferramentas, apps e jogos que eu uso e recomendo. Canivete na barra de navegação, busca com filtros de plataforma, tipo e licença, e mini ferramentas de tempo com sino no fim.
 
 - Site: `site/` (Astro). Veja `site/README.md` para comandos, arquitetura e testes.
 - Dados: `dados/catalogo.json`, montado por `scripts/build_catalog.py` a partir de `scripts/catalog_data.py` e verificado em GitHub, Steam, Modrinth e na resposta de cada link.
