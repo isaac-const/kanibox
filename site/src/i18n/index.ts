@@ -89,7 +89,7 @@ export const ui: Record<Lang, Dict> = {
     notFoundText: 'O endereço pode ter mudado.',
     notFoundBack: 'Voltar ao início',
     pageTitleHome: 'KaniBox · ferramentas, apps e jogos que eu uso',
-    homeDesc: 'Ferramentas, apps e jogos que o Isaac usa e recomenda. Sem afiliado, sem anúncio.',
+    homeDesc: 'Ferramentas, apps e jogos que eu uso e recomendo. Sem afiliado, sem anúncio.',
     seeAll: 'Ver tudo',
   },
   en: {
@@ -175,7 +175,7 @@ export const ui: Record<Lang, Dict> = {
     notFoundText: 'The address may have changed.',
     notFoundBack: 'Back to home',
     pageTitleHome: 'KaniBox · tools, apps and games I use',
-    homeDesc: 'Tools, apps and games Isaac uses and recommends. No affiliates, no ads.',
+    homeDesc: 'Tools, apps and games I use and recommend. No affiliates, no ads.',
     seeAll: 'See all',
   },
 };

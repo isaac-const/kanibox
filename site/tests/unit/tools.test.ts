@@ -76,7 +76,7 @@ describe('diferença de calendário', () => {
   });
 });
 
-describe('estilos de texto (os exemplos do Isaac)', () => {
+describe('estilos de texto', () => {
   const by = (id: string, s: string, o?: { zalgo?: number }) => STYLES.find((x) => x.id === id)!.fn(s, o);
   it('versalete, sobrescrito, subscrito', () => {
     expect(by('smallcaps', 'hello world')).toBe('ʜᴇʟʟᴏ ᴡᴏʀʟᴅ');

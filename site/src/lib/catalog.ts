@@ -97,7 +97,7 @@ export function filterLabels(lang: Lang): Record<string, string> {
   return m;
 }
 
-/** Destaques do topo, na ordem escolhida pelo Isaac. */
+/** Destaques do topo, na ordem que escolhi. */
 export const TOP_ITEMS: Item[] = TOP_ORDER.map((n) => ITEMS.find((i) => i.name === n && !i.soon)).filter((i): i is Item => Boolean(i));
 
 export const countIn = (secId: number) => ITEMS.filter((i) => i.sec === secId).length;

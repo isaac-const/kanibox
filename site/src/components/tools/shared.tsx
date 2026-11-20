@@ -84,7 +84,7 @@ export function useStored(key: string, initial: boolean): [boolean, (v: boolean)
   ];
 }
 
-/** Botão de som de uma ferramenta. Começa desligado e só toca se o Isaac ligar. */
+/** Botão de som de uma ferramenta. Começa desligado e só toca se a pessoa ligar. */
 export function SoundToggle({ id, on, set }: { id: string; on: boolean; set: (v: boolean) => void }) {
   const T = useT();
   return (

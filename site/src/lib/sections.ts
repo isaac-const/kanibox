@@ -47,7 +47,7 @@ export const GROUP_ORDER: Record<number, string[]> = {
 /** Seções cujos grupos viram abas elásticas, uma por vez. O valor é o grupo que abre primeiro. */
 export const SUBTABS: Record<number, string> = { 9: '9|Mods', 10: '10|Que eu gosto' };
 
-/** Os que o Isaac mais usa, na ordem de exibição no topo. */
+/** Os que mais uso, na ordem de exibição no topo. */
 export const TOP_ORDER = ['CachyOS', 'VSCodium', 'Godot', 'Krita', 'Claude', 'Obsidian', 'Ghostty', 'Prism Launcher'];
 
 export const LOADER_NAMES: Record<string, string> = {

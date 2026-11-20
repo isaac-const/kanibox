@@ -1,5 +1,5 @@
 # Dados escritos à mão do catálogo do KaniBox. Lido por build_catalog.py (via exec).
-# Aqui só entra o que o Isaac pediu. Licença e plataformas marcadas com gh= são conferidas no GitHub.
+# Aqui só entra o que eu escolhi. Licença e plataformas marcadas com gh= são conferidas no GitHub.
 
 L, W, M, A, I, B = "Linux", "Windows", "macOS", "Android", "iOS", "Web"
 OPEN, FREE, FREEM, PAID = "Código aberto", "Grátis", "Freemium", "Pago"
@@ -134,7 +134,7 @@ T = [
  (13,"Meus apps","MoonDeck","https://github.com/isaac-const/Moondeck","Utilitário",[L,W,M],OPEN,dict(gh="isaac-const/Moondeck",local_icon="moondeck.png")),
 ]
 
-# Jogos que o Isaac gosta, na ordem de exibição (Deltarune primeiro).
+# Jogos de que eu gosto, na ordem de exibição (Deltarune primeiro).
 # ("steam", termo de busca)  -> capa, plataformas e link vêm da Steam
 # ("wiki", nome, título na Wikipédia, link, plataformas) -> capa da Wikipédia (identificação, imagem não livre)
 GAMES = [
@@ -318,7 +318,7 @@ DESC = {
  "Super Duper Vanilla":"Shaders leves que mantêm o visual vanilla.",
 }
 
-# Os que o Isaac mais usa, na ordem de exibição no topo do site.
+# Os que mais uso, na ordem de exibição no topo do site.
 TOP = ["CachyOS", "VSCodium", "Godot", "Krita", "Claude", "Obsidian", "Ghostty", "Prism Launcher"]
 
 DESC.update({

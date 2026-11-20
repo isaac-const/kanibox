@@ -1,6 +1,6 @@
 # KaniBox · site
 
-Diretório pessoal de ferramentas, apps e jogos que o Isaac usa e recomenda, com 12 mini ferramentas. Astro, TypeScript e uma ilha React só para as ferramentas.
+Meu diretório pessoal de ferramentas, apps e jogos que eu uso e recomendo, com 12 mini ferramentas. Astro, TypeScript e uma ilha React só para as ferramentas.
 
 ## Comandos
 
@@ -31,16 +31,16 @@ Apps em desenvolvimento ficam em `src/data/em-desenvolvimento.json` e não entra
 - Todo o catálogo é renderizado no servidor, em HTML. Sem JavaScript, a página funciona e as seções estão no ar; só a busca, os filtros e a animação do canivete dependem de JS.
 - `src/lib/filter.ts` é a lógica de busca e filtro, uma função pura sem DOM: plataforma, tipo e licença combinam em E entre si e em OU dentro de cada um, a busca exige todas as palavras sem diferenciar acento, e item sem plataforma ou licença informada não passa quando o filtro correspondente está ligado.
 - `src/scripts/app.ts` liga essa lógica ao HTML (esconde linhas, grupos e seções) e guarda o estado na URL (`?q=`, `plat=`, `tipo=`, `lic=`, `ld=`).
-- Mods começam recolhidos. Abrem sozinhos quando há busca, filtro ou loader escolhido e recolhem de novo ao limpar, a não ser que o Isaac os tenha aberto na mão.
+- Mods começam recolhidos. Abrem sozinhos quando há busca, filtro ou loader escolhido e recolhem de novo ao limpar, a não ser que eu os tenha aberto na mão.
 - O loader do Minecraft risca os mods que não têm aquele loader. O sinal não depende só de cor nem de transparência, para manter o contraste do texto.
-- Dois temas por `data-theme`: dark e white (os vermelhos), escolhidos pela preferência do sistema. Os temas azuis e rosa foram removidos a pedido do Isaac. A cor de destaque para texto pequeno tem token próprio (`--accent-text`) para passar contraste AA nos temas claros.
-- Sem atalhos de teclado, por decisão do Isaac. `Esc` só fecha janelas já abertas.
+- Dois temas por `data-theme`: dark e white (os vermelhos), escolhidos pela preferência do sistema. Os temas azuis e rosa foram removidos por escolha minha. A cor de destaque para texto pequeno tem token próprio (`--accent-text`) para passar contraste AA nos temas claros.
+- Sem atalhos de teclado, por decisão minha. `Esc` só fecha janelas já abertas.
 - Fontes em WOFF2 reduzidas, imagens e ícones hospedados pelo próprio site.
 - O temporizador e o foco tocam um sino de 3 a 4 notas feito com Web Audio (sem arquivo de áudio). O som pode ser desligado e a escolha fica salva.
 
 ## Interface
 
-- **Topo:** hero com os destaques do Isaac (CachyOS, VSCodium, Godot, Krita, Claude, DeepSeek, Obsidian, Ghostty, Prism Launcher), depois Meus apps e Ferramentas, e só então as outras seções.
+- **Topo:** hero com os meus destaques (CachyOS, VSCodium, Godot, Krita, Claude, DeepSeek, Obsidian, Ghostty, Prism Launcher), depois Meus apps e Ferramentas, e só então as outras seções.
 - **Abas opcionais:** o botão "Abas" no cabeçalho mostra uma seção por vez. A escolha fica salva. Sem JavaScript tudo continua em lista.
 - **Minecraft:** os mods são um grupo só, em abas com Launchers, Resource packs, Shaders e Servidores.
 - **Canivete:** cabo creme e vermelho no escuro, preto e vermelho no claro, com contorno. Com o mouse em uma lâmina, o rótulo da seção atual some para não cobrir o novo.
@@ -54,13 +54,13 @@ Quatro abas, doze ferramentas, todas no navegador e sem conta. Cada uma tem o bo
 - **Texto:** 18 estilos (versalete, pequenas, subscrito, invertido, espelhado, de cabeça para baixo, riscado, sublinhado, leet, zalgo, gótico, cursivo, negrito, itálico, contorno duplo, monoespaçado, círculos, largo), com botão de copiar.
 - **Cálculo:** calculadora (analisador próprio, sem eval), conversor com 12 grandezas e regra de 3 direta e inversa.
 - **Sorteio:** nomes (sem repetir, se quiser), número aleatório (intervalo, quantidade, sem repetição, decimais), roleta e sim ou não. O acaso vem do `crypto`.
-- **Som:** só toca se o Isaac ligar, e cada ferramenta (temporizador e foco) tem o seu botão. Começa desligado. Sino feito com Web Audio, sem arquivo de áudio.
+- **Som:** só toca se eu ligar, e cada ferramenta (temporizador e foco) tem o seu botão. Começa desligado. Sino feito com Web Audio, sem arquivo de áudio.
 
 A lógica fica em `src/lib/tools/` como funções puras, com testes.
 
 ## Testes
 
-- 76 unitários: integridade dos dados, filtro e as ferramentas (contagem com partes opcionais, estilos de texto com os exemplos do Isaac, unidades, calculadora, regra de 3 e sorteios).
+- 76 unitários: integridade dos dados, filtro e as ferramentas (contagem com partes opcionais, estilos de texto com exemplos, unidades, calculadora, regra de 3 e sorteios).
 - 212 de ponta a ponta (desktop e celular): rotas por categoria, menu lateral, inglês e seletor de idioma, busca, filtros, abas elásticas, Minecraft, canivete, temas, ferramentas com relógio simulado, som, links, imagens, página sem JavaScript, RSS (PT e EN), 404, axe e checagens de celular (sem zoom, sem rolagem lateral, campos de 16px).
 - Acessibilidade com axe (WCAG 2 A e AA) nos dois temas, nas ferramentas de cada aba e no modo foco.
 
@@ -72,6 +72,6 @@ Para builds em outro endereço, defina `SITE_URL` e `BASE_PATH` (use `/` na raiz
 
 ## Pendente
 
-- Revisão do Isaac das licenças e plataformas informadas à mão (a dica da licença diz quando ainda não foi conferida).
+- Revisão das licenças e plataformas informadas à mão (a dica da licença diz quando ainda não foi conferida).
 - Links que bloqueiam robô (Meta AI, NordVPN, Blender, neal.fun, CurseForge) não foram abertos pela checagem automática.
 - Conferir termos de uso da API do Modrinth e das imagens da Steam e da Wikipédia.
