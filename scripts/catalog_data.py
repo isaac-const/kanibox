@@ -133,6 +133,8 @@ T = [
  # 13 Meus apps
  (13,"Meus apps","MoonDeck","https://github.com/isaac-const/Moondeck","Utilitário",[L,W,M],OPEN,dict(gh="isaac-const/Moondeck",local_icon="moondeck.png")),
  (13,"Meus apps","Kixel","https://github.com/isaac-const/kixel","Editor de pixel art",[B],FREE,dict(gh="isaac-const/kixel",local_icon="kixel.png")),
+ (13,"Meus apps","Grimo Notes","https://github.com/isaac-const/grimo-notes","Notas",[L,W],FREE,dict(gh="isaac-const/grimo-notes",local_icon="grimo-notes.png")),
+ (13,"Meus apps","Kita Finances","https://github.com/isaac-const/kita-finances","Finanças",[A],FREE,dict(gh="isaac-const/kita-finances",local_icon="kita-finances.png")),
 ]
 
 # Jogos de que eu gosto, na ordem de exibição (Deltarune primeiro).
@@ -268,6 +270,8 @@ DESC = {
  "Akinator":"O gênio que adivinha o personagem em que você pensou.",
  "MoonDeck":"Transforma teclas que você quase não usa (Home, PgUp, F13 a F24, numpad) em um deck de ações por modos, com overlay.",
  "Kixel":"Editor de pixel art em tela infinita, com quadros, camadas, animação e exportação para Aseprite, GIF e Godot.",
+ "Grimo Notes":"Notas e ideias para desktop, com pastas, kanban e galeria de referências.",
+ "Kita Finances":"Finanças pessoais com gestão de empréstimos.",
  # mods (Modrinth)
  "TrashSlot":"Slot de lixeira nos inventários.",
  "RoadWeaver":"Gera estradas ligando as estruturas do mundo.",
