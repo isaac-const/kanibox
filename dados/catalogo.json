@@ -2824,6 +2824,30 @@
   "grp_en": "My apps"
  },
  {
+  "sec": 13,
+  "grp": "Meus apps",
+  "name": "Kixel",
+  "url": "https://github.com/isaac-const/kixel",
+  "tipo": "Editor de pixel art",
+  "plat": [
+   "Web"
+  ],
+  "lic": "Grátis",
+  "host": "github.com",
+  "note": "Editor de pixel art em tela infinita, com quadros, camadas, animação e exportação para Aseprite, GIF e Godot.",
+  "via": "",
+  "ini": false,
+  "icon_domain": "github.com",
+  "mono": false,
+  "kind": "item",
+  "top": false,
+  "icon": "kixel.png",
+  "http": 200,
+  "note_en": "Pixel art editor on an infinite canvas, with frames, layers, animation and export to Aseprite, GIF and Godot.",
+  "tipo_en": "Pixel art editor",
+  "grp_en": "My apps"
+ },
+ {
   "sec": 10,
   "grp": "Que eu gosto",
   "name": "Deltarune",

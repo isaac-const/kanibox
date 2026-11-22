@@ -9,8 +9,8 @@ const pub = (...p: string[]) => resolve(__dirname, '../../public', ...p);
 
 describe('integridade do catálogo', () => {
   it('passa pelo esquema (o import já valida) e tem os 184 itens públicos', () => {
-    expect(TOTAL).toBe(184);
-    expect(ITEMS.length).toBe(186); // + Grimo Notes e Kita Finances em desenvolvimento
+    expect(TOTAL).toBe(185);
+    expect(ITEMS.length).toBe(187); // + Grimo Notes e Kita Finances em desenvolvimento
   });
 
   it('ids únicos', () => {

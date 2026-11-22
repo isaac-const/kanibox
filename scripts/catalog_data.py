@@ -132,6 +132,7 @@ T = [
  (10,"Curiosidades","Akinator","https://www.akinator.com","Jogo online",[B,A,I],FREEM,{}),
  # 13 Meus apps
  (13,"Meus apps","MoonDeck","https://github.com/isaac-const/Moondeck","Utilitário",[L,W,M],OPEN,dict(gh="isaac-const/Moondeck",local_icon="moondeck.png")),
+ (13,"Meus apps","Kixel","https://github.com/isaac-const/kixel","Editor de pixel art",[B],FREE,dict(gh="isaac-const/kixel",local_icon="kixel.png")),
 ]
 
 # Jogos de que eu gosto, na ordem de exibição (Deltarune primeiro).
@@ -266,6 +267,7 @@ DESC = {
  "neal.fun":"Jogos e curiosidades da web.",
  "Akinator":"O gênio que adivinha o personagem em que você pensou.",
  "MoonDeck":"Transforma teclas que você quase não usa (Home, PgUp, F13 a F24, numpad) em um deck de ações por modos, com overlay.",
+ "Kixel":"Editor de pixel art em tela infinita, com quadros, camadas, animação e exportação para Aseprite, GIF e Godot.",
  # mods (Modrinth)
  "TrashSlot":"Slot de lixeira nos inventários.",
  "RoadWeaver":"Gera estradas ligando as estruturas do mundo.",
@@ -369,7 +371,7 @@ TIPO_EN = {
  "Instalador de apps":"App installer","Teclado":"Keyboard","Loja de apps":"App store","Emulador":"Emulator","Compatibilidade":"Compatibility",
  "Launcher de jogos":"Game launcher","Launcher":"Launcher","Servidor":"Server","Mod":"Mod","Resource pack":"Resource pack","Shader":"Shader",
  "Digitação":"Typing","Morse":"Morse","Idiomas":"Languages","Flashcards":"Flashcards","Jogo online":"Online game","Curiosidades":"Curiosities",
- "Jogo":"Game","Utilitário":"Utility","Notas":"Notes","Finanças":"Finance",
+ "Jogo":"Game","Utilitário":"Utility","Editor de pixel art":"Pixel art editor","Notas":"Notes","Finanças":"Finance",
 }
 DESC_EN = {
  "Zen Browser":"Firefox-based browser with vertical tabs and workspaces.",
@@ -485,6 +487,7 @@ DESC_EN = {
  "neal.fun":"Web games and curiosities.",
  "Akinator":"The genie that guesses the character you thought of.",
  "MoonDeck":"Turns rarely used keys (Home, PgUp, F13 to F24, numpad) into a mode-based action deck, with an overlay.",
+ "Kixel":"Pixel art editor on an infinite canvas, with frames, layers, animation and export to Aseprite, GIF and Godot.",
  "Grimo Notes":"Notes and ideas for desktop, with folders, kanban and a reference gallery.",
  "Kita Finances":"Personal finance with loan management.",
  "TrashSlot":"Trash slot in every inventory.",
